@@ -3641,3 +3641,87 @@ body.light .race-update-label b {
         font-size: 12.5px !important;
     }
 }
+
+/* EVENT INFO - vidljive mini kartice */
+.race-info-visible {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+    margin: 24px 0 !important;
+    position: relative !important;
+    z-index: 20 !important;
+}
+
+.race-info-box {
+    min-height: 86px !important;
+    padding: 16px 14px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    text-align: center !important;
+
+    border-radius: 22px !important;
+    border: 1px solid rgba(141, 232, 255, 0.55) !important;
+
+    background: linear-gradient(
+        145deg,
+        rgba(141, 232, 255, 0.24),
+        rgba(56, 189, 248, 0.10)
+    ) !important;
+
+    box-shadow:
+        0 14px 34px rgba(56, 189, 248, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.18) !important;
+}
+
+.race-info-box span {
+    color: #8de8ff !important;
+    font-size: 12px !important;
+    font-weight: 950 !important;
+    letter-spacing: 0.14em !important;
+    text-transform: uppercase !important;
+}
+
+.race-info-box b {
+    color: #eafcff !important;
+    font-size: 17px !important;
+    font-weight: 900 !important;
+}
+
+.race-info-box:hover {
+    transform: translateY(-2px);
+    border-color: rgba(141, 232, 255, 0.85) !important;
+}
+
+/* Light mode */
+body.light .race-info-box {
+    background: linear-gradient(
+        145deg,
+        rgba(141, 232, 255, 0.45),
+        rgba(56, 189, 248, 0.16)
+    ) !important;
+}
+
+body.light .race-info-box span {
+    color: #036985 !important;
+}
+
+body.light .race-info-box b {
+    color: #062032 !important;
+}
+
+/* Tablet */
+@media (max-width: 760px) {
+    .race-info-visible {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
+
+/* Telefon */
+@media (max-width: 420px) {
+    .race-info-visible {
+        grid-template-columns: 1fr !important;
+    }
+}
