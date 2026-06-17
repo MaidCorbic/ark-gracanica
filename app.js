@@ -1,5 +1,4 @@
 'use strict';
-alert("NOVI APP.JS RADI");
 
 (() => {
   const $ = (selector, root = document) => root.querySelector(selector);
