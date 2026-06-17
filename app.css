@@ -3725,3 +3725,22 @@ body.light .race-info-box b {
         grid-template-columns: 1fr !important;
     }
 }
+
+/* Safety fix: stranica se vidi i ako app.js ne radi */
+.reveal {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* Safety fix: brojke se vide i bez JS animacije */
+.num.loading {
+    color: #eafcff !important;
+    background: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    animation: none !important;
+}
+
+.num.loading::before {
+    display: none !important;
+}
