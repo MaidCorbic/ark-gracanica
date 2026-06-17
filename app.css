@@ -455,10 +455,6 @@ footer a,footer span{
     height:44px;
     font-size:28px
 }
-.reveal {
-    opacity: 1 !important;
-    transform: none !important;
-}
 .reveal.on{
     opacity:1;
     transform:none
