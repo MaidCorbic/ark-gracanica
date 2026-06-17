@@ -3369,3 +3369,49 @@ body.light .to-top:before{
         scroll-behavior:auto!important;
     }
 }
+
+/* Svijetloplava dugmad - final override */
+.btn,
+.hero .btn,
+.actions .btn,
+.map-wrap .btn,
+.join .btn[type="submit"],
+.contact .btn {
+    background: linear-gradient(135deg, #7ddcff, #38bdf8) !important;
+    color: #02131f !important;
+    box-shadow: 0 14px 34px rgba(56, 189, 248, 0.28) !important;
+    border: none !important;
+}
+
+.btn:hover,
+.hero .btn:hover,
+.actions .btn:hover,
+.map-wrap .btn:hover,
+.join .btn[type="submit"]:hover,
+.contact .btn:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #9be7ff, #60cfff) !important;
+    box-shadow: 0 18px 42px rgba(56, 189, 248, 0.36) !important;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn.ghost,
+.hero .btn.ghost,
+.join .btn.ghost,
+.contact .btn.ghost {
+    background: rgba(125, 220, 255, 0.12) !important;
+    color: #e8faff !important;
+    border: 1px solid rgba(125, 220, 255, 0.38) !important;
+    box-shadow: 0 12px 30px rgba(56, 189, 248, 0.16) !important;
+}
+
+body.light .btn.ghost,
+body.light .hero .btn.ghost,
+body.light .join .btn.ghost,
+body.light .contact .btn.ghost {
+    color: #062032 !important;
+    background: rgba(56, 189, 248, 0.14) !important;
+}
