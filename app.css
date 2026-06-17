@@ -3926,59 +3926,68 @@ body.light .premium-faq details {
     color: #ffb4b4 !important;
 }
 
-/* FINAL FIX - countdown brojevi da se ne zbijaju */
-.countdown-grid {
+/* FINAL FIX - countdown layout, laptop + mobitel */
+.premium-countdown {
+    grid-column: 1 / -1 !important;
     width: 100% !important;
     max-width: 100% !important;
+    overflow: hidden !important;
+}
+
+.countdown-grid {
+    width: 100% !important;
+    max-width: 780px !important;
+    margin: 0 auto !important;
+
     display: grid !important;
     grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
     gap: 12px !important;
-    overflow: hidden !important;
+
+    overflow: visible !important;
 }
 
 .countdown-grid span {
     min-width: 0 !important;
     width: 100% !important;
-    min-height: 105px !important;
+    min-height: 104px !important;
+
     padding: 14px 8px !important;
-    border-radius: 22px !important;
+    display: grid !important;
+    place-items: center !important;
+
     overflow: hidden !important;
 }
 
 .countdown-grid b {
-    font-size: clamp(34px, 6vw, 64px) !important;
-    line-height: 0.9 !important;
-    letter-spacing: -0.06em !important;
-    max-width: 100% !important;
+    font-size: clamp(36px, 4vw, 54px) !important;
+    line-height: 1 !important;
+    letter-spacing: -0.04em !important;
     white-space: nowrap !important;
+    max-width: 100% !important;
 }
 
 .countdown-grid small {
     font-size: 10px !important;
-    letter-spacing: 0.09em !important;
+    letter-spacing: 0.08em !important;
     white-space: nowrap !important;
 }
 
-/* Kad je prostor manji, ide 2x2 */
-@media (max-width: 900px) {
+/* Ako je prostor uži, uvijek prebaci 2x2 */
+@media (max-width: 1050px) {
     .countdown-grid {
+        max-width: 520px !important;
         grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-        gap: 12px !important;
-    }
-
-    .countdown-grid span {
-        min-height: 100px !important;
     }
 
     .countdown-grid b {
-        font-size: clamp(38px, 12vw, 62px) !important;
-        letter-spacing: -0.05em !important;
+        font-size: clamp(38px, 7vw, 58px) !important;
     }
 }
 
-/* Baš mali mobitel */
-@media (max-width: 420px) {
+/* Mali ekran */
+@media (max-width: 520px) {
     .countdown-grid {
+        max-width: 100% !important;
         gap: 10px !important;
     }
 
@@ -3988,11 +3997,11 @@ body.light .premium-faq details {
     }
 
     .countdown-grid b {
-        font-size: clamp(34px, 13vw, 52px) !important;
+        font-size: clamp(34px, 12vw, 50px) !important;
     }
 
     .countdown-grid small {
         font-size: 9px !important;
-        letter-spacing: 0.06em !important;
+        letter-spacing: 0.05em !important;
     }
 }
