@@ -1,0 +1,260 @@
+'use strict';
+const $=(s,r=document)=>r.querySelector(s);
+const $$=(s,r=document)=>Array.from(r.querySelectorAll(s));
+
+const text={
+  bs:{navAbout:'Klub',navRace:'Gračanica 5K',navTraining:'Treninzi',navMap:'Mapa',navGallery:'Galerija',navJoin:'Prijava',navContact:'Kontakt',joinNow:'Pridruži se',eyebrow:'Trčanje • zdravlje • zajednica',heroTitle:'Trči Gračanicom. Jačaj sebe. Budi dio ekipe.',heroText:'Profesionalna stranica za ARK Gračanica sa programima treninga, mapom 5K rute, prijavom i korisnim alatima za trkače.',seeRace:'Pogledaj 5K',apply:'Prijavi se',followers:'pratilaca',events:'događaja',routeKm:'km ruta',aboutEyebrow:'O klubu',aboutTitle:'Klub za rekreativce, takmičare i sve koji žele krenuti.',aboutText:'ARK Gračanica promoviše zdrav život, zajedničke treninge i trkačke događaje u gradu. Fokus je na sigurnom napretku, motivaciji i dobroj atmosferi.',recreation:'Rekreacija',raceTitle:'Segment trke spreman za promociju i prijave',fiveText:'Idealna distanca za početnike i brze rekreativce. Ravna gradska ruta, jasne oznake i podrška volontera.',tenText:'Za trkače koji žele duži izazov i tempo kontrolu kroz poznate gradske dionice.',communityTitle:'Zajednica',communityText:'Najvažniji dio događaja: ljudi, energija, navijanje i kilometri koji povezuju grad.',countdownLabel:'do narednog eventa',raceTypes:'gradska ruta',trainingEyebrow:'Running program',trainingTitle:'Korisni alati za trening',paceLabel:'Pace kalkulator',timeLabel:'Kalkulator vremena',tipTitle:'Savjet dana:',mapTitle:'Gračanica 5K ruta',mapText:'Lagana SVG mapa ne usporava stranicu, a dugme otvara Google Maps za detaljan prikaz.',routeCity:'gradska ruta',routeSafe:'označene tačke',openMap:'Otvori mapu',galleryTitle:'Fotografije i atmosfera',galleryText:'Optimizovane slike, lazy loading i lightbox prikaz na klik.',joinEyebrow:'Prijava',joinTitle:'Pošalji prijavu za trening ili trku',joinText:'Podaci se čuvaju lokalno u browseru. Za pravi javni sajt ovo se lako spaja na Google Forms, Firebase ili backend.',send:'Pošalji prijavu',exportBtn:'Preuzmi CSV',contactText:'Za treninge, događaje i saradnju kontaktiraj klub putem Facebook stranice.',faqText:'Početnici su dobrodošli. Ponesi patike, vodu i dobru volju.',footerText:'ARK Gračanica — running klub, zajednica i događaji.',footerCats:'Kategorije',footerContact:'Kontakt',locationText:'Gračanica, BiH',nameLabel:'Ime i prezime',emailLabel:'Email',phoneLabel:'Telefon',distanceLabel:'Distanca',messageLabel:'Poruka / cilj',namePh:'Ime i prezime',emailPh:'Email',phonePh:'Telefon',messagePh:'Poruka / cilj',trainingGroup:'Trening grupa'},
+  en:{navAbout:'Club',navRace:'Gračanica 5K',navTraining:'Training',navMap:'Map',navGallery:'Gallery',navJoin:'Join',navContact:'Contact',joinNow:'Join now',eyebrow:'Running • health • community',heroTitle:'Run through Gračanica. Build yourself. Join the team.',heroText:'Professional ARK Gračanica website with training programs, a 5K route map, registration and useful runner tools.',seeRace:'View 5K',apply:'Apply',followers:'followers',events:'events',routeKm:'km route',aboutEyebrow:'About',aboutTitle:'A club for recreational runners, racers and beginners.',aboutText:'ARK Gračanica promotes a healthy lifestyle, group training and running events in the city with safe progress and strong community energy.',recreation:'Recreation',raceTitle:'Race segment ready for promotion and signups',fiveText:'Perfect distance for beginners and fast recreational runners. City route, clear signs and volunteer support.',tenText:'For runners who want a longer challenge and better pace control.',communityTitle:'Community',communityText:'The key part of every event: people, energy, cheering and kilometers that connect the city.',countdownLabel:'until next event',raceTypes:'city route',trainingEyebrow:'Running program',trainingTitle:'Useful training tools',paceLabel:'Pace calculator',timeLabel:'Time calculator',tipTitle:'Daily tip:',mapTitle:'Gračanica 5K route',mapText:'Light SVG map keeps the page fast; the button opens Google Maps for details.',routeCity:'city route',routeSafe:'marked points',openMap:'Open map',galleryTitle:'Photos and atmosphere',galleryText:'Optimized images, lazy loading and click lightbox.',joinEyebrow:'Registration',joinTitle:'Send a training or race application',joinText:'Data is saved locally in the browser. For a public site it can be connected to Google Forms, Firebase or a backend.',send:'Send application',exportBtn:'Download CSV',contactText:'For training, events and partnership contact the club via Facebook.',faqText:'Beginners are welcome. Bring running shoes, water and good energy.',footerText:'ARK Gračanica — running club, community and events.',footerCats:'Categories',footerContact:'Contact',locationText:'Gračanica, BiH',nameLabel:'Full name',emailLabel:'Email',phoneLabel:'Phone',distanceLabel:'Distance',messageLabel:'Message / goal',namePh:'Full name',emailPh:'Email',phonePh:'Phone',messagePh:'Message / goal',trainingGroup:'Training group'}
+};
+let currentLang=localStorage.arkLang||'bs';
+function setLang(l){currentLang=l;document.documentElement.lang=l;localStorage.arkLang=l;$$('[data-i18n]').forEach(e=>{const v=text[l]?.[e.dataset.i18n];if(v)e.textContent=v});$$('[data-i18n-placeholder]').forEach(e=>{const v=text[l]?.[e.dataset.i18nPlaceholder];if(v)e.placeholder=v});}
+
+function animateNums(){if(animateNums.done)return;animateNums.done=true;$$('.num').forEach(n=>{const target=Number(n.dataset.target)||0;n.classList.remove('loading');const start=performance.now();function tick(now){const p=Math.min((now-start)/1200,1);n.textContent=Math.floor(target*(1-(1-p)**3)).toLocaleString(currentLang==='bs'?'bs-BA':'en-US');if(p<1)requestAnimationFrame(tick)}requestAnimationFrame(tick);});}
+function calcPace(){const km=Number($('#paceKm')?.value)||1,min=Number($('#paceMin')?.value)||1,p=min/km,m=Math.floor(p),s=Math.round((p-m)*60).toString().padStart(2,'0');$('#paceResult').textContent=`${m}:${s} min/km`;}
+function calcTime(){const km=Number($('#raceKm')?.value)||1;const [m=0,s=0]=String($('#racePace')?.value||'0:00').split(':').map(Number);const total=Math.max(0,Math.round(km*(m*60+s)));const h=Math.floor(total/3600),mm=Math.floor(total%3600/60),ss=String(total%60).padStart(2,'0');$('#timeResult').textContent=(h?h+':':'')+String(mm).padStart(h?2:1,'0')+':'+ss;}
+function closeLightbox(){const lb=$('#lightbox');lb.classList.remove('open');lb.setAttribute('aria-hidden','true');}
+
+function init(){
+  const lang=$('#lang');if(lang){lang.value=currentLang;setLang(currentLang);lang.addEventListener('change',e=>setLang(e.target.value));}
+  // Menu is handled once in the final header block to avoid double-toggle bugs.
+  const header=$('#header'),topBtn=$('.to-top');addEventListener('scroll',()=>{header?.classList.toggle('scrolled',scrollY>20);topBtn?.classList.toggle('show',scrollY>500);},{passive:true});topBtn?.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+  const revealObserver=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');revealObserver.unobserve(e.target);}}),{threshold:.12});$$('.reveal').forEach(e=>revealObserver.observe(e));
+  const stats=$('.stats');if(stats){new IntersectionObserver((entries,obs)=>entries.forEach(e=>{if(e.isIntersecting){animateNums();obs.disconnect();}}),{threshold:.35}).observe(stats);setTimeout(()=>{if(!animateNums.done&&stats.getBoundingClientRect().top<innerHeight)animateNums();},1600);}
+  const sections=$$('main section[id]'),links=$$('.nav a');if(sections.length&&links.length){const navObserver=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.hash==='#'+e.target.id));}),{rootMargin:'-35% 0px -55%'});sections.forEach(s=>navObserver.observe(s));}
+  $('#calcPace')?.addEventListener('click',calcPace);$('#calcTime')?.addEventListener('click',calcTime);calcPace();calcTime();
+  ['paceKm','paceMin','raceKm','racePace'].forEach(id=>$('#'+id)?.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();id.startsWith('pace')?calcPace():calcTime();}}));
+  const tips={bs:['Zagrij se 10 minuta prije svakog bržeg treninga.','Lagani kilometri grade bazu bolje nego stalno forsiranje.','Poslije treninga popij vodu i uradi kratko istezanje.','Za 5K treniraj tempo jednom sedmično.'],en:['Warm up for 10 minutes before every faster session.','Easy kilometers build the base better than constant pushing.','Drink water after training and stretch briefly.','For 5K, train tempo once per week.']};$('#tipText')&&( $('#tipText').textContent=tips[currentLang][new Date().getDay()%tips[currentLang].length] );
+  const eventDate=new Date(new Date().getFullYear(),8,1);if(eventDate<new Date())eventDate.setFullYear(eventDate.getFullYear()+1);$('#countdown')&&( $('#countdown').textContent=Math.ceil((eventDate-new Date())/864e5)+(currentLang==='en'?' days':' dana') );
+  const form=$('#joinForm'),msg=$('#formMsg');form?.addEventListener('submit',e=>{e.preventDefault();if(!form.checkValidity()){msg.textContent=currentLang==='en'?'Please fill required fields correctly.':'Popuni ispravno obavezna polja.';form.reportValidity();return}const data=Object.fromEntries(new FormData(form));data.email=(data.email||'').trim().toLowerCase();data.phone=(data.phone||'').trim();data.date=new Date().toISOString();const all=JSON.parse(localStorage.arkApplications||'[]');const duplicate=all.some(x=>x.email===data.email&&x.distance===data.distance);if(duplicate){msg.textContent=currentLang==='en'?'This application is already saved.':'Ova prijava je već sačuvana.';return}all.push(data);localStorage.arkApplications=JSON.stringify(all);msg.textContent=currentLang==='en'?'Application saved successfully.':'Prijava je uspješno sačuvana.';form.reset();});
+  $('#exportData')?.addEventListener('click',()=>{const rows=JSON.parse(localStorage.arkApplications||'[]');if(!rows.length){msg.textContent=currentLang==='en'?'No saved applications yet.':'Još nema sačuvanih prijava.';return}const keys=['date','name','email','phone','distance','message'];const csv=[keys.join(','),...rows.map(r=>keys.map(k=>'"'+String(r[k]||'').replaceAll('"','""')+'"').join(','))].join('\n');const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='ark-prijave.csv';a.click();URL.revokeObjectURL(url);});
+  const lb=$('#lightbox'),lbImg=$('img',lb||document);$$('.gallery img').forEach(img=>{img.tabIndex=0;img.setAttribute('role','button');img.addEventListener('click',()=>{lbImg.src=img.src;lbImg.alt=img.alt;lb.classList.add('open');lb.setAttribute('aria-hidden','false');});img.addEventListener('keydown',e=>{if(e.key==='Enter')img.click();});});$('button',lb)?.addEventListener('click',closeLightbox);lb?.addEventListener('click',e=>{if(e.target===lb)closeLightbox();});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();});
+  // Footer year is set by the final site polish block below.
+}
+document.addEventListener('DOMContentLoaded',init);
+
+// Premium effects v4: progress bar, dark mode, hero parallax, gallery slider, robust buttons
+(function(){
+  const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+  function ready(fn){document.readyState==='loading'?document.addEventListener('DOMContentLoaded',fn):fn();}
+  ready(()=>{
+    const progress=$('#progress');
+    const updateProgress=()=>{const max=Math.max(1,document.documentElement.scrollHeight-innerHeight);progress&&(progress.style.width=(scrollY/max*100).toFixed(2)+'%');};
+    addEventListener('scroll',updateProgress,{passive:true}); updateProgress();
+
+    const savedTheme=localStorage.arkTheme||'dark';
+    if(savedTheme==='light') document.body.classList.add('light');
+    $('#themeBtn')?.addEventListener('click',()=>{document.body.classList.toggle('light');localStorage.arkTheme=document.body.classList.contains('light')?'light':'dark';});
+
+    const hero=$('.hero');
+    hero?.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();hero.style.setProperty('--mx',((e.clientX-r.left)/r.width*100).toFixed(1)+'%');hero.style.setProperty('--my',((e.clientY-r.top)/r.height*100).toFixed(1)+'%');},{passive:true});
+
+    // Make every internal anchor smooth and safe, no dead clicks.
+    $$('a[href^="#"]').forEach(a=>a.addEventListener('click',ev=>{const target=$(a.getAttribute('href'));if(target){ev.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'});history.replaceState(null,'',a.getAttribute('href'));const nav=$('#nav'),btn=$('#menuBtn');if(nav?.classList.contains('open')){nav.classList.remove('open');btn?.setAttribute('aria-expanded','false');}}}));
+
+    const track=$('#galleryTrack');
+    $('.gallery-arrow.prev')?.addEventListener('click',()=>track?.scrollBy({left:-Math.max(260,track.clientWidth*.75),behavior:'smooth'}));
+    $('.gallery-arrow.next')?.addEventListener('click',()=>track?.scrollBy({left:Math.max(260,track.clientWidth*.75),behavior:'smooth'}));
+
+    // Add a finished pulse to counters when original counter completes.
+    const nums=$$('.num');
+    const mo=new MutationObserver(()=>nums.forEach(n=>{if(!n.classList.contains('loading')&&!n.classList.contains('done'))setTimeout(()=>n.classList.add('done'),1200)}));
+    nums.forEach(n=>mo.observe(n,{childList:true,characterData:true,subtree:true,attributes:true,attributeFilter:['class']}));
+
+    // Improve form status classes without changing original storage logic.
+    const msg=$('#formMsg');
+    if(msg){new MutationObserver(()=>{msg.classList.toggle('error',/Popuni|Please|nema|No saved|already|već/.test(msg.textContent));msg.classList.toggle('success',/uspješno|successfully|CSV|sačuvana/.test(msg.textContent));}).observe(msg,{childList:true,characterData:true,subtree:true});}
+  });
+})();
+
+// Final fixes: live calculators, safer pace parsing, no empty results.
+(function(){
+  const $=(s,r=document)=>r.querySelector(s);
+  function ready(fn){document.readyState==='loading'?document.addEventListener('DOMContentLoaded',fn):fn();}
+  function paceToSeconds(v){
+    const raw=String(v||'').trim().replace(',',':');
+    if(!raw) return 0;
+    const parts=raw.split(':').map(Number);
+    if(parts.length===1) return Math.max(0,parts[0]*60);
+    return Math.max(0,(parts[0]||0)*60+(parts[1]||0));
+  }
+  function fmt(total){
+    total=Math.max(0,Math.round(total));
+    const h=Math.floor(total/3600),m=Math.floor(total%3600/60),s=String(total%60).padStart(2,'0');
+    return h?`${h}:${String(m).padStart(2,'0')}:${s}`:`${m}:${s}`;
+  }
+  ready(()=>{
+    const paceKm=$('#paceKm'), paceMin=$('#paceMin'), paceResult=$('#paceResult');
+    const raceKm=$('#raceKm'), racePace=$('#racePace'), timeResult=$('#timeResult');
+    function livePace(){
+      const km=Number(paceKm?.value), min=Number(paceMin?.value);
+      if(!km||!min||km<=0||min<=0){paceResult&&(paceResult.textContent='Unesi validne brojke');return;}
+      paceResult&&(paceResult.textContent=fmt((min*60)/km)+' min/km');
+    }
+    function liveTime(){
+      const km=Number(raceKm?.value), sec=paceToSeconds(racePace?.value);
+      if(!km||!sec||km<=0){timeResult&&(timeResult.textContent='Unesi validan pace');return;}
+      timeResult&&(timeResult.textContent=fmt(km*sec));
+    }
+    ['input','change'].forEach(ev=>{
+      paceKm?.addEventListener(ev,livePace); paceMin?.addEventListener(ev,livePace);
+      raceKm?.addEventListener(ev,liveTime); racePace?.addEventListener(ev,liveTime);
+    });
+    $('#calcPace')?.addEventListener('click',livePace); $('#calcTime')?.addEventListener('click',liveTime);
+    livePace(); liveTime();
+  });
+})();
+
+// v7 premium race countdown and footer label. Keeps the existing site structure intact.
+(function(){
+  const $=(s,r=document)=>r.querySelector(s);
+  function pad(n){return String(Math.max(0,n)).padStart(2,'0')}
+  function tickRaceCountdown(){
+    const target=new Date('2026-09-20T09:00:00+02:00');
+    const diff=target-new Date();
+    const box=$('#raceCountdown');
+    if(!box) return;
+    if(diff<=0){box.innerHTML='<strong class="race-live">🏁 Trka je počela!</strong>';return;}
+    const d=Math.floor(diff/86400000);
+    const h=Math.floor(diff/3600000)%24;
+    const m=Math.floor(diff/60000)%60;
+    const s=Math.floor(diff/1000)%60;
+    $('#cdDays')&&($('#cdDays').textContent=pad(d));
+    $('#cdHours')&&($('#cdHours').textContent=pad(h));
+    $('#cdMinutes')&&($('#cdMinutes').textContent=pad(m));
+    $('#cdSeconds')&&($('#cdSeconds').textContent=pad(s));
+  }
+  function ready(fn){document.readyState==='loading'?document.addEventListener('DOMContentLoaded',fn):fn();}
+  ready(()=>{
+    tickRaceCountdown();
+    setInterval(tickRaceCountdown,1000);
+    const y=$('#year');
+    if(y) y.textContent='© 2026 ARK Gračanica. Sva prava zadržana.';
+  });
+})();
+
+// v8 professional countdown micro-animation and FAQ polish. Does not change page structure.
+(function(){
+  const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+  function ready(fn){document.readyState==='loading'?document.addEventListener('DOMContentLoaded',fn):fn();}
+  ready(()=>{
+    let last={};
+    setInterval(()=>['cdDays','cdHours','cdMinutes','cdSeconds'].forEach(id=>{
+      const el=$('#'+id); if(!el) return;
+      if(last[id] && last[id]!==el.textContent){
+        const box=el.closest('span'); box?.animate([{transform:'translateY(-2px) scale(1.03)'},{transform:'translateY(0) scale(1)'}],{duration:220,easing:'ease-out'});
+      }
+      last[id]=el.textContent;
+    }),1000);
+    $$('.faq-stack details').forEach(d=>d.addEventListener('toggle',()=>{if(d.open){$$('.faq-stack details').forEach(o=>{if(o!==d)o.open=false;});}}));
+  });
+})();
+
+// v10 final stability fixes: accessible theme toggle, fixed footer text, safer anchors.
+(function(){
+  const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+  function ready(fn){document.readyState==='loading'?document.addEventListener('DOMContentLoaded',fn):fn();}
+  ready(()=>{
+    const themeBtn=$('#themeBtn');
+    const syncTheme=()=>{
+      const isLight=document.body.classList.contains('light');
+      if(themeBtn){
+        themeBtn.setAttribute('aria-pressed',String(isLight));
+        themeBtn.setAttribute('title',isLight?'Prebaci na tamnu temu':'Prebaci na svijetlu temu');
+        themeBtn.setAttribute('aria-label',isLight?'Prebaci na tamnu temu':'Prebaci na svijetlu temu');
+      }
+      document.querySelector('meta[name="theme-color"]')?.setAttribute('content',isLight?'#f6fff9':'#07110d');
+    };
+    syncTheme();
+    themeBtn?.addEventListener('click',()=>setTimeout(syncTheme,0));
+    const themeObserver=new MutationObserver(syncTheme);
+    themeObserver.observe(document.body,{attributes:true,attributeFilter:['class']});
+
+    const year=$('#year');
+    if(year) year.textContent='© 2026 ARK Gračanica. Sva prava zadržana.';
+
+    $$('a[href^="#"]').forEach(a=>{
+      const id=a.getAttribute('href');
+      if(id==='#' || !$(id)){
+        a.setAttribute('aria-disabled','true');
+        a.addEventListener('click',e=>e.preventDefault());
+      }
+    });
+
+    const nav=$('#nav'), menuBtn=$('#menuBtn');
+    $$('#nav a').forEach(a=>a.addEventListener('click',()=>{
+      if(nav?.classList.contains('open')){
+        nav.classList.remove('open');
+        menuBtn?.setAttribute('aria-expanded','false');
+      }
+    }));
+  });
+})();
+
+// v11 header polish: active section highlight, reliable mobile close, scroll state.
+(function(){
+  const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+  function ready(fn){document.readyState==='loading'?document.addEventListener('DOMContentLoaded',fn):fn();}
+  ready(()=>{
+    const header=$('#header'), nav=$('#nav'), menuBtn=$('#menuBtn');
+    const setHeaderState=()=>header?.classList.toggle('scrolled', window.scrollY>8);
+    addEventListener('scroll', setHeaderState, {passive:true}); setHeaderState();
+
+    menuBtn?.addEventListener('click',()=>{
+      const open=!nav?.classList.contains('open');
+      nav?.classList.toggle('open',open);
+      menuBtn.setAttribute('aria-expanded',String(open));
+      menuBtn.textContent=open?'×':'☰';
+    });
+    $$('#nav a').forEach(a=>a.addEventListener('click',()=>{
+      nav?.classList.remove('open');
+      menuBtn?.setAttribute('aria-expanded','false');
+      if(menuBtn) menuBtn.textContent='☰';
+    }));
+
+    const links=$$('#nav a[href^="#"]');
+    const sections=links.map(a=>$(a.getAttribute('href'))).filter(Boolean);
+    if('IntersectionObserver' in window && sections.length){
+      const io=new IntersectionObserver(entries=>{
+        const visible=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+        if(!visible) return;
+        links.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+visible.target.id));
+      },{rootMargin:'-35% 0px -55% 0px',threshold:[0,.2,.45,.7]});
+      sections.forEach(s=>io.observe(s));
+    }
+  });
+})();
+
+// v13 production polish: favicon/social details, shrinking header support, safer lazy images, gallery labels.
+(function(){
+  const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+  function ready(fn){document.readyState==='loading'?document.addEventListener('DOMContentLoaded',fn):fn();}
+  ready(()=>{
+    // Lazy-load all non-logo images that are below the fold.
+    $$('img').forEach(img=>{
+      if(!img.closest('.brand') && !img.hasAttribute('loading')) img.setAttribute('loading','lazy');
+      if(!img.hasAttribute('decoding')) img.setAttribute('decoding','async');
+    });
+
+    // Shrinking sticky header: toggles the same .scrolled class consistently.
+    const header=$('#header');
+    const setScrolled=()=>header?.classList.toggle('scrolled', window.scrollY>18);
+    addEventListener('scroll',setScrolled,{passive:true}); setScrolled();
+
+    // Give gallery hover overlays useful labels without changing markup.
+    $$('.gallery img').forEach((img,i)=>{
+      const holder=img.closest('a,figure,div');
+      const label=img.alt || ['ARK trening','Gračanica 5K','Medalje i ekipa','Trkačka atmosfera'][i%4];
+      holder?.setAttribute('aria-label',label);
+    });
+
+    // Ensure only one FAQ item is open and whole summary area is keyboard friendly.
+    $$('.faq-stack details').forEach(item=>{
+      const summary=$('summary',item);
+      summary?.setAttribute('tabindex','0');
+      item.addEventListener('toggle',()=>{ if(item.open) $$('.faq-stack details').forEach(other=>{ if(other!==item) other.open=false; }); });
+    });
+
+    // Keep footer fixed as requested.
+    const y=$('#year'); if(y) y.textContent='© 2026 ARK Gračanica. Sva prava zadržana.';
+  });
+})();
