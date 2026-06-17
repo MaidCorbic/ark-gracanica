@@ -259,3 +259,35 @@ document.addEventListener('DOMContentLoaded',init);
   });
 })();
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".reveal").forEach((el) => {
+    el.classList.add("on");
+  });
+
+  document.querySelectorAll(".num").forEach((num) => {
+    const target = Number(num.dataset.target || 0);
+    const duration = 1200;
+    let start = null;
+
+    num.classList.remove("loading");
+
+    function animate(time) {
+      if (!start) start = time;
+
+      const progress = Math.min((time - start) / duration, 1);
+      const value = Math.floor(progress * target);
+
+      num.textContent = value.toLocaleString("bs-BA");
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        num.textContent = target.toLocaleString("bs-BA");
+        num.classList.add("done");
+      }
+    }
+
+    requestAnimationFrame(animate);
+  });
+});
