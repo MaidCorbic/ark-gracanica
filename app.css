@@ -3722,16 +3722,23 @@ body.light .race-info-box b {
     }
 }
 
-/* Reveal animacija */
+/* Safety fix: stranica se vidi i ako app.js ne radi */
 .reveal {
-    opacity: 0;
-    transform: translateY(18px);
-    transition: opacity .55s ease, transform .55s ease;
+    opacity: 1 !important;
+    transform: none !important;
 }
 
-.reveal.on {
-    opacity: 1;
-    transform: none;
+/* Safety fix: brojke se vide i bez JS animacije */
+.num.loading {
+    color: #eafcff !important;
+    background: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    animation: none !important;
+}
+
+.num.loading::before {
+    display: none !important;
 }
 /* Prijava forma - profesionalnije i kompaktnije */
 #joinForm {
