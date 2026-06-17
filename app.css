@@ -3740,3 +3740,146 @@ body.light .race-info-box b {
 .num.loading::before {
     display: none !important;
 }
+/* Prijava forma - profesionalnije i kompaktnije */
+#joinForm {
+     justify-self: center;
+    max-width: 560px;
+    margin-left: auto;
+    padding: 22px !important;
+    gap: 11px !important;
+}
+
+#joinForm input,
+#joinForm select,
+#joinForm textarea {
+    padding: 12px 14px !important;
+    border-radius: 14px !important;
+}
+
+#joinForm textarea {
+    min-height: 105px !important;
+    resize: vertical;
+}
+
+#joinForm .btn {
+    width: auto !important;
+    justify-self: start !important;
+    min-width: 185px;
+    padding: 12px 24px !important;
+}
+
+/* FAQ premium segment */
+.faq-panel {
+    max-width: 760px;
+}
+
+.faq-panel .eyebrow {
+    color: #8de8ff !important;
+}
+
+.faq-panel h2 {
+    margin: 8px 0 10px;
+    font-size: clamp(30px, 4vw, 48px);
+    line-height: 1.05;
+}
+
+.faq-intro {
+    max-width: 680px;
+    margin-bottom: 22px !important;
+    color: var(--muted) !important;
+}
+
+.premium-faq {
+    display: grid;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.premium-faq details {
+    position: relative;
+    overflow: hidden;
+    border-radius: 22px !important;
+    border: 1px solid rgba(141, 232, 255, 0.24) !important;
+    background: linear-gradient(145deg, rgba(141, 232, 255, 0.12), rgba(255,255,255,0.045)) !important;
+    box-shadow: 0 14px 34px rgba(0,0,0,0.22);
+    transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+}
+
+.premium-faq details:hover {
+    transform: translateY(-2px);
+    border-color: rgba(141, 232, 255, 0.48) !important;
+    box-shadow: 0 20px 48px rgba(56, 189, 248, 0.14);
+}
+
+.premium-faq details[open] {
+    border-color: rgba(141, 232, 255, 0.62) !important;
+    background: linear-gradient(145deg, rgba(141, 232, 255, 0.18), rgba(56, 189, 248, 0.08)) !important;
+}
+
+.premium-faq summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 18px 56px 18px 20px !important;
+    color: #eafcff !important;
+    font-weight: 950;
+    line-height: 1.35;
+    position: relative;
+}
+
+.premium-faq summary::-webkit-details-marker {
+    display: none;
+}
+
+.premium-faq summary::after {
+    content: "+";
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #8de8ff, #38bdf8);
+    color: #02131f;
+    font-weight: 950;
+    box-shadow: 0 10px 24px rgba(56, 189, 248, 0.28);
+    transition: transform .22s ease;
+}
+
+.premium-faq details[open] summary::after {
+    content: "−";
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.premium-faq p {
+    margin: 0 !important;
+    padding: 0 20px 18px !important;
+    color: rgba(234, 252, 255, 0.76) !important;
+    line-height: 1.65 !important;
+    font-size: 15px !important;
+}
+
+body.light .premium-faq summary {
+    color: #062032 !important;
+}
+
+body.light .premium-faq p {
+    color: rgba(6, 32, 50, 0.72) !important;
+}
+
+body.light .premium-faq details {
+    background: linear-gradient(145deg, rgba(141,232,255,.36), rgba(255,255,255,.78)) !important;
+}
+
+@media (max-width: 620px) {
+    .premium-faq summary {
+        padding: 16px 52px 16px 16px !important;
+        font-size: 15px;
+    }
+
+    .premium-faq p {
+        padding: 0 16px 16px !important;
+    }
+}
