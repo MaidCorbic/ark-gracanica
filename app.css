@@ -3883,3 +3883,36 @@ body.light .premium-faq details {
         padding: 0 16px 16px !important;
     }
 }
+
+/* Prijave zatvorene - crveni status */
+.registrations-closed-small,
+.registrations-closed {
+    border-color: rgba(255, 107, 107, 0.55) !important;
+    background: linear-gradient(
+        145deg,
+        rgba(255, 107, 107, 0.18),
+        rgba(255, 255, 255, 0.05)
+    ) !important;
+    box-shadow: 0 16px 38px rgba(255, 107, 107, 0.14) !important;
+}
+
+.registrations-closed-small span,
+.registrations-closed > span {
+    color: #ffb4b4 !important;
+}
+
+.registrations-closed-small b,
+.registrations-closed b {
+    color: #ffd6d6 !important;
+}
+
+.registrations-closed i {
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.28), rgba(255, 255, 255, 0.08)) !important;
+    border-color: rgba(255, 107, 107, 0.45) !important;
+    color: #ffb4b4 !important;
+}
+
+.registrations-closed li::before {
+    background: linear-gradient(135deg, #ff6b6b, #ffb4b4) !important;
+    box-shadow: 0 0 14px rgba(255, 107, 107, 0.55) !important;
+}
