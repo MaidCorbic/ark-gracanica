@@ -258,3 +258,112 @@ document.addEventListener('DOMContentLoaded',init);
     const y=$('#year'); if(y) y.textContent='© 2026 ARK Gračanica. Sva prava zadržana.';
   });
 })();
+
+/* EVENT INFO kao elegantne kartice u jednoj liniji */
+.event-info-cards {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin: 24px 0 22px;
+}
+
+.event-info-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 86px;
+
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    gap: 6px;
+
+    padding: 16px 14px;
+    border-radius: 22px;
+    border: 1px solid rgba(141, 232, 255, 0.34);
+
+    background: linear-gradient(
+        145deg,
+        rgba(141, 232, 255, 0.16),
+        rgba(56, 189, 248, 0.06)
+    );
+
+    box-shadow:
+        0 14px 34px rgba(56, 189, 248, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.14);
+
+    backdrop-filter: blur(10px);
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.event-info-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle at top right,
+        rgba(141, 232, 255, 0.18),
+        transparent 42%
+    );
+    pointer-events: none;
+}
+
+.event-info-card span,
+.event-info-card b {
+    position: relative;
+    z-index: 1;
+}
+
+.event-info-card span {
+    color: #8de8ff;
+    font-size: 12px;
+    font-weight: 950;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+.event-info-card b {
+    color: #eafcff;
+    font-size: clamp(15px, 1.5vw, 18px);
+    font-weight: 900;
+    text-align: center;
+}
+
+.event-info-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(141, 232, 255, 0.58);
+    box-shadow:
+        0 18px 42px rgba(56, 189, 248, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+/* Light mode */
+body.light .event-info-card {
+    background: linear-gradient(
+        145deg,
+        rgba(141, 232, 255, 0.38),
+        rgba(56, 189, 248, 0.13)
+    );
+    border-color: rgba(56, 189, 248, 0.36);
+}
+
+body.light .event-info-card span {
+    color: #036985;
+}
+
+body.light .event-info-card b {
+    color: #062032;
+}
+
+/* Tablet */
+@media (max-width: 760px) {
+    .event-info-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Telefon */
+@media (max-width: 420px) {
+    .event-info-cards {
+        grid-template-columns: 1fr;
+    }
+}
