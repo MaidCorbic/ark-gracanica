@@ -1343,11 +1343,12 @@ footer .footer-year span{
 .actions .small{
     padding:9px 12px
 }
- .btn{
-    background:linear-gradient(135deg,var(--lighblue),var(--gold));
-    color:#130900;
-    box-shadow:0 16px 34px rgba(255,122,24,.26),inset 0 1px 0 rgba(255,255,255,.35);
-    transition:transform .22s ease,box-shadow .22s ease,filter .22s ease
+ .btn {
+    background: linear-gradient(135deg, #8de8ff, #38bdf8);
+    color: #02131f;
+    box-shadow: 0 16px 34px rgba(56, 189, 248, 0.28),
+                inset 0 1px 0 rgba(255,255,255,.35);
+    transition: transform .22s ease, box-shadow .22s ease, filter .22s ease;
 }
 .btn:hover{
     transform:translateY(-2px);
