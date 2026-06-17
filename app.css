@@ -3561,3 +3561,83 @@ body.light .race-date {
         text-align: center;
     }
 }
+
+/* EVENT INFO - svijetloplava profesionalna verzija */
+.race-update-label {
+    width: fit-content;
+    max-width: 100%;
+    margin: 22px auto 0 !important;
+    padding: 10px 14px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+
+    border-radius: 999px !important;
+    border: 1px solid rgba(141, 232, 255, 0.36) !important;
+    background: linear-gradient(
+        135deg,
+        rgba(141, 232, 255, 0.16),
+        rgba(56, 189, 248, 0.07)
+    ) !important;
+
+    box-shadow:
+        0 12px 32px rgba(56, 189, 248, 0.14),
+        inset 0 1px 0 rgba(255, 255, 255, 0.14) !important;
+
+    backdrop-filter: blur(10px);
+}
+
+.race-update-label span {
+    padding: 7px 10px;
+    border-radius: 999px;
+
+    background: linear-gradient(135deg, #8de8ff, #38bdf8);
+    color: #02131f !important;
+
+    font-size: 11px !important;
+    font-weight: 950 !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase;
+}
+
+.race-update-label b {
+    color: #eafcff !important;
+    font-size: 13px !important;
+    font-weight: 850 !important;
+    letter-spacing: 0.02em;
+}
+
+/* Light mode */
+body.light .race-update-label {
+    background: linear-gradient(
+        135deg,
+        rgba(141, 232, 255, 0.32),
+        rgba(56, 189, 248, 0.12)
+    ) !important;
+    border-color: rgba(56, 189, 248, 0.38) !important;
+}
+
+body.light .race-update-label b {
+    color: #062032 !important;
+}
+
+/* Telefon */
+@media (max-width: 520px) {
+    .race-update-label {
+        width: 100%;
+        flex-direction: column !important;
+        border-radius: 22px !important;
+        gap: 8px !important;
+        text-align: center !important;
+    }
+
+    .race-update-label span {
+        width: fit-content;
+    }
+
+    .race-update-label b {
+        font-size: 12.5px !important;
+    }
+}
