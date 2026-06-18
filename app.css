@@ -4168,29 +4168,6 @@ body.light .premium-faq details {
     }
 }
 
-@media (max-width:360px){
-    .countdown-grid{
-        grid-template-columns:1fr !important;
-    }
-
-    .countdown-grid span{
-        min-height:86px !important;
-        flex-direction:row !important;
-        justify-content:space-between !important;
-        gap:12px !important;
-        padding:14px 16px !important;
-    }
-
-    .countdown-grid b,
-    .countdown-grid small{
-        width:auto !important;
-    }
-
-    .countdown-grid small{
-        text-align:right !important;
-    }
-}
-
 /* DESKTOP FIX - countdown širok i normalan */
 @media (min-width: 781px) {
     .premium-countdown {
@@ -4243,3 +4220,27 @@ body.light .premium-faq details {
         margin: 22px auto 0 !important;
     }
 }
+
+@media (max-width:360px){
+    .countdown-grid{
+        grid-template-columns:1fr !important;
+    }
+
+    .countdown-grid span{
+        min-height:86px !important;
+        flex-direction:row !important;
+        justify-content:space-between !important;
+        gap:12px !important;
+        padding:14px 16px !important;
+    }
+
+    .countdown-grid b,
+    .countdown-grid small{
+        width:auto !important;
+    }
+
+    .countdown-grid small{
+        text-align:right !important;
+    }
+}
+
