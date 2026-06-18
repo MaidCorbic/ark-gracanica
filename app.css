@@ -5050,3 +5050,30 @@ body.light .partner-card a {
 #race .race-info-visible {
   display: none !important;
 }
+/* Footer kategorije u 2 kolone */
+footer > div:nth-child(2) {
+  min-width: 320px !important;
+}
+
+footer > div:nth-child(2) h4 {
+  grid-column: 1 / -1 !important;
+}
+
+footer > div:nth-child(2) {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  column-gap: 28px !important;
+  row-gap: 8px !important;
+  align-content: start !important;
+}
+
+footer > div:nth-child(2) a {
+  display: block !important;
+  margin: 0 !important;
+}
+@media (max-width: 700px) {
+  footer > div:nth-child(2) {
+    grid-template-columns: 1fr !important;
+    min-width: 0 !important;
+  }
+}
