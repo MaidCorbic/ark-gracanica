@@ -4978,3 +4978,9 @@ body.light .partner-card a {
   height: 52px !important;
   padding: 0 !important;
 }
+
+.section-cta {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+}
