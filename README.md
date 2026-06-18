@@ -1,4 +1,4 @@
-🚴‍♂️ Web stranica trkačkog kluba
+🏃 Web stranica trkačkog kluba
 
 Moderna, responzivna i profesionalna web stranica za trkački klub izrađena pomoću HTML-a, CSS-a i JavaScript-a. Projekat je fokusiran na moderan klupski izgled, preglednu strukturu, interaktivne elemente i dobar prikaz na desktop i mobilnim uređajima.
 
