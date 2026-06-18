@@ -5077,3 +5077,25 @@ footer > div:nth-child(2) a {
     min-width: 0 !important;
   }
 }
+
+/* FINAL FIX: strelica tačno u sredini dugmeta */
+.to-top {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: 48px !important;
+  height: 48px !important;
+  padding: 0 !important;
+
+  line-height: 1 !important;
+  text-align: center !important;
+  font-size: 24px !important;
+  font-weight: 900 !important;
+}
+
+.to-top::before,
+.to-top::after {
+  display: none !important;
+  content: none !important;
+}
