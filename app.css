@@ -191,6 +191,9 @@ select{
 .num:after{
     content:'+'
 }
+.num.no-plus::after {
+  content: "" !important;
+}
 .num.loading{
     display:inline-block;
     min-width:70px;
