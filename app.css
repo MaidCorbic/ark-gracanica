@@ -5024,14 +5024,29 @@ body.light .partner-card a {
 .skip-link:focus {
   top: 14px;
 }
-.race-info-visible {
-  display: none !important;
+/* FINAL FIX: uklanja dupli izgled race kartica */
+#race .race-dashboard.premium-race {
+  display: grid !important;
 }
-/* Ukloni duple pozadinske slojeve iza race kartica */
-.premium-race > div::before,
-.premium-race > div::after,
-.premium-race-card::before,
-.premium-race-card::after {
+
+#race .race-dashboard.premium-race > div {
+  background: linear-gradient(160deg, rgba(216,247,255,.12), rgba(255,255,255,.052) 42%, rgba(70,189,255,.08)) !important;
+  border: 1px solid rgba(216,247,255,.15) !important;
+  box-shadow: 0 22px 70px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.11) !important;
+}
+
+/* ukloni lažne duple slojeve iza race kartica */
+#race .premium-race > div::before,
+#race .premium-race > div::after,
+#race .premium-race-card::before,
+#race .premium-race-card::after,
+#race .race-info-card::before,
+#race .race-info-card::after {
   display: none !important;
   content: none !important;
+}
+
+/* ako još postoje male duple kartice Start/Cilj/Ruta/Prijave */
+#race .race-info-visible {
+  display: none !important;
 }
