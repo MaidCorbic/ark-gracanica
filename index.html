@@ -37,7 +37,7 @@
     <div class="top" id="top"></div>
     <header class="site-header" id="header">
       <a class="brand" href="#top" aria-label="Početna">
-        <img src="assets/logo.webp" alt="ARK Gračanica logo" width="42" height="42" />
+        <img src="assets/logo.webp" alt="ARK Gračanica logo" width="42" height="42" loading="eager" />
         <span>ARK Gračanica</span>
       </a>
       <button class="menu-btn" id="menuBtn" type="button" aria-label="Otvori meni" aria-expanded="false">☰</button>
@@ -348,6 +348,34 @@
           </div>
         </div>
       </section>
+
+      <section id="results" class="section results-section">
+  <div class="section-head reveal">
+    <p class="eyebrow">Rezultati</p>
+    <h2>Rezultati i fotografije nakon utrke</h2>
+    <p>
+      Nakon završetka utrke ovdje će biti dostupne informacije o rezultatima, fotografijama i zvaničnim objavama.
+    </p>
+  </div>
+
+  <div class="cards">
+    <article class="card reveal">
+      <h3>Rezultati 5K</h3>
+      <p>Zvanični rezultati bit će objavljeni nakon utrke.</p>
+    </article>
+
+    <article class="card reveal">
+      <h3>Rezultati 10K</h3>
+      <p>Pregled plasmana i vremena bit će dostupan nakon obrade rezultata.</p>
+    </article>
+
+    <article class="card reveal">
+      <h3>Foto galerija</h3>
+      <p>Fotografije učesnika bit će objavljene na zvaničnim kanalima kluba.</p>
+    </article>
+  </div>
+</section>
+      
       <section id="training" class="section grid-2 alt">
         <img
           class="section-img reveal"
@@ -480,7 +508,7 @@
         Partneri i sponzori koji podržavaju rad kluba i organizaciju događaja.          
           </p>
         </div>
-
+<div class="partners-grid partners-logo-grid reveal" aria-label="Partneri i sponzori događaja">
          <article class="partner-card partner-main">
   <a href="https://gracanica.gov.ba/" target="_blank" rel="noopener">
     <span class="partner-tier">Glavni pokrovitelj</span>
@@ -499,6 +527,24 @@
   </a>
 </article>
 
+  <article class="partner-card partner-gold">
+  <a href="https://edoslad.ba/" target="_blank" rel="noopener">
+    <span class="partner-tier">Zlatni sponzor</span>
+    <div class="partner-logo">
+      <img
+        src="https://www.google.com/s2/favicons?sz=128&amp;domain=edoslad.ba"
+        alt="Edo Slad logo"
+        loading="lazy"
+        decoding="async"
+        referrerpolicy="no-referrer"
+        onerror="this.style.display='none';"
+      />
+    </div>
+    <b>Edo Slad</b>
+    <small>Slatki partner utrke</small>
+  </a>
+</article>
+  
           <article class="partner-card partner-gold">
             <a href="https://suman.ba/" target="_blank" rel="noopener">
               <span class="partner-tier">Zlatni sponzor</span>
@@ -710,7 +756,7 @@ onerror="this.style.display='none';"                />
       <div>
         <img src="assets/logo.webp" alt="ARK Gračanica" width="58" height="58" />
         <p data-i18n="footerText">Naša želja je da promovišemo zdrav način života uz istovremeno građenje zdravijeg i aktivnijeg društva. 
-          Svi su dobro došli bez obzira na spol.</p>
+          Svi su dobrodošli bez obzira na spol.</p>
       </div>
       <div>
         <h4 data-i18n="footerCats">Kategorije</h4>
@@ -719,6 +765,7 @@ onerror="this.style.display='none';"                />
         <a href="#map" data-i18n="navMap">Mapa</a>
         <a href="#join" data-i18n="navJoin">Prijava</a>
         <a href="#partners">Partneri</a>
+        <a href="#results">Rezultati</a>
       </div>
       <div>
         <h4 data-i18n="footerContact">Kontakt</h4>
