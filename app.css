@@ -4301,3 +4301,435 @@ button.csv,
   overflow: hidden !important;
   pointer-events: none !important;
 }
+
+/* Premium feature add-on: SVG ikonice, Race Day Hub, route preview i partneri
+   Vizuelni segment ostaje u postojećem ARK stilu. */
+.premium-icon{
+    position:relative;
+    z-index:1;
+    display:grid;
+    place-items:center;
+    width:54px;
+    height:54px;
+    min-width:54px;
+    border-radius:18px;
+    margin-bottom:16px;
+    border:1px solid rgba(98,231,255,.35);
+    background:linear-gradient(135deg,rgba(36,167,255,.24),rgba(98,231,255,.1));
+    box-shadow:0 16px 38px rgba(36,167,255,.2),inset 0 1px 0 rgba(255,255,255,.22);
+    overflow:hidden;
+}
+.premium-icon:before{
+    content:"";
+    position:absolute;
+    inset:-35%;
+    background:linear-gradient(115deg,transparent,rgba(255,255,255,.32),transparent);
+    transform:translateX(-115%);
+    animation:iconSweep 5.5s ease-in-out infinite;
+}
+.premium-icon svg{
+    position:relative;
+    z-index:2;
+    width:29px;
+    height:29px;
+    fill:none;
+    stroke:#f5fff8;
+    stroke-width:1.9;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    filter:drop-shadow(0 0 12px rgba(98,231,255,.45));
+}
+.premium-icon-finish{
+    border-color:rgba(255,61,154,.38);
+    background:linear-gradient(135deg,rgba(255,61,154,.24),rgba(124,60,255,.12));
+    box-shadow:0 16px 38px rgba(255,61,154,.14),inset 0 1px 0 rgba(255,255,255,.22);
+}
+.premium-icon-route{
+    border-color:rgba(184,255,61,.35);
+    background:linear-gradient(135deg,rgba(184,255,61,.2),rgba(49,209,109,.12));
+    box-shadow:0 16px 38px rgba(184,255,61,.12),inset 0 1px 0 rgba(255,255,255,.22);
+}
+.premium-icon-closed{
+    border-color:rgba(255,122,24,.35);
+    background:linear-gradient(135deg,rgba(255,122,24,.2),rgba(255,207,51,.1));
+    box-shadow:0 16px 38px rgba(255,122,24,.14),inset 0 1px 0 rgba(255,255,255,.22);
+}
+@keyframes iconSweep{
+    0%,72%{transform:translateX(-115%) rotate(8deg)}
+    100%{transform:translateX(115%) rotate(8deg)}
+}
+
+.race-day-hub{
+    position:relative;
+    overflow:hidden;
+    display:grid;
+    grid-template-columns:.95fr 1.15fr;
+    gap:18px;
+    margin:28px auto 0;
+    max-width:1280px;
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:30px;
+    background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.055)),radial-gradient(circle at 16% 5%,rgba(49,209,109,.2),transparent 34%);
+    box-shadow:0 24px 70px rgba(0,0,0,.34),inset 0 1px 0 rgba(255,255,255,.08);
+    padding:clamp(20px,3vw,30px);
+}
+.race-day-hub:before{
+    content:"";
+    position:absolute;
+    inset:auto -90px -120px auto;
+    width:260px;
+    height:260px;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(36,167,255,.16),transparent 70%);
+    pointer-events:none;
+}
+.race-hub-copy,
+.hub-timeline,
+.hub-info-grid{
+    position:relative;
+    z-index:1;
+}
+.race-hub-copy h3{
+    margin:8px 0 12px;
+    font-size:clamp(28px,3.6vw,44px);
+    line-height:1.02;
+    letter-spacing:-.04em;
+}
+.race-hub-copy p{
+    margin:0;
+    color:var(--muted);
+    line-height:1.65;
+}
+.hub-actions{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:18px;
+}
+.hub-timeline{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px;
+}
+.hub-timeline div,
+.hub-info-grid article,
+.partners-grid article{
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:22px;
+    background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.055));
+    box-shadow:0 18px 45px rgba(0,0,0,.22);
+}
+.hub-timeline div{
+    padding:16px;
+}
+.hub-timeline span{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:62px;
+    padding:7px 10px;
+    border-radius:999px;
+    background:linear-gradient(135deg,var(--orange),var(--gold));
+    color:#140900;
+    font-weight:950;
+    font-size:13px;
+}
+.hub-timeline b{
+    display:block;
+    margin-top:12px;
+    color:var(--text);
+    font-size:18px;
+}
+.hub-timeline small{
+    display:block;
+    margin-top:6px;
+    color:var(--muted);
+    line-height:1.45;
+}
+.hub-info-grid{
+    grid-column:1/-1;
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:14px;
+}
+.hub-info-grid article{
+    padding:20px;
+    transition:transform .24s ease,border-color .24s ease,box-shadow .24s ease;
+}
+.hub-info-grid article:hover,
+.partners-grid article:hover{
+    transform:translateY(-5px);
+    border-color:rgba(137,255,179,.38);
+    box-shadow:0 24px 70px rgba(49,209,109,.14);
+}
+.hub-info-grid b{
+    display:block;
+    font-size:20px;
+    margin-bottom:8px;
+}
+.hub-info-grid p{
+    margin:0;
+    color:var(--muted);
+    font-size:15px;
+    line-height:1.55;
+}
+
+.route-pro-panel{
+    position:relative;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:24px;
+    padding:16px;
+    background:linear-gradient(135deg,rgba(255,255,255,.1),rgba(255,255,255,.045));
+}
+.route-tabs{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-bottom:12px;
+}
+.route-tabs span{
+    display:inline-flex;
+    padding:8px 12px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    color:var(--muted);
+    font-weight:900;
+    font-size:13px;
+}
+.route-tabs .active{
+    color:#031008;
+    border-color:transparent;
+    background:linear-gradient(135deg,var(--green),var(--green2));
+}
+.route-km-row,
+.route-meta{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:8px;
+}
+.route-km-row span{
+    display:grid;
+    place-items:center;
+    min-height:36px;
+    border-radius:14px;
+    background:rgba(255,255,255,.08);
+    color:var(--muted);
+    font-size:12px;
+    font-weight:950;
+}
+.elevation-line{
+    width:100%;
+    height:auto;
+    margin-top:10px;
+}
+.elevation-line path{
+    fill:none;
+    stroke:var(--green2);
+    stroke-width:7;
+    stroke-linecap:round;
+    filter:drop-shadow(0 0 12px rgba(137,255,179,.38));
+}
+.elevation-line line{
+    stroke:rgba(255,255,255,.16);
+    stroke-width:2;
+}
+.route-meta{
+    grid-template-columns:repeat(3,1fr);
+    margin-top:8px;
+}
+.route-meta span{
+    padding:10px 12px;
+    border-radius:16px;
+    background:rgba(255,255,255,.07);
+    color:var(--muted);
+    font-size:13px;
+}
+.route-meta b{
+    display:block;
+    color:var(--text);
+    margin-bottom:3px;
+}
+
+.partners-section{
+    background:linear-gradient(135deg,#08150f,#0b1f15);
+}
+.partners-grid{
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:14px;
+}
+.partners-grid article{
+    min-height:150px;
+    display:grid;
+    place-items:center;
+    text-align:center;
+    padding:22px 16px;
+    transition:transform .24s ease,border-color .24s ease,box-shadow .24s ease,filter .24s ease;
+}
+.partners-grid span{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:72px;
+    padding:7px 10px;
+    border-radius:999px;
+    background:rgba(255,255,255,.09);
+    color:var(--green2);
+    font-size:11px;
+    font-weight:950;
+    letter-spacing:.12em;
+}
+.partners-grid b{
+    color:var(--text);
+    font-size:20px;
+    letter-spacing:-.025em;
+}
+.partners-grid small{
+    color:var(--muted);
+    font-weight:800;
+}
+
+body.light .race-day-hub,
+body.light .route-pro-panel,
+body.light .hub-timeline div,
+body.light .hub-info-grid article,
+body.light .partners-grid article{
+    background:linear-gradient(135deg,rgba(255,255,255,.88),rgba(255,255,255,.72));
+}
+body.light .premium-icon svg{
+    stroke:#07110d;
+}
+body.light .hub-timeline b,
+body.light .hub-info-grid b,
+body.light .partners-grid b,
+body.light .route-meta b{
+    color:#07110d;
+}
+
+@media (max-width:900px){
+    .race-day-hub{
+        grid-template-columns:1fr;
+    }
+    .hub-info-grid,
+    .partners-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+}
+@media (max-width:620px){
+    .hub-timeline,
+    .hub-info-grid,
+    .partners-grid,
+    .route-meta{
+        grid-template-columns:1fr;
+    }
+    .route-km-row{
+        grid-template-columns:repeat(3,1fr);
+    }
+    .hub-actions{
+        display:grid;
+    }
+}
+
+/* Premium custom scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #38bdf8 #07110d;
+}
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: linear-gradient(180deg, #030806, #07110d);
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #62e7ff, #38bdf8, #31d16d);
+  border-radius: 999px;
+  border: 3px solid #07110d;
+  box-shadow: 0 0 18px rgba(98, 231, 255, 0.35);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #89ffb3, #62e7ff, #38bdf8);
+  box-shadow: 0 0 24px rgba(137, 255, 179, 0.45);
+}
+
+::-webkit-scrollbar-corner {
+  background: #07110d;
+}
+
+/* Light mode scrollbar */
+body.light {
+  scrollbar-color: #38bdf8 #f6fff9;
+}
+
+body.light::-webkit-scrollbar-track {
+  background: linear-gradient(180deg, #eaf7ef, #f6fff9);
+  border-left: 1px solid rgba(7, 17, 13, 0.1);
+}
+
+body.light::-webkit-scrollbar-thumb {
+  border-color: #f6fff9;
+}
+
+/* Remove number arrows only inside training tools */
+.tools input[type="number"]::-webkit-outer-spin-button,
+.tools input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.tools input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+/* Hide calculator buttons */
+#calcPace,
+#calcTime {
+  display: none;
+}
+
+/* Make calculator input fields fill space after buttons are hidden */
+.tool-card .metric-row {
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Bigger premium form on desktop */
+@media (min-width: 901px) {
+  .join {
+    grid-template-columns: minmax(320px, 0.8fr) minmax(560px, 760px);
+    align-items: center;
+  }
+
+  .join .form {
+    width: 100%;
+    max-width: 760px;
+    justify-self: end;
+    padding: 30px;
+    gap: 16px;
+    border-radius: 32px;
+  }
+
+  .join .form input,
+  .join .form select,
+  .join .form textarea {
+    min-height: 54px;
+    font-size: 16px;
+  }
+
+  .join .form textarea {
+    min-height: 135px;
+    resize: vertical;
+  }
+
+  .join .form .btn {
+    min-height: 54px;
+    font-size: 16px;
+  }
+}
