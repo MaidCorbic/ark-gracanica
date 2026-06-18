@@ -30,7 +30,7 @@
     <meta property="og:image" content="assets/hero.webp" />
     <title>ARK Gračanica | Atletsko-rekreativni klub</title>
     <link rel="preload" as="image" href="assets/hero.webp" />
-    <link rel="stylesheet" href="./app.css?v=30000" />
+    <link rel="stylesheet" href="./app.css?v=40000" />
   </head>
   <body>
     <div class="progress" id="progress" aria-hidden="true"></div>
@@ -188,7 +188,12 @@
   </div>
 
   <div class="race-info-card premium-race-card">
-    <i aria-hidden="true">🏁</i>
+    <span class="premium-icon premium-icon-start" aria-hidden="true">
+      <svg viewBox="0 0 24 24" focusable="false">
+        <path d="M5 21V4"></path>
+        <path d="M5 5c3.8-2 6.8 1.7 10.6-.3 1.1-.6 2.1-.7 3.4-.5v8.3c-1.3-.2-2.3-.1-3.4.5C11.8 15 8.8 11.3 5 13.3"></path>
+      </svg>
+    </span>
     <b>Start</b>
     <span>Gračanica centar</span>
     <ul>
@@ -199,7 +204,13 @@
   </div>
 
   <div class="race-info-card premium-race-card">
-    <i aria-hidden="true">🎯</i>
+    <span class="premium-icon premium-icon-finish" aria-hidden="true">
+      <svg viewBox="0 0 24 24" focusable="false">
+        <circle cx="12" cy="12" r="8"></circle>
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v3M12 19v3M2 12h3M19 12h3"></path>
+      </svg>
+    </span>
     <b>Cilj</b>
     <span>Finish zona</span>
     <ul>
@@ -210,7 +221,12 @@
   </div>
 
   <div class="race-info-card premium-race-card">
-    <i aria-hidden="true">📍</i>
+    <span class="premium-icon premium-icon-route" aria-hidden="true">
+      <svg viewBox="0 0 24 24" focusable="false">
+        <path d="M12 21s7-5.4 7-12a7 7 0 1 0-14 0c0 6.6 7 12 7 12Z"></path>
+        <circle cx="12" cy="9" r="2.5"></circle>
+      </svg>
+    </span>
     <b>Ruta</b>
     <span>5K / 10K gradska ruta</span>
     <ul>
@@ -221,7 +237,12 @@
   </div>
 
   <div class="race-info-card premium-race-card race-extra-card registrations-closed">
-    <i aria-hidden="true">×</i>
+    <span class="premium-icon premium-icon-closed" aria-hidden="true">
+      <svg viewBox="0 0 24 24" focusable="false">
+        <rect x="4" y="5" width="16" height="15" rx="3"></rect>
+        <path d="M8 3v4M16 3v4M4 10h16M9 14l6 4M15 14l-6 4"></path>
+      </svg>
+    </span>
     <b>Prijave</b>
     <span>Zatvorene</span>
     <ul>
@@ -250,6 +271,79 @@
     <em><span></span></em>
   </div>
 </div>
+
+        <div class="race-day-hub reveal" aria-label="Race Day Hub">
+          <div class="race-hub-copy">
+            <p class="eyebrow">Race Day Hub</p>
+            <h3>Jedno mjesto za sve informacije na dan utrke</h3>
+            <p>
+              Satnica, lokacije, okrepne stanice i upute za učesnike prikazane su u istom premium stilu, bez promjene
+              osnovnog izgleda stranice.
+            </p>
+            <div class="hub-actions">
+              <a class="btn small" href="#map">Pogledaj rutu</a>
+              <a class="btn small ghost" href="#join">Pošalji upit</a>
+            </div>
+          </div>
+
+          <div class="hub-timeline" aria-label="Satnica događaja">
+            <div>
+              <span>07:30</span>
+              <b>Preuzimanje paketa</b>
+              <small>Startna zona • provjera brojeva</small>
+            </div>
+            <div>
+              <span>08:35</span>
+              <b>Zagrijavanje</b>
+              <small>Zajedničko aktiviranje prije starta</small>
+            </div>
+            <div>
+              <span>09:00</span>
+              <b>Start 5K / 10K</b>
+              <small>Kontrolisani start i označena ruta</small>
+            </div>
+            <div>
+              <span>10:30</span>
+              <b>Medalje i rezultati</b>
+              <small>Finish zona • fotografije • osvježenje</small>
+            </div>
+          </div>
+
+          <div class="hub-info-grid">
+            <article>
+              <span class="premium-icon premium-icon-route" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path d="M4 19c3-6 6 1 9-5s5-2 7-9"></path>
+                  <path d="M4 19h16"></path>
+                  <circle cx="4" cy="19" r="1.5"></circle>
+                  <circle cx="20" cy="5" r="1.5"></circle>
+                </svg>
+              </span>
+              <b>Okrepne stanice</b>
+              <p>Voda, podrška volontera i jasno označene tačke na ključnim dijelovima rute.</p>
+            </article>
+            <article>
+              <span class="premium-icon premium-icon-start" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path d="M6 20V5"></path>
+                  <path d="M6 6h11l-2.2 3L17 12H6"></path>
+                </svg>
+              </span>
+              <b>Startna zona</b>
+              <p>Okupljanje, zagrijavanje, startni paketi i ulazak u koridore prije starta.</p>
+            </article>
+            <article>
+              <span class="premium-icon premium-icon-finish" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path d="M5 4h14v16H5z"></path>
+                  <path d="M5 8h14M5 12h14M5 16h14M9 4v16M15 4v16"></path>
+                </svg>
+              </span>
+              <b>Finish zona</b>
+              <p>Medalje, osvježenje, fotografije i prostor za učesnike nakon utrke.</p>
+            </article>
+          </div>
+        </div>
       </section>
       <section id="training" class="section grid-2 alt">
         <img
@@ -325,6 +419,30 @@
             <text x="70" y="330">START</text>
             <text x="770" y="85">FINISH</text>
           </svg>
+
+          <div class="route-pro-panel" aria-label="Detalji rute">
+            <div class="route-tabs" aria-hidden="true">
+              <span class="active">5K ruta</span>
+              <span>10K ruta</span>
+            </div>
+            <div class="route-km-row">
+              <span>START</span>
+              <span>1K</span>
+              <span>2K</span>
+              <span>3K</span>
+              <span>4K</span>
+              <span>FINISH</span>
+            </div>
+            <svg class="elevation-line" viewBox="0 0 640 120" role="img" aria-label="Profil rute">
+              <path d="M20 92 C80 68 116 78 160 55 S245 38 300 64 390 96 455 54 555 35 620 70"></path>
+              <line x1="20" y1="96" x2="620" y2="96"></line>
+            </svg>
+            <div class="route-meta">
+              <span><b>Podloga</b> asfalt</span>
+              <span><b>Profil</b> gradska ruta</span>
+              <span><b>Podrška</b> volonteri</span>
+            </div>
+          </div>
           
           <a
             class="btn"
@@ -355,6 +473,36 @@
             ARK Gračanica Facebook
           </a>
         </p>
+      </section>
+
+      <section id="partners" class="section partners-section">
+        <div class="section-head reveal">
+          <p class="eyebrow">Partneri</p>
+          <h2>Partneri i podrška događaja</h2>
+          <p>Elegantna sekcija za sponzore, lokalne partnere i podršku zajednice, urađena bez narušavanja postojećeg vizuelnog stila.</p>
+        </div>
+        <div class="partners-grid reveal" aria-label="Partneri događaja">
+          <article>
+            <span>GLAVNI</span>
+            <b>Partner utrke</b>
+            <small>Mjesto za logo</small>
+          </article>
+          <article>
+            <span>SPORT</span>
+            <b>Sportski partner</b>
+            <small>Mjesto za logo</small>
+          </article>
+          <article>
+            <span>GRAD</span>
+            <b>Podrška zajednice</b>
+            <small>Mjesto za logo</small>
+          </article>
+          <article>
+            <span>MEDIA</span>
+            <b>Media partner</b>
+            <small>Mjesto za logo</small>
+          </article>
+        </div>
       </section>
       <section id="join" class="section join">
         <div class="copy reveal">
@@ -467,6 +615,7 @@
         <a href="#training" data-i18n="navTraining">Treninzi</a>
         <a href="#map" data-i18n="navMap">Mapa</a>
         <a href="#join" data-i18n="navJoin">Prijava</a>
+        <a href="#partners">Partneri</a>
       </div>
       <div>
         <h4 data-i18n="footerContact">Kontakt</h4>
