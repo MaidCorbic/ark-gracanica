@@ -4952,3 +4952,17 @@ body.light .partner-card a {
     grid-template-columns: 1fr;
   }
 }
+
+.text-card {
+  padding: 24px;
+}
+
+.text-card h3,
+.text-card p {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.countdown-hidden {
+  display: none !important;
+}
