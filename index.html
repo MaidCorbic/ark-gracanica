@@ -30,7 +30,7 @@
     <meta property="og:image" content="assets/hero.webp" />
     <title>ARK Gračanica | Atletsko-rekreativni klub</title>
     <link rel="preload" as="image" href="assets/hero.webp" />
-    <link rel="stylesheet" href="./app.css?v=40000" />
+    <link rel="stylesheet" href="./app.css?v=50000" />
   </head>
   <body>
     <div class="progress" id="progress" aria-hidden="true"></div>
@@ -371,7 +371,7 @@
                   <small>MIN</small>
                   <input id="paceMin" type="number" min="1" value="25" aria-label="Minute" />
                 </div>
-                <button class="btn small" id="calcPace" type="button">Izračunaj</button>
+                <button class="btn small" id="calcPace" type="button" hidden aria-hidden="true" tabindex="-1">Izračunaj</button>
               </div>
               <strong class="result-badge" id="paceResult">5:00 min/km</strong>
               <p class="tool-note">Unesi distancu i ukupno vrijeme. Dobiješ prosječan tempo po kilometru.</p>
@@ -390,7 +390,7 @@
                   <small>PACE</small>
                   <input id="racePace" type="text" value="5:30" aria-label="Pace" />
                 </div>
-                <button class="btn small" id="calcTime" type="button">Izračunaj</button>
+                <button class="btn small" id="calcTime" type="button" hidden aria-hidden="true" tabindex="-1">Izračunaj</button>
               </div>
               <strong class="result-badge" id="timeResult">55:00</strong>
               <p class="tool-note">Unesi ciljnu distancu i pace u formatu 5:30.</p>
@@ -475,34 +475,166 @@
         </p>
       </section>
 
-      <section id="partners" class="section partners-section">
+      <section id="partners" class="section partners-section" aria-labelledby="partners-title">
         <div class="section-head reveal">
-          <p class="eyebrow">Partneri</p>
-          <h2>Partneri i podrška događaja</h2>
-          <p>Elegantna sekcija za sponzore, lokalne partnere i podršku zajednice, urađena bez narušavanja postojećeg vizuelnog stila.</p>
+          <p class="eyebrow">Partneri i sponzori</p>
+          <h2 id="partners-title">Podrška koja nosi Gračanica 5K &amp; 10K</h2>
+          <p>
+            Pregled javno pronađenih partnera i sponzora događaja. Logo kartice koriste online logo/favicone sa
+            službenih domena kada su dostupni, uz tekstualni fallback ako se slika ne učita.
+          </p>
         </div>
-        <div class="partners-grid reveal" aria-label="Partneri događaja">
-          <article>
-            <span>GLAVNI</span>
-            <b>Partner utrke</b>
-            <small>Mjesto za logo</small>
+
+        <div class="partners-grid partners-logo-grid reveal" aria-label="Partneri i sponzori događaja">
+          <article class="partner-card partner-main">
+            <a href="https://gracanica.gov.ba/" target="_blank" rel="noopener">
+              <span class="partner-tier">Glavni pokrovitelj</span>
+              <div class="partner-logo">
+                <img
+                  src="https://www.google.com/s2/favicons?sz=128&amp;domain=gracanica.gov.ba"
+                  alt="Grad Gračanica logo"
+                  loading="lazy"
+                  decoding="async"
+                  referrerpolicy="no-referrer"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='grid';"
+                />
+                <span class="partner-fallback">GG</span>
+              </div>
+              <b>Grad Gračanica</b>
+              <small>Institucionalna podrška</small>
+            </a>
           </article>
-          <article>
-            <span>SPORT</span>
-            <b>Sportski partner</b>
-            <small>Mjesto za logo</small>
+
+          <article class="partner-card partner-gold">
+            <a href="https://edoslad.ba/" target="_blank" rel="noopener">
+              <span class="partner-tier">Zlatni sponzor</span>
+              <div class="partner-logo">
+                <img
+                  src="https://www.google.com/s2/favicons?sz=128&amp;domain=edoslad.ba"
+                  alt="Edo Slad logo"
+                  loading="lazy"
+                  decoding="async"
+                  referrerpolicy="no-referrer"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='grid';"
+                />
+                <span class="partner-fallback">ES</span>
+              </div>
+              <b>Edo Slad</b>
+              <small>Slatki partner utrke</small>
+            </a>
           </article>
-          <article>
-            <span>GRAD</span>
-            <b>Podrška zajednice</b>
-            <small>Mjesto za logo</small>
+
+          <article class="partner-card partner-gold">
+            <a href="https://suman.ba/" target="_blank" rel="noopener">
+              <span class="partner-tier">Zlatni sponzor</span>
+              <div class="partner-logo">
+                <img
+                  src="https://www.google.com/s2/favicons?sz=128&amp;domain=suman.ba"
+                  alt="SUMAN d.o.o. logo"
+                  loading="lazy"
+                  decoding="async"
+                  referrerpolicy="no-referrer"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='grid';"
+                />
+                <span class="partner-fallback">SU</span>
+              </div>
+              <b>SUMAN d.o.o.</b>
+              <small>Veliki partner događaja</small>
+            </a>
           </article>
-          <article>
-            <span>MEDIA</span>
-            <b>Media partner</b>
-            <small>Mjesto za logo</small>
+
+          <article class="partner-card partner-silver">
+            <a href="https://plastoflex.ba/" target="_blank" rel="noopener">
+              <span class="partner-tier">Srebrni sponzor</span>
+              <div class="partner-logo">
+                <img
+                  src="https://www.google.com/s2/favicons?sz=128&amp;domain=plastoflex.ba"
+                  alt="Plastoflex logo"
+                  loading="lazy"
+                  decoding="async"
+                  referrerpolicy="no-referrer"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='grid';"
+                />
+                <span class="partner-fallback">PF</span>
+              </div>
+              <b>Plastoflex</b>
+              <small>Industrijski partner</small>
+            </a>
+          </article>
+
+          <article class="partner-card partner-silver">
+            <a href="https://metaloplastikagr.com/" target="_blank" rel="noopener">
+              <span class="partner-tier">Srebrni sponzor</span>
+              <div class="partner-logo">
+                <img
+                  src="https://www.google.com/s2/favicons?sz=128&amp;domain=metaloplastikagr.com"
+                  alt="Metaloplastika ZR logo"
+                  loading="lazy"
+                  decoding="async"
+                  referrerpolicy="no-referrer"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='grid';"
+                />
+                <span class="partner-fallback">MZ</span>
+              </div>
+              <b>Metaloplastika ZR</b>
+              <small>Podrška lokalne privrede</small>
+            </a>
+          </article>
+
+          <article class="partner-card partner-silver">
+            <a href="https://termegracanica.ba/" target="_blank" rel="noopener">
+              <span class="partner-tier">Srebrni sponzor</span>
+              <div class="partner-logo">
+                <img
+                  src="https://www.google.com/s2/favicons?sz=128&amp;domain=termegracanica.ba"
+                  alt="Terme Gračanica logo"
+                  loading="lazy"
+                  decoding="async"
+                  referrerpolicy="no-referrer"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='grid';"
+                />
+                <span class="partner-fallback">TG</span>
+              </div>
+              <b>Terme Gračanica</b>
+              <small>Rekreacija i oporavak</small>
+            </a>
+          </article>
+
+          <article class="partner-card partner-support">
+            <a href="https://mi99.ba/" target="_blank" rel="noopener">
+              <span class="partner-tier">Sponzor</span>
+              <div class="partner-logo">
+                <img
+                  src="https://www.google.com/s2/favicons?sz=128&amp;domain=mi99.ba"
+                  alt="Mliječna industrija 99 logo"
+                  loading="lazy"
+                  decoding="async"
+                  referrerpolicy="no-referrer"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='grid';"
+                />
+                <span class="partner-fallback">99</span>
+              </div>
+              <b>Mliječna industrija 99</b>
+              <small>Podrška učesnicima</small>
+            </a>
+          </article>
+
+          <article class="partner-card partner-community">
+            <a href="https://www.facebook.com/vmgracanica/" target="_blank" rel="noopener">
+              <span class="partner-tier">Partner zajednice</span>
+              <div class="partner-logo partner-logo-text" aria-hidden="true">
+                <span class="partner-fallback visible">VM</span>
+              </div>
+              <b>Vijeće mladih Grada Gračanica</b>
+              <small>Volonteri i lokalna podrška</small>
+            </a>
           </article>
         </div>
+
+        <p class="partners-note reveal">
+          Napomena: za finalnu produkciju najbolje je zamijeniti online favicon URL-ove službenim PNG/SVG logotipima iz
+          brand materijala sponzora, ako ih klub posjeduje.
+        </p>
       </section>
       <section id="join" class="section join">
         <div class="copy reveal">
@@ -563,45 +695,57 @@
         </form>
       </section>
       <section id="contact" class="section contact">
-        <div>
+        <div class="contact-copy">
           <h2>ARK Gračanica</h2>
           <p data-i18n="contactText">Za treninge, događaje i saradnju kontaktiraj klub putem Facebook stranice.</p>
-         <div class="faq-panel reveal">
-  <p class="eyebrow">FAQ</p>
-  <h2>Česta pitanja</h2>
-  <p class="faq-intro">
-    Kratke informacije za nove članove, učesnike trke i rekreativce koji žele trenirati sa klubom.
-  </p>
 
-  <div class="faq-stack premium-faq">
-    <details open>
-      <summary>Kako se prijaviti za Gračanica 5K?</summary>
-      <p>Prijava se vrši kroz sekciju prijave na stranici ili preko zvaničnih objava kluba.</p>
-    </details>
+          <div class="contact-actions">
+            <a
+              class="btn"
+              href="https://www.facebook.com/p/ARK-Gra%C4%8Danica-100063857353772/"
+              target="_blank"
+              rel="noopener"
+            >
+              Otvori Facebook
+            </a>
+            <a class="btn ghost" href="#join">Pošalji upit</a>
+          </div>
 
-    <details>
-      <summary>Da li mogu trenirati početnici?</summary>
-      <p>Da. Početnici su dobrodošli. Treninzi se mogu prilagoditi rekreativcima i osobama koje tek kreću.</p>
-    </details>
+          <div class="faq-panel reveal">
+            <p class="eyebrow">FAQ</p>
+            <h2>Česta pitanja</h2>
+            <p class="faq-intro">
+              Kratke informacije za nove članove, učesnike trke i rekreativce koji žele trenirati sa klubom.
+            </p>
 
-    <details>
-      <summary>Gdje se preuzimaju startni paketi?</summary>
-      <p>Informacije o preuzimanju objavljuju se prije trke, najčešće uz detalje o startnoj zoni i satnici.</p>
-    </details>
+            <div class="faq-stack premium-faq">
+              <details open>
+                <summary>Kako se prijaviti za Gračanica 5K?</summary>
+                <p>Prijava se vrši kroz sekciju prijave na stranici ili preko zvaničnih objava kluba.</p>
+              </details>
 
-    <details>
-      <summary>Da li je ruta pogodna za rekreativce?</summary>
-      <p>Da. 5K ruta je dobra za rekreativce, dok je 10K bolja za trkače koji žele veći izazov.</p>
-    </details>
+              <details>
+                <summary>Da li mogu trenirati početnici?</summary>
+                <p>Da. Početnici su dobrodošli. Treninzi se mogu prilagoditi rekreativcima i osobama koje tek kreću.</p>
+              </details>
 
-    <details>
-      <summary>Gdje se objavljuju rezultati i fotografije?</summary>
-      <p>Rezultati, fotografije i obavještenja objavljuju se na web stranici i zvaničnim kanalima ARK Gračanica.</p>
-    </details>
-  </div>
-</div>
-          
-       
+              <details>
+                <summary>Gdje se preuzimaju startni paketi?</summary>
+                <p>Informacije o preuzimanju objavljuju se prije trke, najčešće uz detalje o startnoj zoni i satnici.</p>
+              </details>
+
+              <details>
+                <summary>Da li je ruta pogodna za rekreativce?</summary>
+                <p>Da. 5K ruta je dobra za rekreativce, dok je 10K bolja za trkače koji žele veći izazov.</p>
+              </details>
+
+              <details>
+                <summary>Gdje se objavljuju rezultati i fotografije?</summary>
+                <p>Rezultati, fotografije i obavještenja objavljuju se na web stranici i zvaničnim kanalima ARK Gračanica.</p>
+              </details>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
     <footer>
