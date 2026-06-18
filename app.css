@@ -4168,79 +4168,104 @@ body.light .premium-faq details {
     }
 }
 
-/* DESKTOP FIX - countdown širok i normalan */
-@media (min-width: 781px) {
-    .premium-countdown {
+/* FINAL REAL DESKTOP COUNTDOWN FIX */
+
+@media (min-width: 901px) {
+    .premium-race,
+    .race-dashboard {
+        width: 100% !important;
+        max-width: 1280px !important;
+        margin-inline: auto !important;
+        display: grid !important;
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+        gap: 18px !important;
+    }
+
+    .premium-countdown,
+    .countdown-pro {
         grid-column: 1 / -1 !important;
         width: 100% !important;
-        max-width: 100% !important;
+        max-width: none !important;
+        padding: 34px !important;
         overflow: visible !important;
-        padding: 30px !important;
     }
 
     .countdown-grid {
         width: 100% !important;
-        max-width: 100% !important;
-        margin: 26px 0 0 !important;
+        max-width: none !important;
+        margin: 28px 0 0 !important;
         display: grid !important;
         grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-        gap: 16px !important;
+        gap: 18px !important;
     }
 
     .countdown-grid span {
-        min-height: 130px !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        min-height: 145px !important;
+        padding: 24px 16px !important;
         display: flex !important;
         flex-direction: column !important;
-        align-items: center !important;
         justify-content: center !important;
+        align-items: center !important;
         text-align: center !important;
-        padding: 20px 14px !important;
-        overflow: visible !important;
     }
 
     .countdown-grid b {
-        width: 100% !important;
-        font-size: clamp(44px, 4.6vw, 76px) !important;
+        font-size: clamp(52px, 5.2vw, 82px) !important;
         line-height: .9 !important;
-        text-align: center !important;
         white-space: nowrap !important;
+        text-align: center !important;
     }
 
     .countdown-grid small {
-        width: 100% !important;
-        margin-top: 12px !important;
+        font-size: 12px !important;
+        margin-top: 10px !important;
         text-align: center !important;
         white-space: normal !important;
-        font-size: 12px !important;
-    }
-
-    .race-date {
-        max-width: 100% !important;
-        width: fit-content !important;
-        margin: 22px auto 0 !important;
     }
 }
 
-@media (max-width:360px){
-    .countdown-grid{
-        grid-template-columns:1fr !important;
+/* Tablet */
+@media (min-width: 641px) and (max-width: 900px) {
+    .premium-race,
+    .race-dashboard {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     }
 
-    .countdown-grid span{
-        min-height:86px !important;
-        flex-direction:row !important;
-        justify-content:space-between !important;
-        gap:12px !important;
-        padding:14px 16px !important;
+    .premium-countdown,
+    .countdown-pro,
+    .premium-status,
+    .race-status-card {
+        grid-column: 1 / -1 !important;
     }
 
-    .countdown-grid b,
-    .countdown-grid small{
-        width:auto !important;
+    .countdown-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        max-width: 760px !important;
+        margin-inline: auto !important;
+    }
+}
+
+/* Telefon */
+@media (max-width: 640px) {
+    .premium-race,
+    .race-dashboard {
+        grid-template-columns: 1fr !important;
     }
 
-    .countdown-grid small{
-        text-align:right !important;
+    .countdown-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 10px !important;
+    }
+
+    .countdown-grid span {
+        min-height: 104px !important;
+        padding: 16px 8px !important;
+    }
+
+    .countdown-grid b {
+        font-size: clamp(34px, 13vw, 52px) !important;
     }
 }
 
