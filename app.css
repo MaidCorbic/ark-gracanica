@@ -5024,11 +5024,6 @@ body.light .partner-card a {
 .skip-link:focus {
   top: 14px;
 }
-/* Ukloni duple pozadinske slojeve iza race kartica */
-.premium-race > div::before,
-.premium-race > div::after,
-.premium-race-card::before,
-.premium-race-card::after {
+.race-info-visible {
   display: none !important;
-  content: none !important;
 }
