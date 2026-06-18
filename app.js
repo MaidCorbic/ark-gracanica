@@ -1,3 +1,21 @@
+// FINAL: uvijek kreni od vrha stranice nakon refresh-a
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
+
+window.addEventListener("beforeunload", () => {
+  window.scrollTo(0, 0);
+});
+
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant"
+    });
+  }, 0);
+});
 'use strict';
 
 (() => {
