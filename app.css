@@ -4269,3 +4269,11 @@ body.light .premium-faq details {
     }
 }
 
+/* Sakrij Preuzmi CSV dugme */
+a[href$=".csv"],
+a[download*="csv"],
+button.csv,
+.csv-btn,
+#downloadCsv {
+    display: none !important;
+}
