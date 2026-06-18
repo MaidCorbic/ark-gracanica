@@ -4984,3 +4984,23 @@ body.light .partner-card a {
   display: flex;
   justify-content: center;
 }
+
+/* FINAL FIX: centriranje favicon/logotipa u sponsor karticama */
+.partner-logo {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+}
+
+.partner-logo img {
+  display: block !important;
+  width: 54px !important;
+  height: 54px !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  margin: 0 auto !important;
+  padding: 7px !important;
+  border-radius: 14px !important;
+  background: rgba(255, 255, 255, 0.94) !important;
+}
