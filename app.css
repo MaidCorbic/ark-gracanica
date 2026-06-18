@@ -3743,7 +3743,7 @@ body.light .race-info-box b {
 /* Prijava forma - profesionalnije i kompaktnije */
 #joinForm {
      justify-self: center;
-    max-width: 560px;
+    max-width: 720px;
     margin-left: auto;
     padding: 22px !important;
     gap: 11px !important;
@@ -4965,4 +4965,16 @@ body.light .partner-card a {
 
 .countdown-hidden {
   display: none !important;
+}
+/* Remove duplicated countdown pseudo badge */
+.countdown-pro::before {
+  display: none !important;
+  content: none !important;
+}
+
+.partners-grid .partner-fallback {
+  min-width: 52px !important;
+  width: 52px !important;
+  height: 52px !important;
+  padding: 0 !important;
 }
