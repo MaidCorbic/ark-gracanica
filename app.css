@@ -5099,3 +5099,37 @@ footer > div:nth-child(2) a {
   display: none !important;
   content: none !important;
 }
+
+.notice-bar {
+  margin: 88px auto 0;
+  max-width: 1180px;
+  width: calc(100% - 32px);
+  padding: 12px 18px;
+  border: 1px solid rgba(141, 232, 255, 0.24);
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(141,232,255,.14), rgba(255,255,255,.05));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  font-weight: 700;
+}
+
+.notice-bar span {
+  color: var(--text);
+}
+
+.notice-bar a {
+  color: #8de8ff;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+@media (max-width: 700px) {
+  .notice-bar {
+    margin-top: 78px;
+    border-radius: 20px;
+    flex-direction: column;
+    text-align: center;
+  }
+}
