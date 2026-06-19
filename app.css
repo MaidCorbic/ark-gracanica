@@ -5577,7 +5577,7 @@ body.light .premium-race-card b,
 body.light .race-hub-copy h3,
 body.light .faq-panel h2,
 body.light footer h4 {
-  color: #BFBFBF !important;
+  color: #fff !important;
 }
 
 body.light h2{
@@ -5585,7 +5585,6 @@ body.light h2{
 }
 
 /* Obični tekst */
-body.light p,
 body.light .section p,
 body.light .hero p,
 body.light .card p,
@@ -5597,6 +5596,9 @@ body.light .premium-race-card li,
 body.light .race-hub-copy p,
 body.light .hub-info-grid p {
   color: #456170 !important;
+}
+body.light p{
+    color:#fff;
 }
 
 /* Eyebrow / mali plavi tekst */
