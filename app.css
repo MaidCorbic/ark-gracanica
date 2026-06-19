@@ -5559,8 +5559,8 @@ body.light .to-top::before {
    ===================================================== */
 
 body.light {
-  --text: #062032 !important;
-  --muted: #456170 !important;
+  --text: #333131 !important;
+  --muted: #575757 !important;
   --bg: #f5fbff !important;
 }
 
