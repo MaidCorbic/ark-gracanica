@@ -5412,3 +5412,23 @@ body.light .theme-btn {
   background: rgba(56, 189, 248, 0.16) !important;
   border-color: rgba(56, 189, 248, 0.35) !important;
 }
+.card,
+.text-card,
+.hero-card,
+.stats,
+.race-info-card,
+.premium-race-card,
+.partner-card {
+  cursor: default;
+  user-select: none;
+}
+
+a,
+button,
+.btn,
+summary,
+input,
+textarea,
+select {
+  user-select: auto;
+}
