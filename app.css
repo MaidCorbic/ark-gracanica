@@ -703,9 +703,15 @@ body.light footer{
     background:#03100855;
     box-shadow:0 24px 80px #0008
 }
-.brand img{
-    filter:drop-shadow(0 0 14px #31d16d88);
-    animation:logoPulse 3.6s ease-in-out infinite
+/* FIX: logo glow u svijetloplavu */
+.brand img {
+  filter: drop-shadow(0 0 14px rgba(141, 232, 255, 0.55)) !important;
+}
+
+@keyframes logoPulse {
+  50% {
+    filter: drop-shadow(0 0 28px rgba(141, 232, 255, 0.75));
+  }
 }
 .nav a{
     position:relative
@@ -5100,3 +5106,309 @@ footer > div:nth-child(2) a {
   content: none !important;
 }
 
+/* =====================================================
+   FINAL COLOR OVERRIDE — sve zeleno u svijetloplavo
+   Staviti NA KRAJ app.css fajla
+   ===================================================== */
+
+:root {
+  --green: #38bdf8 !important;
+  --green2: #8de8ff !important;
+
+  --blue: #38bdf8 !important;
+  --cyan: #8de8ff !important;
+
+  --ark-lime: #8de8ff !important;
+  --loading-blue: #8de8ff !important;
+  --loading-blue-soft: #d8f7ff !important;
+  --loading-blue-deep: #38bdf8 !important;
+  --focus-blue: #38bdf8 !important;
+}
+
+/* Tekstovi koji su bili zeleni */
+.eyebrow,
+.stats small,
+.tool-head small,
+.field small,
+.result-badge,
+.route-info span,
+.route-meta span,
+.partners-grid span,
+footer a:hover {
+  color: #8de8ff !important;
+}
+
+/* Dugmad */
+.btn,
+.btn.small,
+button.btn,
+a.btn,
+.hero .btn,
+.actions .btn,
+.map-wrap .btn,
+.join .btn,
+.contact .btn {
+  background: linear-gradient(135deg, #8de8ff, #38bdf8) !important;
+  color: #02131f !important;
+  border: none !important;
+  box-shadow: 0 14px 34px rgba(56, 189, 248, 0.30) !important;
+}
+
+.btn:hover,
+.btn.small:hover,
+button.btn:hover,
+a.btn:hover {
+  background: linear-gradient(135deg, #b6f2ff, #60cfff) !important;
+  box-shadow: 0 18px 42px rgba(56, 189, 248, 0.38) !important;
+}
+
+.btn.ghost,
+.hero .btn.ghost,
+.join .btn.ghost,
+.contact .btn.ghost {
+  background: rgba(141, 232, 255, 0.12) !important;
+  color: #eafcff !important;
+  border: 1px solid rgba(141, 232, 255, 0.42) !important;
+  box-shadow: 0 12px 30px rgba(56, 189, 248, 0.16) !important;
+}
+
+/* Header active / hover */
+.nav a:hover,
+.nav a.active,
+.site-header .nav a.active {
+  background: linear-gradient(135deg, rgba(141, 232, 255, 0.20), rgba(56, 189, 248, 0.10)) !important;
+  color: #eafcff !important;
+  box-shadow: 0 10px 24px rgba(56, 189, 248, 0.18) !important;
+}
+
+.nav a::after {
+  background: linear-gradient(90deg, #8de8ff, #38bdf8) !important;
+  box-shadow: 0 0 12px rgba(141, 232, 255, 0.38) !important;
+}
+
+/* Fokus */
+.btn:focus-visible,
+.nav a:focus-visible,
+.brand:focus-visible,
+.menu-btn:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.gallery img:focus-visible,
+.to-top:focus-visible,
+.theme-btn:focus-visible {
+  outline: 3px solid #38bdf8 !important;
+  outline-offset: 3px !important;
+}
+
+/* Input fokus */
+input:focus,
+select:focus,
+textarea:focus,
+.form input:focus,
+.form textarea:focus,
+.form select:focus {
+  border-color: rgba(141, 232, 255, 0.65) !important;
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.16) !important;
+}
+
+/* Kartice / borderi / glow */
+.card:hover,
+.tool-card:hover,
+.form:hover,
+.map-wrap:hover,
+.section-img:hover,
+.premium-race-card:hover {
+  border-color: rgba(141, 232, 255, 0.38) !important;
+  box-shadow: 0 28px 86px rgba(0,0,0,.42), 0 0 0 1px rgba(141,232,255,.10) !important;
+}
+
+.stats div:hover,
+.mini-features div:hover,
+.chips span:hover,
+.route-info span:hover {
+  border-color: rgba(141, 232, 255, 0.34) !important;
+  background: linear-gradient(135deg, rgba(141,232,255,.11), rgba(255,255,255,.055)) !important;
+}
+
+/* Ikonice koje su ostale zelene */
+.premium-icon-route,
+.premium-icon-start,
+.premium-icon-finish,
+.premium-icon-closed,
+.premium-icon {
+  border-color: rgba(141, 232, 255, 0.38) !important;
+  background: linear-gradient(135deg, rgba(56,189,248,.24), rgba(141,232,255,.12)) !important;
+  box-shadow: 0 16px 38px rgba(56,189,248,.18), inset 0 1px 0 rgba(255,255,255,.22) !important;
+}
+
+.premium-icon svg {
+  stroke: #eafcff !important;
+  filter: drop-shadow(0 0 12px rgba(141,232,255,.45)) !important;
+}
+
+/* Race kartice */
+.premium-race-card li::before,
+.race-info-card li::before {
+  background: linear-gradient(135deg, #8de8ff, #38bdf8) !important;
+  box-shadow: 0 0 14px rgba(141, 232, 255, 0.55) !important;
+}
+
+.premium-race-card b::after {
+  background: linear-gradient(90deg, rgba(141,232,255,.72), transparent) !important;
+}
+
+/* Countdown */
+.race-tag {
+  background: linear-gradient(135deg, #8de8ff, #38bdf8) !important;
+  color: #02131f !important;
+  border-color: rgba(141, 232, 255, 0.55) !important;
+  box-shadow: 0 10px 28px rgba(56,189,248,.24) !important;
+}
+
+.countdown-grid b {
+  background: linear-gradient(135deg, #ffffff, #d8f7ff 48%, #38bdf8) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+
+.countdown-grid span {
+  border-color: rgba(216, 247, 255, 0.18) !important;
+  background: linear-gradient(180deg, rgba(216,247,255,.13), rgba(56,189,248,.055)) !important;
+}
+
+/* Progress bar */
+.progress {
+  background: linear-gradient(90deg, #38bdf8, #8de8ff, #d8f7ff) !important;
+  box-shadow: 0 0 18px rgba(141, 232, 255, 0.52) !important;
+}
+
+/* Scrollbar */
+html {
+  scrollbar-color: #38bdf8 #07110d !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #d8f7ff, #8de8ff, #38bdf8) !important;
+  border-color: #07110d !important;
+  box-shadow: 0 0 18px rgba(141, 232, 255, 0.35) !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ffffff, #8de8ff, #38bdf8) !important;
+  box-shadow: 0 0 24px rgba(141, 232, 255, 0.45) !important;
+}
+
+/* Partner community koji je znao ostati zelen */
+.partner-community .partner-tier,
+.partner-fallback,
+.route-tabs .active {
+  background: linear-gradient(135deg, #8de8ff, #38bdf8) !important;
+  color: #02131f !important;
+}
+
+/* Mapa */
+.map-wrap path {
+  stroke: #38bdf8 !important;
+  filter: drop-shadow(0 0 10px rgba(141,232,255,.48)) !important;
+}
+
+.map-wrap circle {
+  fill: #d8f7ff !important;
+}
+
+.map-wrap text {
+  fill: #d8f7ff !important;
+}
+
+/* Back to top */
+.to-top {
+  border-color: rgba(216,247,255,.42) !important;
+  background: radial-gradient(circle at 35% 25%, rgba(216,247,255,.32), rgba(56,189,248,.18) 44%, rgba(5,20,30,.92) 100%) !important;
+  box-shadow: 0 18px 42px rgba(0,0,0,.42), 0 0 22px rgba(141,232,255,.18) !important;
+}
+
+/* Light mode */
+body.light {
+  --green: #0284c7 !important;
+  --green2: #38bdf8 !important;
+}
+
+body.light .btn.ghost,
+body.light .hero .btn.ghost,
+body.light .join .btn.ghost,
+body.light .contact .btn.ghost {
+  color: #062032 !important;
+  background: rgba(56, 189, 248, 0.14) !important;
+}
+
+body.light .premium-icon svg {
+  stroke: #062032 !important;
+}
+
+/* FIX: back-to-top strelica vidljiva */
+.to-top {
+  color: #d8f7ff !important;
+}
+
+body.light .to-top {
+  color: #075985 !important;
+}
+
+.to-top::before,
+.to-top::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* CLEAN HEADER THEME SWITCH - bez emoji ikonice */
+.theme-btn {
+  position: relative !important;
+  width: 58px !important;
+  height: 32px !important;
+  flex-basis: 58px !important;
+  border-radius: 999px !important;
+  padding: 0 !important;
+  border: 1px solid rgba(141, 232, 255, 0.35) !important;
+  background: rgba(141, 232, 255, 0.12) !important;
+  color: transparent !important;
+  overflow: hidden !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.14),
+    0 10px 24px rgba(0,0,0,.22) !important;
+}
+
+/* kuglica */
+.theme-btn::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 4px !important;
+  top: 4px !important;
+  width: 24px !important;
+  height: 24px !important;
+  border-radius: 50% !important;
+  background: linear-gradient(135deg, #8de8ff, #38bdf8) !important;
+  box-shadow:
+    0 0 16px rgba(141,232,255,.45),
+    inset 0 1px 0 rgba(255,255,255,.5) !important;
+  transition: transform .25s ease !important;
+}
+
+/* ukloni DARK/LIGHT tekst */
+.theme-btn::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* light mode pozicija kuglice */
+body.light .theme-btn::before {
+  transform: translateX(26px) !important;
+  background: linear-gradient(135deg, #ffffff, #8de8ff) !important;
+}
+
+/* light mode pozadina */
+body.light .theme-btn {
+  background: rgba(56, 189, 248, 0.16) !important;
+  border-color: rgba(56, 189, 248, 0.35) !important;
+}
