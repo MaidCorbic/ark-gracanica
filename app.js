@@ -31,7 +31,7 @@ window.addEventListener("load", () => {
       navGallery: 'Galerija',
       navJoin: 'Prijava',
       navContact: 'Kontakt',
-      joinNow: 'PRIJAVA,
+      joinNow: 'PRIJAVA',
       eyebrow: 'Trčanje • zdravlje • zajednica',
       heroTitle: 'Trči Gračanicom. Jačaj sebe. Budi dio ekipe.',
       heroText:
@@ -794,91 +794,3 @@ window.addEventListener("load", () => {
 
   document.addEventListener('DOMContentLoaded', init);
 })();
-document.addEventListener("DOMContentLoaded", () => {
-  /* =========================
-     BACK TO TOP
-  ========================= */
-  const toTop = document.querySelector(".to-top");
-
-  if (toTop) {
-    const toggleToTop = () => {
-      if (window.scrollY > 450) {
-        toTop.classList.add("show");
-      } else {
-        toTop.classList.remove("show");
-      }
-    };
-
-    window.addEventListener("scroll", toggleToTop);
-    toggleToTop();
-
-    toTop.addEventListener("click", () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    });
-  }
-
-  /* =========================
-     COUNTER ANIMATION
-  ========================= */
-  const counters = document.querySelectorAll(".num");
-
-  const animateCounter = (counter) => {
-    if (counter.dataset.animated === "true") return;
-
-    const target =
-      Number(counter.dataset.target) ||
-      Number(counter.dataset.count) ||
-      Number(counter.textContent.replace(/\D/g, "")) ||
-      0;
-
-    if (!target) return;
-
-    counter.dataset.animated = "true";
-    counter.classList.remove("loading");
-
-    const duration = 1400;
-    const startTime = performance.now();
-
-    const update = (currentTime) => {
-      const progress = Math.min((currentTime - startTime) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const value = Math.floor(eased * target);
-
-      counter.textContent = value;
-
-      if (progress < 1) {
-        requestAnimationFrame(update);
-      } else {
-        counter.textContent = target;
-        counter.classList.add("done");
-      }
-    };
-
-    requestAnimationFrame(update);
-  };
-
-  if ("IntersectionObserver" in window) {
-    const counterObserver = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-
-          animateCounter(entry.target);
-          observer.unobserve(entry.target);
-        });
-      },
-      {
-        threshold: 0.3,
-      }
-    );
-
-    counters.forEach((counter) => {
-      counterObserver.observe(counter);
-    });
-  } else {
-    counters.forEach(animateCounter);
-  }
-});
