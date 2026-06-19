@@ -5717,3 +5717,63 @@ body.light textarea::placeholder {
     max-width: 720px !important;
   }
 }
+
+.mobile-race-bar {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .mobile-race-bar {
+    position: fixed;
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    z-index: 999;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding: 10px;
+    border-radius: 22px;
+    background: rgba(10, 20, 35, 0.88);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 20px 60px rgba(0,0,0,.25);
+  }
+
+  .mobile-race-bar a {
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+    padding: 10px 8px;
+    border-radius: 16px;
+    background: rgba(255,255,255,.1);
+  }
+
+  body {
+    padding-bottom: 86px;
+  }
+}
+.consent-check {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+.consent-check input {
+  width: auto;
+  margin-top: 3px;
+}
+
+.announcement-bar {
+  position: relative;
+  z-index: 1002;
+  text-align: center;
+  padding: 11px 16px;
+  background: linear-gradient(90deg, #248eff, #00c6ff);
+  color: #fff;
+  font-weight: 850;
+  font-size: 0.95rem;
+}
