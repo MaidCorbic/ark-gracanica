@@ -772,8 +772,26 @@ window.addEventListener("load", () => {
       { passive: true }
     );
   }
+function initHeaderTime() {
+  const timeEl = document.getElementById('headerTime');
+
+  if (!timeEl) return;
+
+  function updateTime() {
+    const now = new Date();
+
+    timeEl.textContent = now.toLocaleTimeString('bs-BA', {
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+  }
+
+  updateTime();
+  setInterval(updateTime, 1000);
+}
 
   function init() {
+initHeaderTime();
     initLanguage();
     revealElements();
     initCounters();
