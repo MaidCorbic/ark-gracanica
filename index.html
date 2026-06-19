@@ -51,6 +51,14 @@
 </script>
   </head>
   <body>
+<div class="mobile-race-bar">
+  <a href="#race">5K/10K</a>
+  <a href="#map">Ruta</a>
+  <a href="#join">Upit</a>
+</div>
+<div class="announcement-bar">
+  🏃 Prijave za narednu utrku trenutno su zatvorene — novi termin bit će objavljen uskoro.
+</div>
     <a class="skip-link" href="#about">Preskoči na sadržaj</a>
     <div class="progress" id="progress" aria-hidden="true"></div>
     <div class="top" id="top"></div>
@@ -600,6 +608,32 @@
           </div>
         </div>
       </section>
+
+<section id="arrival" class="section arrival-section">
+  <div class="section-head reveal">
+    <p class="eyebrow">Dolazak</p>
+    <h2>Kako do startne zone?</h2>
+    <p>Start i cilj nalaze se u centru grada, ispred Gradskog parka u Gračanici.</p>
+  </div>
+
+  <div class="cards">
+    <article class="card text-card reveal">
+      <h3>Lokacija</h3>
+      <p>Centar grada, ispred Gradskog parka u Gračanici.</p>
+    </article>
+
+    <article class="card text-card reveal">
+      <h3>Dolazak ranije</h3>
+      <p>Preporučujemo dolazak ranije zbog preuzimanja paketa, zagrijavanja i ulaska u startnu zonu.</p>
+    </article>
+
+    <article class="card text-card reveal">
+      <h3>Parking</h3>
+      <p>Informacije o parkingu bit će objavljene prije dana utrke.</p>
+    </article>
+  </div>
+</section>
+
       <section id="map" class="section">
         <div class="section-head reveal">
           <p class="eyebrow">Mapa</p>
@@ -943,6 +977,10 @@ onerror="this.style.display='none';"
             data-i18n-placeholder="messagePh"
             placeholder="Poruka"
           ></textarea>
+<label class="consent-check">
+  <input type="checkbox" required>
+  Saglasan/saglasna sam da me ARK Gračanica kontaktira povodom treninga ili naredne utrke.
+</label>
           <button class="btn" type="submit">Pošalji upit</button>
           
         </form>
