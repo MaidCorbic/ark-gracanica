@@ -5566,7 +5566,6 @@ body.light {
 
 /* Naslovi u light modu */
 body.light h1,
-body.light h2,
 body.light h3,
 body.light h4,
 body.light .hero h1,
@@ -5578,7 +5577,11 @@ body.light .premium-race-card b,
 body.light .race-hub-copy h3,
 body.light .faq-panel h2,
 body.light footer h4 {
-  color: #062032 !important;
+  color: #BFBFBF !important;
+}
+
+body.light h2{
+    color:#fff;
 }
 
 /* Obični tekst */
