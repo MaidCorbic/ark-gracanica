@@ -5432,3 +5432,35 @@ textarea,
 select {
   user-select: auto;
 }
+/* FINAL FIX: counter + to top visible */
+.num {
+  color: var(--text) !important;
+}
+
+.num.loading {
+  color: var(--text) !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.to-top {
+  color: #d8f7ff !important;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.to-top.show {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.to-top::before,
+.to-top::after {
+  display: none !important;
+  content: none !important;
+}
+
+body.light .to-top {
+  color: #075985 !important;
+}
