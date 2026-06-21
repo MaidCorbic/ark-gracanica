@@ -61,29 +61,47 @@
     </script>
   </head>
 
-  <body>
-    <div class="site-loader" id="siteLoader" role="status" aria-label="Učitavanje stranice">
-  <div class="loader-box">
-    <div class="loader-brand">
-      <img src="assets/logo.webp" alt="ARK Gračanica" />
-      <span>ARK Gračanica</span>
+  <body class="page-loading">
+    <div class="site-loader" id="siteLoader" role="status" aria-live="polite" aria-label="Učitavanje stranice">
+  <div class="loader-shell">
+    <div class="loader-top">
+      <div class="loader-brand">
+        <img src="assets/logo.webp" alt="" width="42" height="42" />
+        <span>ARK Gračanica</span>
+      </div>
+
+      <span class="loader-pill">Učitavanje stranice</span>
     </div>
 
-    <div class="loader-lines">
-      <span></span>
-      <span></span>
-      <span></span>
+    <div class="loader-grid">
+      <div class="loader-hero-card">
+        <span class="sk sk-eyebrow"></span>
+        <span class="sk sk-title"></span>
+        <span class="sk sk-title small"></span>
+        <span class="sk sk-text"></span>
+        <span class="sk sk-text short"></span>
+
+        <div class="loader-actions">
+          <span class="sk sk-btn"></span>
+          <span class="sk sk-btn ghost"></span>
+        </div>
+      </div>
+
+      <div class="loader-stats">
+        <span class="sk sk-stat"></span>
+        <span class="sk sk-stat"></span>
+        <span class="sk sk-stat"></span>
+      </div>
     </div>
 
     <div class="loader-cards">
-      <i></i>
-      <i></i>
-      <i></i>
+      <span class="loader-card"></span>
+      <span class="loader-card"></span>
+      <span class="loader-card"></span>
     </div>
-
-    <p>Učitavanje stranice...</p>
   </div>
 </div>
+    
 
 
     <div class="mobile-race-bar">
