@@ -3,71 +3,87 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+
     <meta
       name="description"
-      content="Naša želja je da promovišemo zdrav način života, uz istovremeno građenje zdravijeg i aktivnijeg društva. Svi su dobrodošli, bez obzira na spol."
+      content="ARK Gračanica promoviše zdrav način života, trčanje, rekreaciju, treninge i Gračanica 5K/10K događaj. Svi su dobrodošli."
     />
     <meta
       name="keywords"
-      content="ARK Gračanica, Gračanica 5K, trčanje, atletika, running club, rekreacija, treninzi"
+      content="ARK Gračanica, Gračanica 5K, Gračanica 10K, trčanje, atletika, running club, rekreacija, treninzi"
     />
     <meta name="theme-color" content="#248eff" />
     <meta name="author" content="ARK Gračanica" />
     <meta name="robots" content="index,follow" />
+
     <link rel="icon" type="image/webp" href="assets/logo.webp" />
     <link rel="apple-touch-icon" href="assets/logo.webp" />
+    <link rel="preload" as="image" href="assets/hero.webp" />
+
     <meta property="og:title" content="ARK Gračanica | Atletsko-rekreativni klub" />
     <meta
       property="og:description"
       content="Treninzi, Gračanica 5K/10K, mapa rute, prijave, galerija i alati za trkače u Gračanici."
     />
     <meta property="og:site_name" content="ARK Gračanica" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="ARK Gračanica | Atletsko-rekreativni klub" />
-    <meta name="twitter:description" content="ARK Gračanica je mjesto gdje trčanje reprezentira čistu ljubav prema ovom sportu." />
-    <meta name="twitter:image" content="assets/hero.webp" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="assets/hero.webp" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ARK Gračanica | Atletsko-rekreativni klub" />
+    <meta
+      name="twitter:description"
+      content="ARK Gračanica je mjesto gdje trčanje predstavlja ljubav prema sportu, zdravlju i zajednici."
+    />
+    <meta name="twitter:image" content="assets/hero.webp" />
+
     <title>ARK Gračanica | Atletsko-rekreativni klub</title>
-    <link rel="preload" as="image" href="assets/hero.webp" />
+
     <link rel="stylesheet" href="./app.css?v=50000" />
+
     <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SportsOrganization",
-  "name": "ARK Gračanica",
-  "sport": "Running",
-  "logo": "assets/logo.webp",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Gračanica",
-    "addressCountry": "BA"
-  },
-  "sameAs": [
-    "https://www.facebook.com/p/ARK-Gra%C4%8Danica-100063857353772/",
-    "https://www.instagram.com/ark_gracanica"
-  ]
-}
-</script>
+      {
+        "@context": "https://schema.org",
+        "@type": "SportsOrganization",
+        "name": "ARK Gračanica",
+        "sport": "Running",
+        "logo": "assets/logo.webp",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Gračanica",
+          "addressCountry": "BA"
+        },
+        "sameAs": [
+          "https://www.facebook.com/p/ARK-Gra%C4%8Danica-100063857353772/",
+          "https://www.instagram.com/ark_gracanica"
+        ]
+      }
+    </script>
   </head>
+
   <body>
-<div class="mobile-race-bar">
-  <a href="#race">5K/10K</a>
-  <a href="#map">Ruta</a>
-  <a href="#join">Upit</a>
-</div>
-<div class="announcement-bar">
-  Prijave za narednu utrku trenutno su zatvorene. Novi termin bit će objavljen uskoro!
-</div>
+    <div class="mobile-race-bar">
+      <a href="#race">5K/10K</a>
+      <a href="#map">Ruta</a>
+      <a href="#join">Upit</a>
+    </div>
+
+    <div class="announcement-bar">
+      Prijave za narednu utrku trenutno su zatvorene. Novi termin bit će objavljen uskoro!
+    </div>
+
     <a class="skip-link" href="#about">Preskoči na sadržaj</a>
     <div class="progress" id="progress" aria-hidden="true"></div>
     <div class="top" id="top"></div>
+
     <header class="site-header" id="header">
       <a class="brand" href="#top" aria-label="Početna">
         <img src="assets/logo.webp" alt="ARK Gračanica logo" width="42" height="42" loading="eager" />
         <span>ARK Gračanica</span>
       </a>
+
       <button class="menu-btn" id="menuBtn" type="button" aria-label="Otvori meni" aria-expanded="false">☰</button>
+
       <nav class="nav" id="nav" aria-label="Glavni meni">
         <a href="#about" data-i18n="navAbout">Klub</a>
         <a href="#why-us">Zašto izabrati nas</a>
@@ -78,355 +94,230 @@
         <a href="#partners">Partneri</a>
         <a href="#contact" data-i18n="navContact">Kontakt</a>
       </nav>
-     <div class="actions">
-    <div class="header-time" id="headerTime" aria-label="Trenutno vrijeme">--:--</div>
 
-    <button class="theme-btn" id="themeBtn" type="button" aria-label="Promijeni temu" title="Promijeni temu"></button>
+      <div class="actions">
+        <div class="header-time" id="headerTime" aria-label="Trenutno vrijeme">--:--</div>
 
-    <select id="lang" aria-label="Jezik">
-      <option value="bs">BA</option>
-      <option value="en">EN</option>
-    </select>
-  </div>
-</header>
+        <button
+          class="theme-btn"
+          id="themeBtn"
+          type="button"
+          aria-label="Promijeni temu"
+          title="Promijeni temu"
+        ></button>
+
+        <select id="lang" aria-label="Jezik">
+          <option value="bs">BA</option>
+          <option value="en">EN</option>
+        </select>
+      </div>
+    </header>
+
     <main>
       <section class="hero">
         <div class="hero-card reveal">
           <p class="eyebrow" data-i18n="eyebrow">Trčanje • zdravlje • zajednica</p>
           <h1 data-i18n="heroTitle">Trči Gračanicom. Jačaj sebe. Budi dio ekipe.</h1>
-          <p data-i18n="heroText"> Atletsko-rekreativni klub (ARK) "Gračanica" je bh. udruženje registrovano u decembru 2020. godine. </p>
+          <p data-i18n="heroText">
+            Atletsko-rekreativni klub ARK Gračanica okuplja rekreativce, trkače i ljubitelje aktivnog načina života.
+          </p>
+
           <div class="hero-actions">
             <a class="btn" href="#race" data-i18n="seeRace">POGLEDAJ 5K</a>
-            <a class="btn ghost" href="#join" data-i18n="apply">PRIJAVI SE</a>
+            <a class="btn ghost" href="#join" data-i18n="apply">POŠALJI UPIT</a>
           </div>
         </div>
+
         <div class="stats" aria-label="Statistika">
-  <div>
-    <span class="num" data-target="280">0</span>
-    <small data-i18n="followers">pratilaca</small>
-  </div>
-  <div>
-    <span class="num" data-target="600">0</span>
-    <small data-i18n="runers">učesnika</small>
-  </div>
-  <div>
-<span class="num no-plus" data-target="6">0</span>
-    <small data-i18n="yearexisting">godina postojanja</small>
-  </div>
-</div>
+          <div>
+            <span class="num" data-target="280">0</span>
+            <small data-i18n="followers">pratilaca</small>
+          </div>
+          <div>
+            <span class="num" data-target="600">0</span>
+            <small data-i18n="runers">učesnika</small>
+          </div>
+          <div>
+            <span class="num no-plus" data-target="6">0</span>
+            <small data-i18n="yearexisting">godina postojanja</small>
+          </div>
+        </div>
       </section>
-     <section id="about" class="section grid-2">
-  <div class="copy reveal">
-    <p class="eyebrow" data-i18n="aboutEyebrow">O klubu</p>
-    <h2 data-i18n="aboutTitle">Klub za rekreativce, takmičare i sve one koji žele trčati.</h2>
-    <p data-i18n="aboutText">
-      ARK Gračanica promoviše zdrav život, zajedničke treninge i trkačke događaje u gradu.</p>
-  </div>
 
-  <img
-    class="section-img reveal"
-    loading="lazy"
-    decoding="async"
-    src="assets/community.webp"
-    alt="Trkači ARK Gračanica"
-    width="900"
-    height="675"
-  />
-</section>
+      <section id="about" class="section grid-2">
+        <div class="copy reveal">
+          <p class="eyebrow" data-i18n="aboutEyebrow">O klubu</p>
+          <h2 data-i18n="aboutTitle">Klub za rekreativce, takmičare i sve one koji žele trčati.</h2>
+          <p data-i18n="aboutText">
+            ARK Gračanica promoviše zdrav život, zajedničke treninge i trkačke događaje u gradu.
+          </p>
+        </div>
+
+        <img
+          class="section-img reveal"
+          loading="lazy"
+          decoding="async"
+          src="assets/community.webp"
+          alt="Trkači ARK Gračanica"
+          width="900"
+          height="675"
+        />
+      </section>
+
       <section id="why-us" class="section why-section">
-  <div class="section-head reveal">
-    <p class="eyebrow">Zašto ARK Gračanica</p>
-    <h2>Trening, podrška i zajednica na jednom mjestu</h2>
-    <p>
-      Bez obzira da li tek počinješ ili želiš napredovati, klub pruža motivaciju, društvo i sigurniji put do cilja.
-    </p>
-  </div>
+        <div class="section-head reveal">
+          <p class="eyebrow">Zašto ARK Gračanica</p>
+          <h2>Trening, podrška i zajednica na jednom mjestu</h2>
+          <p>
+            Bez obzira da li tek počinješ ili želiš napredovati, klub pruža motivaciju, društvo i sigurniji put do cilja.
+          </p>
+        </div>
 
-  <div class="cards">
-    <article class="card text-card reveal">
-      <h3>Zajednički treninzi</h3>
-      <p>Treninzi u grupi pomažu da ostaneš motivisan i da lakše izgradiš kontinuitet.</p>
-    </article>
+        <div class="cards">
+          <article class="card text-card reveal">
+            <h3>Zajednički treninzi</h3>
+            <p>Treninzi u grupi pomažu da ostaneš motivisan i da lakše izgradiš kontinuitet.</p>
+          </article>
 
-    <article class="card text-card reveal">
-      <h3>Podrška iskusnijih trkača</h3>
-      <p>Savjeti, tempo, priprema i iskustvo članova mogu pomoći početnicima i rekreativcima.</p>
-    </article>
+          <article class="card text-card reveal">
+            <h3>Podrška iskusnijih trkača</h3>
+            <p>Savjeti, tempo, priprema i iskustvo članova mogu pomoći početnicima i rekreativcima.</p>
+          </article>
 
-    <article class="card text-card reveal">
-      <h3>Pozitivna atmosfera</h3>
-      <p>Klub okuplja ljude koji vole sport, druženje i aktivan način života</p>
-    </article>
-  </div>
-</section>
-      
+          <article class="card text-card reveal">
+            <h3>Pozitivna atmosfera</h3>
+            <p>Klub okuplja ljude koji vole sport, druženje i aktivan način života.</p>
+          </article>
+        </div>
+      </section>
+
       <section id="race" class="section">
         <div class="section-head reveal">
           <p class="eyebrow">Gračanica 5K / 10K</p>
           <h2 data-i18n="raceTitle">Segment trke spreman za promociju i prijave</h2>
+          <p>
+            Najvažnije informacije o startu, cilju, ruti, programu dana i trenutnom statusu prijava.
+          </p>
         </div>
+
         <div class="cards">
           <article class="card reveal">
             <img src="assets/race.webp" loading="lazy" decoding="async" alt="Start trke" />
             <h3>5K Gračanica Run</h3>
             <p data-i18n="fiveText">
-              Idealna distanca za početnike i brze rekreativce. Ravna gradska ruta, jasne oznake i podrška volontera
+              Idealna distanca za početnike i brze rekreativce. Ravna gradska ruta, jasne oznake i podrška volontera.
             </p>
           </article>
+
           <article class="card reveal">
             <img src="assets/training.webp" loading="lazy" decoding="async" alt="Trening" />
             <h3>10K Gračanica Run</h3>
-            <p data-i18n="tenText">Za trkače koji žele duži izazov i tempo kontrolu kroz poznate gradske dionice</p>
+            <p data-i18n="tenText">
+              Za trkače koji žele duži izazov i tempo kontrolu kroz poznate gradske dionice.
+            </p>
           </article>
+
           <article class="card reveal">
             <img src="assets/kids.webp" loading="lazy" decoding="async" alt="Zajednica" />
             <h3 data-i18n="communityTitle">Zajednica</h3>
             <p data-i18n="communityText">
-              Najvažniji dio događaja: ljudi, energija, navijanje i kilometri koji povezuju ovaj grad
+              Najvažniji dio događaja: ljudi, energija, navijanje i kilometri koji povezuju ovaj grad.
             </p>
           </article>
         </div>
 
-       <section id="awards" class="section awards-section">
-  <div class="section-head reveal">
-    <p class="eyebrow">Kategorije</p>
-    <h2>Kategorije i nagrade</h2>
-    <p>
-      Kategorije i nagrade bit će definisane prema pravilniku i zvaničnoj objavi utrke
-    </p>
-  </div>
+        <div class="reveal race-dashboard premium-race">
+          <div class="race-info-card premium-race-card">
+            <span class="premium-icon premium-icon-start" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M5 21V4"></path>
+                <path d="M5 5c3.8-2 6.8 1.7 10.6-.3 1.1-.6 2.1-.7 3.4-.5v8.3c-1.3-.2-2.3-.1-3.4.5C11.8 15 8.8 11.3 5 13.3"></path>
+              </svg>
+            </span>
+            <b>Start</b>
+            <span>Centar grada, ispred Gradskog parka</span>
+            <ul>
+              <li>Okupljanje i zagrijavanje</li>
+              <li>Preuzimanje startnih paketa</li>
+              <li>Jasno označena startna zona</li>
+            </ul>
+          </div>
 
-  <div class="cards">
-    <article class="card text-card reveal">
-      <h3>5K muškarci</h3>
-      <p>Plasman za muške učesnike na distanci 5K</p>
-    </article>
+          <div class="race-info-card premium-race-card">
+            <span class="premium-icon premium-icon-finish" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <circle cx="12" cy="12" r="8"></circle>
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v3M12 19v3M2 12h3M19 12h3"></path>
+              </svg>
+            </span>
+            <b>Cilj</b>
+            <span>Centar grada, ispred Gradskog parka</span>
+            <ul>
+              <li>Medalje za finišere</li>
+              <li>Osvježenje poslije trke</li>
+              <li>Foto zona za učesnike</li>
+            </ul>
+          </div>
 
-    <article class="card text-card reveal">
-      <h3>5K žene</h3>
-      <p>Plasman za ženske učesnice na distanci 5K</p>
-    </article>
+          <div class="race-info-card premium-race-card">
+            <span class="premium-icon premium-icon-route" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M12 21s7-5.4 7-12a7 7 0 1 0-14 0c0 6.6 7 12 7 12Z"></path>
+                <circle cx="12" cy="9" r="2.5"></circle>
+              </svg>
+            </span>
+            <b>Ruta</b>
+            <span>5K / 10K gradska ruta</span>
+            <ul>
+              <li>Asfaltna podloga</li>
+              <li>Volonteri na ključnim tačkama</li>
+              <li>Podrška duž staze</li>
+            </ul>
+          </div>
 
-    <article class="card text-card reveal">
-      <h3>10K muškarci</h3>
-      <p>Plasman za muške učesnike na distanci 10K</p>
-    </article>
+          <div class="race-info-card premium-race-card race-extra-card registrations-closed">
+            <span class="premium-icon premium-icon-closed" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <rect x="4" y="5" width="16" height="15" rx="3"></rect>
+                <path d="M8 3v4M16 3v4M4 10h16M9 14l6 4M15 14l-6 4"></path>
+              </svg>
+            </span>
+            <b>Prijave</b>
+            <span>Zatvorene</span>
+            <ul>
+              <li>Prijave trenutno nisu aktivne</li>
+              <li>Novi termin će biti objavljen naknadno</li>
+              <li>Prati zvanične obavijesti kluba</li>
+            </ul>
+          </div>
 
-    <article class="card text-card reveal">
-      <h3>10K žene</h3>
-      <p>Plasman za ženske učesnice na distanci 10K</p>
-    </article>
+          <div class="race-status-card premium-status">
+            <div>
+              <strong>665</strong>
+              <small>Prijavljenih</small>
+            </div>
 
-    <article class="card text-card reveal">
-      <h3>Apsolutni poredak</h3>
-      <p>Najbrži učesnici u ukupnom poretku prema zvaničnim rezultatima</p>
-    </article>
+            <div>
+              <strong>700</strong>
+              <small>Limit</small>
+            </div>
 
-    <article class="card text-card reveal">
-      <h3>Rekreativci</h3>
-      <p>Kategorija za učesnike koji trče radi zdravlja, druženja i ličnog izazova</p>
-    </article>
-  </div>
-</section>
+            <div class="status-closed">
+              <strong>Zatvorene</strong>
+              <small>Prijave</small>
+            </div>
 
-        <section id="age-categories" class="section age-categories-section">
-  <div class="section-head reveal">
-    <p class="eyebrow">Starosne kategorije</p>
-    <h2>Starosne grupe učesnika</h2>
-    <p>
-      Starosne kategorije mogu biti prilagođene konačnom broju prijavljenih učesnika
-    </p>
-  </div>
-
-  <div class="cards">
-    <article class="card text-card reveal">
-      <h3>Junior / mladi</h3>
-      <p>Kategorija za mlađe učesnike, prema pravilima organizatora</p>
-    </article>
-
-    <article class="card text-card reveal">
-      <h3>Seniori</h3>
-      <p>Glavna takmičarska kategorija za odrasle učesnike</p>
-    </article>
-
-    <article class="card text-card reveal">
-      <h3>Veterani</h3>
-      <p>Kategorija za iskusnije trkače i rekreativce</p>
-    </article>
-  </div>
-</section>
-        
-
-        <section id="rules" class="section rules-section">
-  <div class="section-head reveal">
-    <p class="eyebrow">Pravila</p>
-    <h2>Pravila i važne informacije</h2>
-    <p>Osnovne informacije za učesnike prije dolaska na start</p>
-  </div>
-
-  <div class="faq-stack premium-faq reveal">
-    <details open>
-      <summary>Ko može učestvovati?</summary>
-      <p>Učestvovati mogu rekreativci, takmičari i svi koji su zdravstveno spremni za odabranu distancu</p>
-    </details>
-
-    <details>
-      <summary>Da li je obavezno preuzimanje startnog paketa?</summary>
-      <p>Da. Startni paket se preuzima prema satnici koju klub objavi prije utrke</p>
-    </details>
-
-    <details>
-      <summary>Da li je ruta označena?</summary>
-      <p>Ruta je označena, a volonteri su raspoređeni na ključnim tačkama staze</p>
-    </details>
-
-    <details>
-      <summary>Šta ako prijave nisu otvorene?</summary>
-      <p>Ako prijave nisu otvorene, potrebno je pratiti zvanične kanale kluba za novi termin</p>
-    </details>
-  </div>
-</section>
-        
-   <div class="race-info-visible">
-  <div class="race-info-box">
-    <span>Start</span>
-    <b>Centar grada, ispred Gradskog parka u Gračanici</b>
-  </div>
-
-  <div class="race-info-box">
-    <span>Cilj</span>
-    <b>Centar grada, ispred Gradskog parka u Gračanici</b>
-  </div>
-
-  <div class="race-info-box">
-    <span>Ruta</span>
-    <b>5K / 10K</b>
-  </div>
-
- <div class="race-info-box registrations-closed-small">
-  <span>Prijave trenutno</span>
-  <b>Zatvorene</b>
-</div>
-</div>
-<div class="reveal race-dashboard premium-race">
-  <div class="race-info-card premium-race-card">
-    <span class="premium-icon premium-icon-start" aria-hidden="true">
-      <svg viewBox="0 0 24 24" focusable="false">
-        <path d="M5 21V4"></path>
-        <path d="M5 5c3.8-2 6.8 1.7 10.6-.3 1.1-.6 2.1-.7 3.4-.5v8.3c-1.3-.2-2.3-.1-3.4.5C11.8 15 8.8 11.3 5 13.3"></path>
-      </svg>
-    </span>
-    <b>Start</b>
-    <span>Centar grada, ispred Gradskog parka</span>
-    <ul>
-      <li>Okupljanje i zagrijavanje</li>
-      <li>Preuzimanje startnih paketa</li>
-      <li>Jasno označena startna zona</li>
-    </ul>
-  </div>
-
-  <div class="race-info-card premium-race-card">
-    <span class="premium-icon premium-icon-finish" aria-hidden="true">
-      <svg viewBox="0 0 24 24" focusable="false">
-        <circle cx="12" cy="12" r="8"></circle>
-        <circle cx="12" cy="12" r="4"></circle>
-        <path d="M12 2v3M12 19v3M2 12h3M19 12h3"></path>
-      </svg>
-    </span>
-    <b>Cilj</b>
-    <span>Centar grada, ispred Gradskog parka</span>
-    <ul>
-      <li>Medalje za finišere</li>
-      <li>Osvježenje poslije trke</li>
-      <li>Foto zona za učesnike</li>
-    </ul>
-  </div>
-
-  <div class="race-info-card premium-race-card">
-    <span class="premium-icon premium-icon-route" aria-hidden="true">
-      <svg viewBox="0 0 24 24" focusable="false">
-        <path d="M12 21s7-5.4 7-12a7 7 0 1 0-14 0c0 6.6 7 12 7 12Z"></path>
-        <circle cx="12" cy="9" r="2.5"></circle>
-      </svg>
-    </span>
-    <b>Ruta</b>
-    <span>5K / 10K gradska ruta</span>
-    <ul>
-      <li>Asfaltna podloga</li>
-      <li>Volonteri na ključnim tačkama</li>
-      <li>Podrška duž staze</li>
-    </ul>
-  </div>
-
-  <div class="race-info-card premium-race-card race-extra-card registrations-closed">
-    <span class="premium-icon premium-icon-closed" aria-hidden="true">
-      <svg viewBox="0 0 24 24" focusable="false">
-        <rect x="4" y="5" width="16" height="15" rx="3"></rect>
-        <path d="M8 3v4M16 3v4M4 10h16M9 14l6 4M15 14l-6 4"></path>
-      </svg>
-    </span>
-    <b>Prijave</b>
-    <span>Zatvorene</span>
-    <ul>
-      <li>Prijave trenutno nisu aktivne</li>
-      <li>Novi termin će biti objavljen naknadno</li>
-      <li>Prati zvanične obavijesti kluba</li>
-    </ul>
-  </div>
-
-  <div class="race-status-card premium-status">
-    <div>
-      <strong>665</strong>
-      <small>Prijavljenih</small>
-    </div>
-
-    <div>
-      <strong>700</strong>
-      <small>Limit</small>
-    </div>
-
-    <div class="status-closed">
-      <strong>Zatvorene</strong>
-      <small>Prijave</small>
-    </div>
-
-    <em><span></span></em>
-  </div>
-</div>
-
-        <section id="race-pack" class="section race-pack-section">
-  <div class="section-head reveal">
-    <p class="eyebrow">Startni paket</p>
-    <h2>Šta učesnici mogu očekivati?</h2>
-    <p>
-      Detaljan sadržaj startnog paketa bit će objavljen prije otvaranja prijava
-    </p>
-  </div>
-
-  <div class="cards">
-    <article class="card text-card reveal">
-      <h3>Startni broj</h3>
-      <p>Svaki prijavljeni učesnik preuzima svoj startni broj prije utrke</p>
-    </article>
-
-    <article class="card text-card reveal">
-      <h3>Okrepa</h3>
-      <p>Podrška i osvježenje za učesnike na dan utrke</p>
-    </article>
-
-    <article class="card text-card reveal">
-      <h3>Medalja</h3>
-      <p>Medalja za finišere, prema zvaničnoj organizaciji događaja</p>
-    </article>
-  </div>
-</section>
+            <em><span></span></em>
+          </div>
+        </div>
 
         <div class="race-day-hub reveal" aria-label="Race Day Hub">
           <div class="race-hub-copy">
             <p class="eyebrow">Program dana</p>
             <h3>Informacije vezane za dan utrke</h3>
             <p>
-              Satnica, lokacije, okrepne stanice i upute za učesnike prikazane su u nastavku
+              Satnica, lokacije, okrepne stanice i upute za učesnike prikazane su u nastavku.
             </p>
             <div class="hub-actions">
               <a class="btn small" href="#map">Pogledaj rutu</a>
@@ -440,16 +331,19 @@
               <b>Preuzimanje paketa</b>
               <small>Startna zona • provjera brojeva</small>
             </div>
+
             <div>
               <span>Subota</span>
               <b>Zagrijavanje</b>
               <small>Zajedničko aktiviranje prije starta</small>
             </div>
+
             <div>
-              <span> Subota - 19:30 </span>
+              <span>Subota - 19:30</span>
               <b>Start 5K / 10K</b>
-          <small>Kontrolisani start i jasno označena gradska ruta</small>
+              <small>Kontrolisani start i jasno označena gradska ruta</small>
             </div>
+
             <div>
               <span>20:30</span>
               <b>Medalje i rezultati</b>
@@ -468,8 +362,9 @@
                 </svg>
               </span>
               <b>Okrepne stanice</b>
-              <p>Voda, podrška volontera i jasno označene tačke na ključnim dijelovima rute</p>
+              <p>Voda, podrška volontera i jasno označene tačke na ključnim dijelovima rute.</p>
             </article>
+
             <article>
               <span class="premium-icon premium-icon-start" aria-hidden="true">
                 <svg viewBox="0 0 24 24" focusable="false">
@@ -478,8 +373,9 @@
                 </svg>
               </span>
               <b>Startna zona</b>
-              <p>Okupljanje, zagrijavanje, startni paketi i ulazak u koridore prije starta</p>
+              <p>Okupljanje, zagrijavanje, startni paketi i ulazak u koridore prije starta.</p>
             </article>
+
             <article>
               <span class="premium-icon premium-icon-finish" aria-hidden="true">
                 <svg viewBox="0 0 24 24" focusable="false">
@@ -488,95 +384,72 @@
                 </svg>
               </span>
               <b>Ciljna zona</b>
-              <p>Medalje, osvježenje, fotografije i prostor za učesnike nakon završene utrke</p>
+              <p>Medalje, osvježenje, fotografije i prostor za učesnike nakon završene utrke.</p>
             </article>
           </div>
         </div>
       </section>
 
+      <section id="rules" class="section rules-section">
+        <div class="section-head reveal">
+          <p class="eyebrow">Pravila</p>
+          <h2>Pravila i važne informacije</h2>
+          <p>Osnovne informacije za učesnike prije dolaska na start.</p>
+        </div>
+
+        <div class="faq-stack premium-faq reveal">
+          <details open>
+            <summary>Ko može učestvovati?</summary>
+            <p>Učestvovati mogu rekreativci, takmičari i svi koji su zdravstveno spremni za odabranu distancu.</p>
+          </details>
+
+          <details>
+            <summary>Koje su kategorije i nagrade?</summary>
+            <p>Kategorije, starosne grupe i nagrade bit će objavljene u zvaničnom pravilniku utrke.</p>
+          </details>
+
+          <details>
+            <summary>Da li je obavezno preuzimanje startnog paketa?</summary>
+            <p>Da. Startni paket se preuzima prema satnici koju klub objavi prije utrke.</p>
+          </details>
+
+          <details>
+            <summary>Da li je ruta označena?</summary>
+            <p>Ruta je označena, a volonteri su raspoređeni na ključnim tačkama staze.</p>
+          </details>
+
+          <details>
+            <summary>Šta ako prijave nisu otvorene?</summary>
+            <p>Ako prijave nisu otvorene, potrebno je pratiti zvanične kanale kluba za novi termin.</p>
+          </details>
+        </div>
+      </section>
+
       <section class="section alt" id="voices">
-  <div class="section-head reveal">
-    <p class="eyebrow">Iskustva</p>
-    <h2>Šta kažu naši članovi</h2>
-    <p>Kratke poruke ljudi koji treniraju, trče i napreduju uz ARK Gračanica.</p>
-  </div>
+        <div class="section-head reveal">
+          <p class="eyebrow">Iskustva</p>
+          <h2>Šta kažu naši članovi</h2>
+          <p>Kratke poruke ljudi koji treniraju, trče i napreduju uz ARK Gračanica.</p>
+        </div>
 
-  <div class="cards">
-    <article class="card text-card reveal">
-      <h3>“Motivacija je lakša u grupi.”</h3>
-      <p>Trening je mnogo lakši kada imaš ekipu koja te pokrene i kad ti se ne ide.</p>
-    </article>
+        <div class="cards">
+          <article class="card text-card reveal">
+            <h3>“Motivacija je lakša u grupi.”</h3>
+            <p>Trening je mnogo lakši kada imaš ekipu koja te pokrene i kad ti se ne ide.</p>
+          </article>
 
-    <article class="card text-card reveal">
-      <h3>“Nije bitno koliko si brz.”</h3>
-      <p>Bitno je da dođeš, kreneš i polako gradiš naviku.</p>
-    </article>
+          <article class="card text-card reveal">
+            <h3>“Nije bitno koliko si brz.”</h3>
+            <p>Bitno je da dođeš, kreneš i polako gradiš naviku.</p>
+          </article>
 
-    <article class="card text-card reveal">
-      <h3>“Utrka je posebna atmosfera.”</h3>
-      <p>Gračanica 5K okuplja trkače, porodice i lokalnu zajednicu.</p>
-    </article>
-  </div>
-</section>
+          <article class="card text-card reveal">
+            <h3>“Utrka je posebna atmosfera.”</h3>
+            <p>Gračanica 5K okuplja trkače, porodice i lokalnu zajednicu.</p>
+          </article>
+        </div>
+      </section>
 
-      <section id="results" class="section results-section">
-  <div class="section-head reveal">
-    <p class="eyebrow">Rezultati</p>
-    <h2>Rezultati i fotografije nakon utrke</h2>
-    <p>
-      Nakon završetka utrke ovdje će biti dostupne informacije o rezultatima, fotografijama i zvaničnim objavama
-    </p>
-  </div>
-
-  <div class="cards">
-    <article class="card text-card reveal">
-      <h3>Rezultati 5K</h3>
-      <p>Zvanični rezultati bit će objavljeni nakon utrke</p>
-    </article>
-
-    <article class="card text-card reveal">
-      <h3>Rezultati 10K</h3>
-      <p>Pregled plasmana i vremena bit će dostupan nakon obrade rezultata</p>
-    </article>
-
-   <article class="card text-card reveal">
-      <h3>Foto galerija</h3>
-      <p>Fotografije učesnika bit će objavljene na zvaničnim kanalima kluba</p>
-    </article>
-  </div>
-</section>
-
-      <section id="volunteers" class="section volunteers-section">
-  <div class="section-head reveal">
-    <p class="eyebrow">Volonteri</p>
-    <h2>Budi dio organizacije utrke</h2>
-    <p>
-      Volonteri su važan dio svake utrke. Pomažu na startu, cilju, okrepnim stanicama i duž staze
-    </p>
-  </div>
-
-  <div class="cards">
-    <article class="card text-card reveal">
-      <h3>Startna zona</h3>
-      <p>Pomoć pri usmjeravanju učesnika, startnim paketima i organizaciji prije utrke</p>
-    </article>
-
-    <article class="card text-card reveal">
-      <h3>Okrepne stanice</h3>
-      <p>Podjela vode, podrška trkačima i komunikacija sa organizatorima</p>
-    </article>
-
-    <article class="card text-card reveal">
-      <h3>Finish zona</h3>
-      <p>Medalje, osvježenje, fotografije i pomoć učesnicima nakon završetka utrke</p>
-    </article>
-  </div>
-
-  <div class="section-cta reveal">
-    <a class="btn" href="#join">Prijavi se kao volonter</a>
-  </div>
-</section>
-      
       <section id="training" class="section grid-2 alt">
         <img
           class="section-img reveal"
@@ -585,89 +458,79 @@
           src="assets/training.webp"
           alt="Trkački trening"
         />
+
         <div class="copy reveal">
           <p class="eyebrow" data-i18n="trainingEyebrow">Running program</p>
           <h2 data-i18n="trainingTitle">Korisni alati za trening</h2>
+
           <div class="tools pro-tools">
             <div class="tool-card">
               <div class="tool-head">
                 <span>01</span>
                 <label data-i18n="paceLabel">Pace kalkulator</label>
               </div>
+
               <div class="inline metric-row">
                 <div class="field">
                   <small>KM</small>
                   <input id="paceKm" type="number" min="1" value="5" aria-label="Kilometri" />
                 </div>
+
                 <div class="field">
                   <small>MIN</small>
                   <input id="paceMin" type="number" min="1" value="25" aria-label="Minute" />
                 </div>
-                <button class="btn small" id="calcPace" type="button" hidden aria-hidden="true" tabindex="-1">Izračunaj</button>
+
+                <button class="btn small" id="calcPace" type="button" hidden aria-hidden="true" tabindex="-1">
+                  Izračunaj
+                </button>
               </div>
+
               <strong class="result-badge" id="paceResult">5:00 min/km</strong>
-              <p class="tool-note">Unesi distancu i ukupno vrijeme. Dobiješ prosječan tempo po kilometru</p>
+              <p class="tool-note">Unesi distancu i ukupno vrijeme. Dobiješ prosječan tempo po kilometru.</p>
             </div>
+
             <div class="tool-card">
               <div class="tool-head">
                 <span>02</span>
                 <label data-i18n="timeLabel">Kalkulator vremena</label>
               </div>
+
               <div class="inline metric-row">
                 <div class="field">
                   <small>KM</small>
                   <input id="raceKm" type="number" min="1" value="10" aria-label="Kilometri" />
                 </div>
+
                 <div class="field">
                   <small>PACE</small>
                   <input id="racePace" type="text" value="5:30" aria-label="Pace" />
                 </div>
-                <button class="btn small" id="calcTime" type="button" hidden aria-hidden="true" tabindex="-1">Izračunaj</button>
+
+                <button class="btn small" id="calcTime" type="button" hidden aria-hidden="true" tabindex="-1">
+                  Izračunaj
+                </button>
               </div>
+
               <strong class="result-badge" id="timeResult">55:00</strong>
-              <p class="tool-note">Unesi ciljnu distancu i pace u formatu 5:30</p>
+              <p class="tool-note">Unesi ciljnu distancu i pace u formatu 5:30.</p>
             </div>
+
             <div class="tip pro-tip">
               <b data-i18n="tipTitle">Savjet dana:</b>
-              <span id="tipText">Zagrij se 10 minuta prije svakog bržeg treninga</span>
+              <span id="tipText">Zagrij se 10 minuta prije svakog bržeg treninga.</span>
             </div>
           </div>
         </div>
       </section>
 
-<section id="arrival" class="section arrival-section">
-  <div class="section-head reveal">
-    <p class="eyebrow">Dolazak</p>
-    <h2>Kako do startne zone?</h2>
-    <p>Start i cilj nalaze se u centru grada, ispred Gradskog parka u Gračanici</p>
-  </div>
-
-  <div class="cards">
-    <article class="card text-card reveal">
-      <h3>Lokacija</h3>
-      <p>Centar grada, ispred Gradskog parka u Gračanici.</p>
-    </article>
-
-    <article class="card text-card reveal">
-      <h3>Dolazak ranije</h3>
-      <p>Preporučujemo dolazak ranije zbog preuzimanja paketa, zagrijavanja i ulaska u startnu zonu</p>
-    </article>
-
-    <article class="card text-card reveal">
-      <h3>Parking</h3>
-      <p>Informacije o parkingu bit će objavljene prije dana utrke</p>
-    </article>
-  </div>
-</section>
-
       <section id="map" class="section">
         <div class="section-head reveal">
           <p class="eyebrow">Mapa</p>
           <h2 data-i18n="mapTitle">Gračanica 5K ruta</h2>
-          <p data-i18n="mapText">
-            Ruta 5/10K Gračanica za trkače
-          </p>
+          <p data-i18n="mapText">Ruta 5K/10K Gračanica za trkače.</p>
         </div>
+
         <div class="map-wrap reveal">
           <svg viewBox="0 0 900 380" role="img" aria-label="Ilustracija Gračanica 5K rute">
             <rect width="900" height="380" rx="24"></rect>
@@ -683,6 +546,7 @@
               <span class="active">5K ruta</span>
               <span>10K ruta</span>
             </div>
+
             <div class="route-km-row">
               <span>START</span>
               <span>1K</span>
@@ -691,17 +555,19 @@
               <span>4K</span>
               <span>CILJ</span>
             </div>
+
             <svg class="elevation-line" viewBox="0 0 640 120" role="img" aria-label="Profil rute">
               <path d="M20 92 C80 68 116 78 160 55 S245 38 300 64 390 96 455 54 555 35 620 70"></path>
               <line x1="20" y1="96" x2="620" y2="96"></line>
             </svg>
+
             <div class="route-meta">
               <span><b>Podloga</b> asfalt</span>
               <span><b>Profil</b> gradska ruta</span>
               <span><b>Podrška</b> volonteri</span>
             </div>
           </div>
-          
+
           <a
             class="btn"
             target="_blank"
@@ -713,12 +579,14 @@
           </a>
         </div>
       </section>
+
       <section id="gallery" class="section">
         <div class="section-head reveal">
           <p class="eyebrow">Galerija</p>
           <h2 data-i18n="galleryTitle">Fotografije i atmosfera</h2>
-          <p data-i18n="galleryText">Naša arhiva fotografija i atmosfera sa trka</p>
+          <p data-i18n="galleryText">Naša arhiva fotografija i atmosfera sa trka.</p>
         </div>
+
         <div class="gallery">
           <img loading="lazy" decoding="async" src="assets/hero.webp" alt="Trkači" />
           <img loading="lazy" decoding="async" src="assets/race.webp" alt="Utrka" />
@@ -727,65 +595,52 @@
         </div>
       </section>
 
-<section id="become-partner" class="section become-partner-section">
-  <div class="section-head reveal">
-    <p class="eyebrow">Partnerstvo</p>
-    <h2>Želite podržati ARK Gračanica?</h2>
-    <p>
-      Podrška partnera pomaže organizaciji događaja, promociji sporta i razvoju lokalne trkačke zajednice.
-    </p>
-  </div>
-
-  <div class="section-cta reveal">
-    <a class="btn" href="#contact">Kontaktirajte nas</a>
-  </div>
-</section>
-
       <section id="partners" class="section partners-section" aria-labelledby="partners-title">
         <div class="section-head reveal">
           <p class="eyebrow">Partneri i sponzori</p>
-        <h2 id="partners-title">Podrška koja nosi našu trku</h2>
+          <h2 id="partners-title">Podrška koja nosi našu trku</h2>
           <p>
-        Partneri i sponzori koji podržavaju rad kluba i organizaciju događaja.          
+            Partneri i sponzori koji podržavaju rad kluba i organizaciju događaja.
           </p>
         </div>
-<div class="partners-grid partners-logo-grid reveal" aria-label="Partneri i sponzori događaja">
-         <article class="partner-card partner-main">
-  <a href="https://gracanica.gov.ba/" target="_blank" rel="noopener">
-    <span class="partner-tier">Glavni pokrovitelj</span>
-    <div class="partner-logo">
-      <img
-        src="https://www.google.com/s2/favicons?sz=128&amp;domain=gracanica.gov.ba"
-        alt="Grad Gračanica logo"
-        loading="lazy"
-        decoding="async"
-        referrerpolicy="no-referrer"
-        onerror="this.style.display='none';"
-      />
-    </div>
-    <b>Grad Gračanica</b>
-    <small>Institucionalna podrška</small>
-  </a>
-</article>
 
-  <article class="partner-card partner-gold">
-  <a href="https://edoslad.ba/" target="_blank" rel="noopener">
-    <span class="partner-tier">Zlatni sponzor</span>
-    <div class="partner-logo">
-      <img
-        src="https://www.google.com/s2/favicons?sz=128&amp;domain=edoslad.ba"
-        alt="Edo Slad logo"
-        loading="lazy"
-        decoding="async"
-        referrerpolicy="no-referrer"
-        onerror="this.style.display='none';"
-      />
-    </div>
-    <b>Edo Slad</b>
-    <small>Slatki partner utrke</small>
-  </a>
-</article>
-  
+        <div class="partners-grid partners-logo-grid reveal" aria-label="Partneri i sponzori događaja">
+          <article class="partner-card partner-main">
+            <a href="https://gracanica.gov.ba/" target="_blank" rel="noopener">
+              <span class="partner-tier">Glavni pokrovitelj</span>
+              <div class="partner-logo">
+                <img
+                  src="https://www.google.com/s2/favicons?sz=128&amp;domain=gracanica.gov.ba"
+                  alt="Grad Gračanica logo"
+                  loading="lazy"
+                  decoding="async"
+                  referrerpolicy="no-referrer"
+                  onerror="this.style.display='none';"
+                />
+              </div>
+              <b>Grad Gračanica</b>
+              <small>Institucionalna podrška</small>
+            </a>
+          </article>
+
+          <article class="partner-card partner-gold">
+            <a href="https://edoslad.ba/" target="_blank" rel="noopener">
+              <span class="partner-tier">Zlatni sponzor</span>
+              <div class="partner-logo">
+                <img
+                  src="https://www.google.com/s2/favicons?sz=128&amp;domain=edoslad.ba"
+                  alt="Edo Slad logo"
+                  loading="lazy"
+                  decoding="async"
+                  referrerpolicy="no-referrer"
+                  onerror="this.style.display='none';"
+                />
+              </div>
+              <b>Edo Slad</b>
+              <small>Slatki partner utrke</small>
+            </a>
+          </article>
+
           <article class="partner-card partner-gold">
             <a href="https://suman.ba/" target="_blank" rel="noopener">
               <span class="partner-tier">Zlatni sponzor</span>
@@ -796,9 +651,8 @@
                   loading="lazy"
                   decoding="async"
                   referrerpolicy="no-referrer"
-onerror="this.style.display='none';"
-                  />
-                
+                  onerror="this.style.display='none';"
+                />
               </div>
               <b>SUMAN d.o.o.</b>
               <small>Veliki partner događaja</small>
@@ -815,9 +669,8 @@ onerror="this.style.display='none';"
                   loading="lazy"
                   decoding="async"
                   referrerpolicy="no-referrer"
-onerror="this.style.display='none';"
-                  />
-                
+                  onerror="this.style.display='none';"
+                />
               </div>
               <b>Plastoflex</b>
               <small>Industrijski partner</small>
@@ -834,9 +687,8 @@ onerror="this.style.display='none';"
                   loading="lazy"
                   decoding="async"
                   referrerpolicy="no-referrer"
-onerror="this.style.display='none';"               
-                  />
-                
+                  onerror="this.style.display='none';"
+                />
               </div>
               <b>Metaloplastika ZR</b>
               <small>Podrška lokalne privrede</small>
@@ -853,9 +705,8 @@ onerror="this.style.display='none';"
                   loading="lazy"
                   decoding="async"
                   referrerpolicy="no-referrer"
-onerror="this.style.display='none';"                
-                  />
-               
+                  onerror="this.style.display='none';"
+                />
               </div>
               <b>Terme Gračanica</b>
               <small>Rekreacija i oporavak</small>
@@ -872,9 +723,8 @@ onerror="this.style.display='none';"
                   loading="lazy"
                   decoding="async"
                   referrerpolicy="no-referrer"
-onerror="this.style.display='none';"                
-                  />
-                
+                  onerror="this.style.display='none';"
+                />
               </div>
               <b>Mliječna industrija 99</b>
               <small>Podrška učesnicima</small>
@@ -893,91 +743,43 @@ onerror="this.style.display='none';"
           </article>
         </div>
 
+        <div class="section-cta reveal">
+          <a class="btn" href="#contact">Kontaktirajte nas za partnerstvo</a>
+        </div>
       </section>
 
-      <section id="organizer" class="section organizer-section">
-  <div class="section-head reveal">
-    <p class="eyebrow">Organizator</p>
-    <h2>ARK Gračanica</h2>
-    <p>
-      Atletsko-rekreativni klub Gračanica okuplja rekreativce, trkače i ljubitelje aktivnog načina života
-    </p>
-  </div>
-
-  <div class="cards">
-    <article class="card text-card reveal">
-      <h3>Klub</h3>
-      <p>Registrovano udruženje koje promoviše trčanje, zdravlje i zajednicu</p>
-    </article>
-
-    <article class="card text-card reveal">
-      <h3>Utrka</h3>
-      <p>Organizacija gradskih trkačkih događaja i podrška lokalnoj sportskoj sceni</p>
-    </article>
-
-    <article class="card text-card reveal">
-      <h3>Zajednica</h3>
-      <p>Otvoren prostor za rekreativce, početnike i iskusnije trkače</p>
-    </article>
-  </div>
-</section>
-
-      <section id="updates" class="section updates-section">
-  <div class="section-head reveal">
-    <p class="eyebrow">Obavijesti</p>
-    <h2>Prati najnovije informacije</h2>
-    <p>
-      Informacije o prijavama, terminima, rezultatima i fotografijama objavljuju se putem zvaničnih kanala kluba
-    </p>
-  </div>
-
-  <div class="cards">
-    <article class="card text-card reveal">
-      <h3>Prijave</h3>
-<p>Informacije o otvaranju prijava bit će objavljene putem zvaničnih kanala kluba</p>
-    </article>
-
-    <article class="card text-card reveal">
-      <h3>Satnica</h3>
-      <p>Detaljna satnica događaja objavljuje se prije dana utrke</p>
-    </article>
-
-    <article class="card text-card reveal">
-      <h3>Rezultati</h3>
-      <p>Rezultati i fotografije biće objavljeni nakon završetka utrke</p>
-    </article>
-  </div>
-</section>
-      
       <section id="join" class="section join">
         <div class="copy reveal">
           <p class="eyebrow" data-i18n="joinEyebrow">Prijava</p>
           <h2 data-i18n="joinTitle">Pošalji upit za trening ili narednu utrku</h2>
-         <p data-i18n="joinText">
-  Prijave za trku su trenutno zatvorene. Ovu formu možete koristiti za upit o treninzima ili interes za naredni događaj
-</p>
+          <p data-i18n="joinText">
+            Prijave za trku su trenutno zatvorene. Ovu formu možete koristiti za upit o treninzima, volontiranju ili interes za naredni događaj.
+          </p>
         </div>
-        <form class="form reveal" id="joinForm" novalidate="">
+
+        <form class="form reveal" id="joinForm" novalidate>
           <label class="sr-only" for="name" data-i18n="nameLabel">Ime i prezime</label>
           <input
             id="name"
             name="name"
-            required=""
+            required
             minlength="3"
             autocomplete="name"
             data-i18n-placeholder="namePh"
             placeholder="Ime i prezime"
           />
+
           <label class="sr-only" for="email" data-i18n="emailLabel">E-mail</label>
           <input
             id="email"
             name="email"
             type="email"
-            required=""
+            required
             autocomplete="email"
             data-i18n-placeholder="emailPh"
             placeholder="Email"
           />
+
           <label class="sr-only" for="phone" data-i18n="phoneLabel">Telefon</label>
           <input
             id="phone"
@@ -988,13 +790,17 @@ onerror="this.style.display='none';"
             data-i18n-placeholder="phonePh"
             placeholder="Telefon"
           />
-          <label class="sr-only" for="distance" data-i18n="distanceLabel">Distanca</label>
+
+          <label class="sr-only" for="distance" data-i18n="distanceLabel">Vrsta upita</label>
           <select id="distance" name="distance">
             <option>5K</option>
             <option>10K</option>
             <option>Trail</option>
             <option data-i18n="trainingGroup">Trening grupa</option>
+            <option>Volonter</option>
+            <option>Partnerstvo</option>
           </select>
+
           <label class="sr-only" for="message" data-i18n="messageLabel">Poruka</label>
           <textarea
             id="message"
@@ -1003,137 +809,144 @@ onerror="this.style.display='none';"
             data-i18n-placeholder="messagePh"
             placeholder="Poruka"
           ></textarea>
-<label class="consent-check">
-  <input type="checkbox" required>
-  Saglasan/saglasna sam da me ARK Gračanica kontaktira povodom treninga ili naredne utrke.
-</label>
+
+          <label class="consent-check">
+            <input type="checkbox" required />
+            Saglasan/saglasna sam da me ARK Gračanica kontaktira povodom treninga ili naredne utrke.
+          </label>
+
           <button class="btn" type="submit">Pošalji upit</button>
-          
+          <p class="form-msg" id="formMsg" aria-live="polite"></p>
         </form>
       </section>
 
-         <section id="faq" class="section faq-section">
-  <div class="faq-panel reveal">
-    <p class="eyebrow">FAQ</p>
-    <h2>Česta pitanja</h2>
-    <p class="faq-intro">
-      Kratke informacije za nove članove, učesnike trke i rekreativce koji žele trenirati sa klubom.
-    </p>
+      <section id="faq" class="section faq-section">
+        <div class="faq-panel reveal">
+          <p class="eyebrow">FAQ</p>
+          <h2>Česta pitanja</h2>
+          <p class="faq-intro">
+            Kratke informacije za nove članove, učesnike trke i rekreativce koji žele trenirati sa klubom.
+          </p>
 
-    <div class="faq-stack premium-faq">
-      <details open>
-        <summary>Kako se prijaviti za Gračanica 5K?</summary>
-        <p>Prijava se vrši kroz sekciju prijave na stranici ili preko zvaničnih objava kluba</p>
-      </details>
+          <div class="faq-stack premium-faq">
+            <details open>
+              <summary>Kako se prijaviti za Gračanica 5K?</summary>
+              <p>Prijava se vrši kroz sekciju prijave na stranici ili preko zvaničnih objava kluba.</p>
+            </details>
 
-      <details>
-        <summary>Da li mogu trenirati početnici?</summary>
-        <p>Da. Početnici su dobrodošli. Treninzi se mogu prilagoditi rekreativcima i osobama koje tek kreću</p>
-      </details>
+            <details>
+              <summary>Da li mogu trenirati početnici?</summary>
+              <p>Da. Početnici su dobrodošli. Treninzi se mogu prilagoditi rekreativcima i osobama koje tek kreću.</p>
+            </details>
 
-      <details>
-        <summary>Kako se mogu prijaviti na trku?</summary>
-        <p>Informacije možete pronaći na Facebook stranici ARK Gračanica</p>
-      </details>
+            <details>
+              <summary>Kako se mogu prijaviti na trku?</summary>
+              <p>Informacije možete pronaći na Facebook stranici ARK Gračanica i kroz zvanične objave kluba.</p>
+            </details>
 
-      <details>
-        <summary>Gdje se preuzimaju startni paketi?</summary>
-        <p>Informacije o preuzimanju objavljuju se prije trke, najčešće uz detalje o startnoj zoni i satnici</p>
-      </details>
+            <details>
+              <summary>Gdje se preuzimaju startni paketi?</summary>
+              <p>Informacije o preuzimanju objavljuju se prije trke, najčešće uz detalje o startnoj zoni i satnici.</p>
+            </details>
 
-      <details>
-        <summary>Da li je ruta pogodna za rekreativce?</summary>
-        <p>Da. 5K ruta je dobra za rekreativce, dok je 10K bolja za trkače koji žele veći izazov</p>
-      </details>
+            <details>
+              <summary>Da li je ruta pogodna za rekreativce?</summary>
+              <p>Da. 5K ruta je dobra za rekreativce, dok je 10K bolja za trkače koji žele veći izazov.</p>
+            </details>
 
-      <details>
-        <summary>Gdje se objavljuju rezultati i fotografije?</summary>
-        <p>Rezultati, fotografije i obavještenja objavljuju se na web stranici i zvaničnim kanalima ARK Gračanica</p>
-      </details>
-    </div>
-  </div>
-</section>
-      </main>
-    <section class="section final-cta">
-  <div class="final-cta-box reveal">
-    <div>
-      <p class="eyebrow">Pridruži se</p>
-      <h2>Spreman za prvi korak?</h2>
-      <p>Javi se klubu, dođi na trening i postani dio trkačke zajednice ARK Gračanica.</p>
-    </div>
+            <details>
+              <summary>Gdje se objavljuju rezultati i fotografije?</summary>
+              <p>Rezultati, fotografije i obavještenja objavljuju se na web stranici i zvaničnim kanalima ARK Gračanica.</p>
+            </details>
+          </div>
+        </div>
+      </section>
 
-    <div class="final-cta-actions">
-      <a class="btn" href="#join">Pošalji prijavu</a>
-      <a class="btn ghost" href="#contact">Kontaktiraj nas</a>
-    </div>
-  </div>
-</section>
+      <section class="section final-cta">
+        <div class="final-cta-box reveal">
+          <div>
+            <p class="eyebrow">Pridruži se</p>
+            <h2>Spreman za prvi korak?</h2>
+            <p>Javi se klubu, dođi na trening i postani dio trkačke zajednice ARK Gračanica.</p>
+          </div>
+
+          <div class="final-cta-actions">
+            <a class="btn" href="#join">Pošalji upit</a>
+            <a class="btn ghost" href="#contact">Kontaktiraj nas</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
     <footer id="contact">
       <div>
         <img src="assets/logo.webp" alt="ARK Gračanica" width="58" height="58" />
-        <p data-i18n="footerText">Naša želja je da promovišemo zdrav način života uz istovremeno građenje zdravijeg i aktivnijeg društva. 
-          Svi su dobrodošli bez obzira na spol.</p>
+        <p data-i18n="footerText">
+          Naša želja je da promovišemo zdrav način života uz istovremeno građenje zdravijeg i aktivnijeg društva.
+          Svi su dobrodošli bez obzira na spol.
+        </p>
       </div>
+
       <div>
         <h4 data-i18n="footerCats">Kategorije</h4>
         <a href="#race">Gračanica 5K</a>
+        <a href="#rules">Pravila</a>
+        <a href="#voices">Iskustva članova</a>
         <a href="#training" data-i18n="navTraining">Treninzi</a>
         <a href="#map" data-i18n="navMap">Mapa</a>
+        <a href="#gallery" data-i18n="navGallery">Galerija</a>
+        <a href="#partners">Partneri</a>
         <a href="#join" data-i18n="navJoin">Prijava</a>
-        <a href="#rules">Pravila</a>
-        <a href="#volunteers">Volonteri</a>
-        <a href="#race-pack">Startni paket</a>
-        <a href="#awards">Kategorije i nagrade</a>
-        <a href="#age-categories">Starosne kategorije</a>
-         <a href="#partners">Partneri</a>
-<a href="#become-partner">Postani partner</a>
-        <a href="#results">Rezultati</a>
-        <a href="#updates">Obavijesti</a>
-        <a href="#organizer">Organizator</a>
-<a href="#why-us">Zašto ARK Gračanica</a>
+        <a href="#why-us">Zašto ARK Gračanica</a>
         <a href="#faq">FAQ</a>
       </div>
+
       <div>
         <h4 data-i18n="footerContact">Kontakt</h4>
-       <a
-  href="https://www.facebook.com/p/ARK-Gra%C4%8Danica-100063857353772/"
-  target="_blank"
-  rel="noopener"
-  aria-label="ARK Gračanica Facebook stranica"
->
-  Facebook
-</a>
-
-<a
-  href="https://www.instagram.com/ark_gracanica"
-  target="_blank"
-  rel="noopener"
-  aria-label="ARK Gračanica Instagram profil"
->
-  Instagram
-</a>
-
-        <a href="mailto:info@arkgracanica.ba" aria-label="Pošalji email ARK Gračanica">
-  info@arkgracanica.ba
-</a>
 
         <a
-  href="https://www.google.com/maps/search/Gradski+park+Gračanica"
-  target="_blank"
-  rel="noopener"
->
-  Gradski park, Gračanica
-</a>
-        
-        
+          href="https://www.facebook.com/p/ARK-Gra%C4%8Danica-100063857353772/"
+          target="_blank"
+          rel="noopener"
+          aria-label="ARK Gračanica Facebook stranica"
+        >
+          Facebook
+        </a>
+
+        <a
+          href="https://www.instagram.com/ark_gracanica"
+          target="_blank"
+          rel="noopener"
+          aria-label="ARK Gračanica Instagram profil"
+        >
+          Instagram
+        </a>
+
+        <a href="mailto:info@arkgracanica.ba" aria-label="Pošalji email ARK Gračanica">
+          info@arkgracanica.ba
+        </a>
+
+        <a
+          href="https://www.google.com/maps/search/Gradski+park+Gračanica"
+          target="_blank"
+          rel="noopener"
+        >
+          Gradski park, Gračanica
+        </a>
       </div>
-      <div class="footer-year"><span id="year">© 2026 ARK Gračanica. Sva prava zadržana</span></div>
+
+      <div class="footer-year">
+        <span id="year">© 2026 ARK Gračanica. Sva prava zadržana</span>
+      </div>
     </footer>
-   <button class="to-top" id="toTop" type="button" aria-label="Nazad na početak">↑</button>
+
+    <button class="to-top" id="toTop" type="button" aria-label="Nazad na početak">↑</button>
+
     <div class="lightbox" id="lightbox" aria-hidden="true">
       <button type="button" aria-label="Zatvori">×</button>
       <img alt="Uvećana fotografija" />
     </div>
-    <script src="app.js" defer=""></script>
+
+    <script src="app.js" defer></script>
   </body>
 </html>
