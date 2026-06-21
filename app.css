@@ -3853,3 +3853,126 @@ body.light .menu-btn {
     transition: none !important;
   }
 }
+/* =====================================================
+   FINAL MICRO FIXES v2
+   Sitne korekcije nakon premium sistema
+   Staviti NA SAMI KRAJ app.css
+   ===================================================== */
+
+/* Race preview kartice: svaka dobija bolju oznaku */
+#race > .cards .card:nth-child(1) h3::before {
+  content: "5K" !important;
+}
+
+#race > .cards .card:nth-child(2) h3::before {
+  content: "10K" !important;
+}
+
+#race > .cards .card:nth-child(3) h3::before {
+  content: "TEAM" !important;
+}
+
+/* Bolji razmak za kartice koje imaju sliku */
+.card:not(.text-card) h3 {
+  margin: 18px 20px 10px !important;
+}
+
+.card:not(.text-card) p {
+  margin: 0 !important;
+  padding: 0 20px 22px !important;
+}
+
+/* Sticky header offset kada se klikne na anchor link */
+.section {
+  scroll-margin-top: 96px !important;
+}
+
+@media (max-width: 760px) {
+  .section {
+    scroll-margin-top: 104px !important;
+  }
+}
+
+/* Light mode: zatvorene prijave moraju ostati crveni status */
+body.light .registrations-closed,
+body.light .registrations-closed-small {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 107, 107, 0.20),
+      rgba(255, 255, 255, 0.78)
+    ) !important;
+
+  border-color: rgba(220, 38, 38, 0.28) !important;
+  box-shadow:
+    0 22px 60px rgba(220, 38, 38, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.90) !important;
+}
+
+body.light .registrations-closed b,
+body.light .registrations-closed-small b {
+  color: #7f1d1d !important;
+}
+
+body.light .registrations-closed > span,
+body.light .registrations-closed-small span {
+  color: #b91c1c !important;
+}
+
+body.light .registrations-closed li {
+  color: #7f1d1d !important;
+}
+
+body.light .status-closed {
+  background: rgba(255, 107, 107, 0.16) !important;
+  border-color: rgba(220, 38, 38, 0.30) !important;
+}
+
+body.light .status-closed strong {
+  color: #b91c1c !important;
+}
+
+/* Mobile bottom bar + back to top bolji razmak */
+@media (max-width: 760px) {
+  body {
+    padding-bottom: 98px !important;
+  }
+
+  .to-top {
+    bottom: 104px !important;
+    right: 16px !important;
+  }
+
+  .mobile-race-bar {
+    bottom: 12px !important;
+  }
+}
+
+/* Partner kartice: logo da uvijek ostane iznad dekoracije */
+.partner-logo,
+.partner-tier,
+.partner-card b,
+.partner-card small {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* FAQ: da plus/minus dugme uvijek bude iznad dekoracije */
+.premium-faq summary::after {
+  z-index: 3 !important;
+}
+
+/* Na touch uređajima bez skakanja kartica */
+@media (hover: none), (pointer: coarse) {
+  .card:hover,
+  .card.text-card:hover,
+  .card:not(.text-card):hover,
+  .race-info-card:hover,
+  .premium-race-card:hover,
+  .partner-card:hover,
+  .tool-card:hover,
+  .map-wrap:hover,
+  .final-cta-box:hover {
+    transform: none !important;
+  }
+}
