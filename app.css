@@ -2848,58 +2848,81 @@ body.light .premium-icon svg {
   }
 }
 /* =====================================================
-   ULTRA PREMIUM VOICES SECTION
-   Sekcija: "Šta kažu naši članovi"
-   Radi sa postojećim HTML-om bez promjene strukture.
+   FINAL UNIFIED PREMIUM SYSTEM
+   Cilj: sve sekcije i kartice vizuelno uskladiti sa #voices
+   Ne mijenja HTML strukturu. Staviti NA KRAJ app.css.
    ===================================================== */
 
-#voices {
+/* ---------- Global premium section background rhythm ---------- */
+
+.section {
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  background:
-    radial-gradient(circle at 14% 18%, rgba(141, 232, 255, 0.16), transparent 32%),
-    radial-gradient(circle at 88% 20%, rgba(56, 189, 248, 0.12), transparent 34%),
-    linear-gradient(135deg, #06131d 0%, #07110d 48%, #05131c 100%) !important;
 }
 
-#voices::before {
+.section::before {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: -2;
-  background:
-    linear-gradient(115deg, transparent 0 18px, rgba(255,255,255,.035) 19px 20px);
-  opacity: 0.35;
+  z-index: -3;
   pointer-events: none;
+  background:
+    radial-gradient(circle at 12% 12%, rgba(141, 232, 255, 0.08), transparent 34%),
+    radial-gradient(circle at 90% 18%, rgba(56, 189, 248, 0.06), transparent 36%);
+  opacity: 0.9;
 }
 
-#voices::after {
+.section.alt::before,
+.alt::before {
+  background:
+    radial-gradient(circle at 16% 16%, rgba(141, 232, 255, 0.12), transparent 34%),
+    radial-gradient(circle at 84% 18%, rgba(56, 189, 248, 0.08), transparent 36%),
+    linear-gradient(135deg, rgba(6, 19, 29, 0.36), rgba(7, 17, 13, 0.70));
+}
+
+.section::after {
   content: "";
   position: absolute;
   width: 420px;
   height: 420px;
-  right: -180px;
-  bottom: -210px;
-  z-index: -1;
+  right: -220px;
+  bottom: -260px;
+  z-index: -2;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(141,232,255,.20), transparent 68%);
-  filter: blur(2px);
   pointer-events: none;
+  background: radial-gradient(circle, rgba(141, 232, 255, 0.12), transparent 68%);
+  filter: blur(2px);
 }
 
-/* Naslov sekcije */
-#voices .section-head {
+/* ---------- Premium section heads like #voices ---------- */
+
+.section-head,
+.copy {
   position: relative;
-  max-width: 860px;
+}
+
+.section-head {
+  max-width: 880px;
+}
+
+.section:not(.grid-2):not(.join) > .section-head,
+#faq .faq-panel {
   margin-inline: auto;
-  margin-bottom: 34px;
   text-align: center;
 }
 
-#voices .eyebrow {
+.section:not(.grid-2):not(.join) > .section-head .eyebrow,
+#faq .faq-panel > .eyebrow {
   width: fit-content;
   margin-inline: auto;
+}
+
+.section-head .eyebrow,
+.copy .eyebrow,
+.faq-panel .eyebrow,
+.final-cta-box .eyebrow {
+  width: fit-content;
   padding: 8px 13px;
   border-radius: 999px;
   border: 1px solid rgba(141, 232, 255, 0.28);
@@ -2907,81 +2930,74 @@ body.light .premium-icon svg {
   color: #8de8ff !important;
   box-shadow:
     0 12px 34px rgba(56, 189, 248, 0.10),
-    inset 0 1px 0 rgba(255,255,255,.12);
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
-#voices .section-head h2 {
-  margin-top: 14px;
+.section-head h2,
+.copy h2,
+.faq-panel h2,
+.final-cta-box h2 {
   letter-spacing: -0.045em;
+}
+
+.section:not(.join) .section-head h2,
+#faq .faq-panel h2 {
   background: linear-gradient(135deg, #ffffff, #d8f7ff 50%, #8de8ff);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent !important;
-  text-shadow: 0 0 34px rgba(141,232,255,.08);
+  text-shadow: 0 0 34px rgba(141, 232, 255, 0.08);
 }
 
-#voices .section-head p {
-  max-width: 640px;
-  margin-inline: auto;
+.section-head p,
+.copy p,
+.faq-intro {
   color: rgba(234, 252, 255, 0.72) !important;
 }
 
-/* Kartice */
-#voices .cards {
+/* ---------- Universal premium card language ---------- */
+
+.cards {
   position: relative;
   max-width: 1180px;
   margin-inline: auto;
-  align-items: stretch;
   gap: clamp(16px, 2vw, 24px);
 }
 
-#voices .card.text-card {
+.card,
+.text-card,
+.tool-card,
+.map-wrap,
+.race-day-hub,
+.route-pro-panel,
+.premium-faq details,
+.partner-card,
+.partners-grid article,
+.final-cta-box,
+.stats {
   position: relative;
-  min-height: 260px;
-  padding: clamp(24px, 2.6vw, 34px) !important;
   overflow: hidden;
-
   border-radius: 30px !important;
   border: 1px solid rgba(141, 232, 255, 0.20) !important;
-
   background:
     linear-gradient(145deg, rgba(216,247,255,.13), rgba(255,255,255,.055) 48%, rgba(56,189,248,.08)),
     rgba(6, 19, 29, 0.72) !important;
-
   box-shadow:
     0 24px 70px rgba(0, 0, 0, 0.34),
-    inset 0 1px 0 rgba(255,255,255,.12) !important;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  transition:
-    transform .28s ease,
-    border-color .28s ease,
-    box-shadow .28s ease,
-    background .28s ease;
+    inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
 }
 
-/* Veliki quote znak u pozadini */
-#voices .card.text-card::before {
-  content: "“";
-  position: absolute;
-  top: -34px;
-  left: 18px;
-  z-index: 0;
-
-  font-family: Georgia, serif;
-  font-size: 150px;
-  line-height: 1;
-  font-weight: 900;
-
-  color: rgba(141, 232, 255, 0.12);
-  pointer-events: none;
-}
-
-/* Svjetlosni krug */
-#voices .card.text-card::after {
+/* shared glow circle */
+.card::after,
+.tool-card::after,
+.map-wrap::after,
+.race-day-hub::after,
+.route-pro-panel::after,
+.premium-faq details::after,
+.partner-card::after,
+.partners-grid article::after,
+.final-cta-box::after,
+.stats::after {
   content: "";
   position: absolute;
   width: 190px;
@@ -2989,37 +3005,97 @@ body.light .premium-icon svg {
   right: -82px;
   bottom: -94px;
   z-index: 0;
-
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(141,232,255,.22), transparent 68%);
+  background: radial-gradient(circle, rgba(141,232,255,.18), transparent 68%);
   pointer-events: none;
   transition: transform .28s ease, opacity .28s ease;
 }
 
-#voices .card.text-card h3,
-#voices .card.text-card p {
-  position: relative;
-  z-index: 1;
-  padding: 0 !important;
+/* shared top highlight */
+.card::before,
+.tool-card::before,
+.map-wrap::before,
+.race-day-hub::before,
+.route-pro-panel::before,
+.premium-faq details::before,
+.partner-card::before,
+.partners-grid article::before,
+.final-cta-box::before,
+.stats::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.11), transparent 34%),
+    radial-gradient(circle at 80% 12%, rgba(141,232,255,.14), transparent 30%);
+  opacity: 0.9;
 }
 
-#voices .card.text-card h3 {
-  margin: 0 0 18px;
+.card > *,
+.tool-card > *,
+.map-wrap > *,
+.race-day-hub > *,
+.route-pro-panel > *,
+.premium-faq details > *,
+.partner-card > *,
+.partners-grid article > *,
+.final-cta-box > *,
+.stats > * {
+  position: relative;
+  z-index: 1;
+}
+
+.card:hover,
+.text-card:hover,
+.tool-card:hover,
+.map-wrap:hover,
+.race-day-hub:hover,
+.route-pro-panel:hover,
+.premium-faq details:hover,
+.partner-card:hover,
+.partners-grid article:hover,
+.final-cta-box:hover,
+.stats:hover {
+  transform: translateY(-7px);
+  border-color: rgba(141, 232, 255, 0.48) !important;
+  box-shadow:
+    0 34px 92px rgba(0, 0, 0, 0.46),
+    0 0 0 1px rgba(141,232,255,.16),
+    0 0 44px rgba(56,189,248,.10) !important;
+}
+
+.card:hover::after,
+.tool-card:hover::after,
+.map-wrap:hover::after,
+.race-day-hub:hover::after,
+.route-pro-panel:hover::after,
+.premium-faq details:hover::after,
+.partner-card:hover::after,
+.partners-grid article:hover::after,
+.final-cta-box:hover::after,
+.stats:hover::after {
+  transform: scale(1.12);
+  opacity: 0.95;
+}
+
+/* Text-card typography like voices */
+.text-card h3,
+.card h3 {
   color: #eafcff !important;
-  font-size: clamp(22px, 2.2vw, 30px);
+  font-size: clamp(22px, 2vw, 29px);
   line-height: 1.12;
   letter-spacing: -0.035em;
 }
 
-#voices .card.text-card p {
-  margin: auto 0 0;
+.text-card p,
+.card p {
   color: rgba(234, 252, 255, 0.72) !important;
-  font-size: 16px;
   line-height: 1.68;
 }
 
-/* Mala premium linija pri dnu */
-#voices .card.text-card p::after {
+.text-card p::after {
   content: "";
   display: block;
   width: 64px;
@@ -3030,239 +3106,436 @@ body.light .premium-icon svg {
   box-shadow: 0 0 16px rgba(141,232,255,.35);
 }
 
-/* Hover */
-#voices .card.text-card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(141, 232, 255, 0.48) !important;
+/* ---------- Section-specific card identity ---------- */
+
+/* Why us: check/support feel */
+#why-us .text-card::before {
+  content: "✓";
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 18px;
+  border-radius: 19px;
+  background: linear-gradient(135deg, rgba(141,232,255,.25), rgba(56,189,248,.12));
+  border: 1px solid rgba(141,232,255,.32);
+  color: #8de8ff;
+  font-size: 28px;
+  font-weight: 950;
+  box-shadow: 0 16px 34px rgba(56,189,248,.16);
+}
+
+/* Race image cards */
+#race > .cards .card {
+  min-height: 100%;
+}
+
+#race > .cards .card img,
+#gallery .gallery img {
+  border-radius: 24px;
+  border: 1px solid rgba(141,232,255,.20);
+}
+
+#race > .cards .card h3::before {
+  content: "RUN";
+  display: inline-flex;
+  align-items: center;
+  margin-right: 9px;
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #8de8ff, #38bdf8);
+  color: #02131f;
+  font-size: 10px;
+  font-weight: 950;
+  letter-spacing: .1em;
+  vertical-align: middle;
+}
+
+/* Race info cards */
+.race-info-card,
+.premium-race-card {
+  background:
+    linear-gradient(160deg, rgba(216,247,255,.14), rgba(255,255,255,.055) 42%, rgba(56,189,248,.10)),
+    rgba(6, 19, 29, 0.76) !important;
+}
+
+.race-info-card b,
+.premium-race-card b {
+  color: #eafcff !important;
+}
+
+.race-info-card > span:not(.premium-icon),
+.premium-race-card > span:not(.premium-icon) {
+  color: rgba(216,247,255,.78) !important;
+}
+
+/* Closed registration card keeps red theme but same premium language */
+.registrations-closed {
+  background:
+    linear-gradient(145deg, rgba(255,107,107,.20), rgba(255,255,255,.055) 44%, rgba(56,189,248,.05)),
+    rgba(6, 19, 29, 0.76) !important;
+  border-color: rgba(255,107,107,.48) !important;
+}
+
+.registrations-closed::after {
+  background: radial-gradient(circle, rgba(255,107,107,.18), transparent 68%) !important;
+}
+
+/* Program day hub */
+.race-day-hub {
+  border-radius: 34px !important;
+}
+
+.hub-timeline div,
+.hub-info-grid article {
+  position: relative;
+  overflow: hidden;
+}
+
+.hub-timeline div::after,
+.hub-info-grid article::after {
+  content: "";
+  display: block;
+  width: 58px;
+  height: 3px;
+  margin-top: 16px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #8de8ff, #38bdf8, transparent);
+}
+
+/* Rules and FAQ */
+.premium-faq details {
+  background:
+    linear-gradient(145deg, rgba(216,247,255,.12), rgba(255,255,255,.05) 48%, rgba(56,189,248,.07)),
+    rgba(6, 19, 29, 0.72) !important;
+}
+
+.premium-faq summary {
+  color: #eafcff !important;
+}
+
+/* Training tools */
+.tool-card {
+  padding: clamp(22px, 2.6vw, 30px) !important;
+}
+
+.tool-head span {
+  box-shadow: 0 12px 30px rgba(56,189,248,.24);
+}
+
+.result-badge {
+  background:
+    linear-gradient(145deg, rgba(141,232,255,.14), rgba(3,16,8,.62)) !important;
+  border-color: rgba(141,232,255,.36) !important;
+  color: #d8f7ff !important;
+}
+
+/* Map */
+.map-wrap {
+  border-radius: 34px !important;
+}
+
+.route-pro-panel {
+  background:
+    linear-gradient(145deg, rgba(216,247,255,.11), rgba(255,255,255,.05)),
+    rgba(6, 19, 29, 0.64) !important;
+}
+
+/* Partners */
+.partner-card {
+  border-radius: 30px !important;
+}
+
+.partner-logo {
+  background:
+    linear-gradient(145deg, rgba(216,247,255,.22), rgba(255,255,255,.08)),
+    rgba(6,19,29,.72) !important;
+  border-color: rgba(141,232,255,.24) !important;
+}
+
+/* ---------- Header premium info, matching voices style ---------- */
+
+.announcement-bar {
+  background:
+    radial-gradient(circle at 12% 50%, rgba(216,247,255,.25), transparent 34%),
+    linear-gradient(90deg, rgba(36,142,255,.96), rgba(0,198,255,.92)) !important;
   box-shadow:
-    0 34px 92px rgba(0, 0, 0, 0.46),
-    0 0 0 1px rgba(141,232,255,.16),
-    0 0 44px rgba(56,189,248,.10) !important;
+    0 12px 34px rgba(56,189,248,.18),
+    inset 0 1px 0 rgba(255,255,255,.20);
+  letter-spacing: .01em;
 }
 
-#voices .card.text-card:hover::after {
-  transform: scale(1.12);
-  opacity: 0.95;
-}
-
-/* Različit akcenat po kartici */
-#voices .card.text-card:nth-child(1) {
-  transform-origin: center bottom;
-}
-
-#voices .card.text-card:nth-child(2) {
+.site-header {
+  border-bottom-color: rgba(141,232,255,.16) !important;
   background:
-    linear-gradient(145deg, rgba(141,232,255,.14), rgba(255,255,255,.05) 45%, rgba(125,211,252,.10)),
-    rgba(6, 19, 29, 0.72) !important;
+    linear-gradient(135deg, rgba(6,19,29,.82), rgba(7,17,13,.86)),
+    rgba(6,16,12,.86) !important;
+  box-shadow: 0 10px 36px rgba(0,0,0,.22);
 }
 
-#voices .card.text-card:nth-child(3) {
+.site-header.scrolled {
   background:
-    linear-gradient(145deg, rgba(216,247,255,.12), rgba(255,255,255,.052) 45%, rgba(14,165,233,.11)),
-    rgba(6, 19, 29, 0.72) !important;
+    linear-gradient(135deg, rgba(6,19,29,.94), rgba(7,17,13,.96)),
+    rgba(6,16,12,.95) !important;
+  border-bottom-color: rgba(141,232,255,.24) !important;
 }
 
-/* Light mode */
-body.light #voices {
+.brand {
+  padding: 5px 8px 5px 5px;
+  border-radius: 999px;
+  border: 1px solid rgba(141,232,255,.10);
+  background: rgba(141,232,255,.035);
+}
+
+.brand img {
+  border-radius: 50%;
+  background: rgba(141,232,255,.08);
+}
+
+.nav a {
+  border: 1px solid transparent;
+}
+
+.nav a:hover,
+.nav a.active {
+  border-color: rgba(141,232,255,.18);
+}
+
+.header-time,
+.theme-btn,
+.actions select,
+.menu-btn {
+  border-color: rgba(141,232,255,.28) !important;
   background:
-    radial-gradient(circle at 14% 18%, rgba(56, 189, 248, 0.18), transparent 34%),
-    radial-gradient(circle at 88% 20%, rgba(141, 232, 255, 0.22), transparent 34%),
-    linear-gradient(135deg, #eaf7ff 0%, #f5fbff 48%, #e8f8ff 100%) !important;
+    linear-gradient(145deg, rgba(141,232,255,.14), rgba(255,255,255,.045)) !important;
+  box-shadow:
+    0 12px 30px rgba(0,0,0,.20),
+    inset 0 1px 0 rgba(255,255,255,.12) !important;
 }
 
-body.light #voices .section-head h2 {
-  background: none;
-  -webkit-background-clip: initial;
-  background-clip: initial;
+.header-time::before {
+  content: "●";
+  margin-right: 7px;
+  color: #8de8ff;
+  font-size: 8px;
+  text-shadow: 0 0 12px rgba(141,232,255,.7);
+}
+
+/* ---------- Stats premium cards ---------- */
+
+.stats {
+  gap: 12px;
+}
+
+.stats div {
+  border: 1px solid rgba(141,232,255,.14);
+  background:
+    linear-gradient(145deg, rgba(216,247,255,.10), rgba(255,255,255,.045)) !important;
+}
+
+.stats small {
+  color: rgba(234,252,255,.70) !important;
+}
+
+/* ---------- Final CTA to same visual language ---------- */
+
+.final-cta {
+  background:
+    radial-gradient(circle at 16% 18%, rgba(141,232,255,.10), transparent 34%),
+    linear-gradient(135deg, rgba(6,19,29,.50), rgba(7,17,13,.95));
+}
+
+.final-cta-box {
+  border-radius: 34px !important;
+}
+
+.final-cta-actions .btn {
+  min-width: 160px;
+}
+
+/* ---------- Light mode unified ---------- */
+
+body.light .section::before {
+  background:
+    radial-gradient(circle at 12% 12%, rgba(56, 189, 248, 0.13), transparent 34%),
+    radial-gradient(circle at 90% 18%, rgba(141, 232, 255, 0.18), transparent 36%);
+}
+
+body.light .section:not(.join) .section-head h2,
+body.light #faq .faq-panel h2 {
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
   color: #062032 !important;
-  text-shadow: none;
+  text-shadow: none !important;
 }
 
-body.light #voices .section-head p {
+body.light .section-head p,
+body.light .copy p,
+body.light .faq-intro {
   color: #456170 !important;
 }
 
-body.light #voices .card.text-card {
+body.light .card,
+body.light .text-card,
+body.light .tool-card,
+body.light .map-wrap,
+body.light .race-day-hub,
+body.light .route-pro-panel,
+body.light .premium-faq details,
+body.light .partner-card,
+body.light .partners-grid article,
+body.light .final-cta-box,
+body.light .stats {
   background:
     linear-gradient(145deg, rgba(255,255,255,.94), rgba(232,248,255,.74)) !important;
   border-color: rgba(14, 165, 233, 0.20) !important;
   box-shadow:
-    0 22px 60px rgba(14, 165, 233, 0.13),
-    inset 0 1px 0 rgba(255,255,255,.9) !important;
+    0 22px 60px rgba(14,165,233,.13),
+    inset 0 1px 0 rgba(255,255,255,.90) !important;
 }
 
-body.light #voices .card.text-card::before {
-  color: rgba(14, 165, 233, 0.12);
+body.light .card::before,
+body.light .tool-card::before,
+body.light .map-wrap::before,
+body.light .race-day-hub::before,
+body.light .route-pro-panel::before,
+body.light .premium-faq details::before,
+body.light .partner-card::before,
+body.light .partners-grid article::before,
+body.light .final-cta-box::before,
+body.light .stats::before {
+  background:
+    linear-gradient(135deg, rgba(14,165,233,.10), transparent 34%),
+    radial-gradient(circle at 80% 12%, rgba(14,165,233,.12), transparent 30%);
 }
 
-body.light #voices .card.text-card h3 {
+body.light .card::after,
+body.light .tool-card::after,
+body.light .map-wrap::after,
+body.light .race-day-hub::after,
+body.light .route-pro-panel::after,
+body.light .premium-faq details::after,
+body.light .partner-card::after,
+body.light .partners-grid article::after,
+body.light .final-cta-box::after,
+body.light .stats::after {
+  background: radial-gradient(circle, rgba(14,165,233,.12), transparent 68%);
+}
+
+body.light .card h3,
+body.light .text-card h3,
+body.light .race-info-card b,
+body.light .premium-race-card b,
+body.light .premium-faq summary,
+body.light .final-cta-box h2 {
   color: #062032 !important;
 }
 
-body.light #voices .card.text-card p {
+body.light .card p,
+body.light .text-card p,
+body.light .premium-race-card li,
+body.light .race-info-card li,
+body.light .hub-info-grid p,
+body.light .race-hub-copy p,
+body.light .tool-note {
   color: #456170 !important;
 }
 
-body.light #voices .card.text-card:hover {
-  border-color: rgba(14, 165, 233, 0.34) !important;
-  box-shadow:
-    0 28px 76px rgba(14, 165, 233, 0.18),
-    0 0 0 1px rgba(14,165,233,.10) !important;
+body.light .premium-race-card > span:not(.premium-icon),
+body.light .race-info-card > span:not(.premium-icon) {
+  color: #0284c7 !important;
 }
 
-/* Tablet */
+body.light .site-header {
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.88), rgba(232,248,255,.86)) !important;
+  border-bottom-color: rgba(14,165,233,.18) !important;
+}
+
+body.light .announcement-bar {
+  color: #fff;
+}
+
+body.light .header-time,
+body.light .theme-btn,
+body.light .actions select,
+body.light .menu-btn {
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.88), rgba(232,248,255,.62)) !important;
+  border-color: rgba(14,165,233,.22) !important;
+}
+
+/* ---------- Responsive polish ---------- */
+
 @media (max-width: 900px) {
-  #voices .section-head {
+  .section:not(.grid-2):not(.join) > .section-head,
+  #faq .faq-panel {
     text-align: left;
     margin-inline: 0;
   }
 
-  #voices .eyebrow {
+  .section:not(.grid-2):not(.join) > .section-head .eyebrow,
+  #faq .faq-panel > .eyebrow {
     margin-inline: 0;
   }
 
-  #voices .cards {
-    grid-template-columns: 1fr;
-  }
-
-  #voices .card.text-card {
-    min-height: auto;
-  }
-}
-
-/* Mobitel */
-@media (max-width: 520px) {
-  #voices .card.text-card {
-    padding: 24px !important;
-    border-radius: 24px !important;
-  }
-
-  #voices .card.text-card::before {
-    top: -22px;
-    left: 12px;
-    font-size: 110px;
-  }
-
-  #voices .card.text-card h3 {
-    font-size: 22px;
-  }
-
-  #voices .card.text-card p {
-    font-size: 15px;
-  }
-}
-
-/* Touch uređaji: bez trzanja */
-@media (hover: none), (pointer: coarse) {
-  #voices .card.text-card:hover {
+  .card:hover,
+  .text-card:hover,
+  .tool-card:hover,
+  .map-wrap:hover,
+  .race-day-hub:hover,
+  .route-pro-panel:hover,
+  .premium-faq details:hover,
+  .partner-card:hover,
+  .partners-grid article:hover,
+  .final-cta-box:hover,
+  .stats:hover {
     transform: none;
   }
 }
 
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  #voices *,
-  #voices *::before,
-  #voices *::after {
-    transition: none !important;
-    animation: none !important;
-  }
-}
-/* FINAL CTA PREMIUM */
-.final-cta {
-  padding-top: 64px;
-  padding-bottom: 64px;
-}
-
-.final-cta-box {
-  position: relative;
-  overflow: hidden;
-
-  max-width: 1180px;
-  margin-inline: auto;
-  padding: clamp(26px, 4vw, 42px);
-
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 24px;
-  align-items: center;
-
-  border-radius: 34px;
-  border: 1px solid rgba(141, 232, 255, 0.24);
-
-  background:
-    radial-gradient(circle at 12% 10%, rgba(141,232,255,.18), transparent 34%),
-    linear-gradient(135deg, rgba(216,247,255,.12), rgba(56,189,248,.06)),
-    rgba(6, 19, 29, 0.72);
-
-  box-shadow:
-    0 28px 86px rgba(0,0,0,.36),
-    inset 0 1px 0 rgba(255,255,255,.12);
-}
-
-.final-cta-box::after {
-  content: "";
-  position: absolute;
-  width: 260px;
-  height: 260px;
-  right: -110px;
-  bottom: -130px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(141,232,255,.22), transparent 68%);
-  pointer-events: none;
-}
-
-.final-cta-box h2 {
-  margin: 8px 0 10px;
-  font-size: clamp(30px, 4vw, 52px);
-  line-height: 1.05;
-  letter-spacing: -0.04em;
-  color: #eafcff;
-}
-
-.final-cta-box p {
-  max-width: 640px;
-  margin: 0;
-  color: rgba(234,252,255,.72);
-  line-height: 1.65;
-}
-
-.final-cta-actions {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-}
-
-body.light .final-cta-box {
-  background:
-    radial-gradient(circle at 12% 10%, rgba(56,189,248,.18), transparent 34%),
-    linear-gradient(135deg, rgba(255,255,255,.95), rgba(232,248,255,.74));
-  border-color: rgba(14,165,233,.20);
-}
-
-body.light .final-cta-box h2 {
-  color: #062032;
-}
-
-body.light .final-cta-box p {
-  color: #456170;
-}
-
-@media (max-width: 760px) {
-  .final-cta-box {
-    grid-template-columns: 1fr;
-    text-align: center;
+@media (max-width: 640px) {
+  .card,
+  .text-card,
+  .tool-card,
+  .map-wrap,
+  .race-day-hub,
+  .route-pro-panel,
+  .premium-faq details,
+  .partner-card,
+  .partners-grid article,
+  .final-cta-box,
+  .stats {
+    border-radius: 24px !important;
   }
 
+  .section-head .eyebrow,
+  .copy .eyebrow,
+  .faq-panel .eyebrow,
   .final-cta-box .eyebrow {
-    margin-inline: auto;
+    font-size: 11px;
+    letter-spacing: .10em;
   }
 
-  .final-cta-actions {
-    justify-content: center;
-    display: grid;
+  .text-card h3,
+  .card h3 {
+    font-size: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .text-card,
+  .tool-card,
+  .map-wrap,
+  .race-day-hub,
+  .route-pro-panel,
+  .premium-faq details,
+  .partner-card,
+  .partners-grid article,
+  .final-cta-box,
+  .stats {
+    transition: none !important;
   }
 }
