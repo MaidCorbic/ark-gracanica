@@ -3168,3 +3168,101 @@ body.light #voices .card.text-card:hover {
     animation: none !important;
   }
 }
+/* FINAL CTA PREMIUM */
+.final-cta {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.final-cta-box {
+  position: relative;
+  overflow: hidden;
+
+  max-width: 1180px;
+  margin-inline: auto;
+  padding: clamp(26px, 4vw, 42px);
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: center;
+
+  border-radius: 34px;
+  border: 1px solid rgba(141, 232, 255, 0.24);
+
+  background:
+    radial-gradient(circle at 12% 10%, rgba(141,232,255,.18), transparent 34%),
+    linear-gradient(135deg, rgba(216,247,255,.12), rgba(56,189,248,.06)),
+    rgba(6, 19, 29, 0.72);
+
+  box-shadow:
+    0 28px 86px rgba(0,0,0,.36),
+    inset 0 1px 0 rgba(255,255,255,.12);
+}
+
+.final-cta-box::after {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  right: -110px;
+  bottom: -130px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(141,232,255,.22), transparent 68%);
+  pointer-events: none;
+}
+
+.final-cta-box h2 {
+  margin: 8px 0 10px;
+  font-size: clamp(30px, 4vw, 52px);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: #eafcff;
+}
+
+.final-cta-box p {
+  max-width: 640px;
+  margin: 0;
+  color: rgba(234,252,255,.72);
+  line-height: 1.65;
+}
+
+.final-cta-actions {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+body.light .final-cta-box {
+  background:
+    radial-gradient(circle at 12% 10%, rgba(56,189,248,.18), transparent 34%),
+    linear-gradient(135deg, rgba(255,255,255,.95), rgba(232,248,255,.74));
+  border-color: rgba(14,165,233,.20);
+}
+
+body.light .final-cta-box h2 {
+  color: #062032;
+}
+
+body.light .final-cta-box p {
+  color: #456170;
+}
+
+@media (max-width: 760px) {
+  .final-cta-box {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .final-cta-box .eyebrow {
+    margin-inline: auto;
+  }
+
+  .final-cta-actions {
+    justify-content: center;
+    display: grid;
+  }
+}
