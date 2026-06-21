@@ -839,28 +839,3 @@ initHeaderTime();
   // Failsafe ako neki asset zapne
   window.setTimeout(finishLoading, 3500);
 })();
-// Premium site loader — fixed
-(() => {
-  const loader = document.getElementById("siteLoader");
-
-  if (!loader) return;
-
-  const hideLoader = () => {
-    loader.classList.add("is-hidden");
-
-    setTimeout(() => {
-      loader.remove();
-    }, 650);
-  };
-
-  if (document.readyState === "complete") {
-    setTimeout(hideLoader, 450);
-  } else {
-    window.addEventListener("load", () => {
-      setTimeout(hideLoader, 450);
-    });
-  }
-
-  // Sigurnosno gašenje ako neka slika ili asset zapne
-  setTimeout(hideLoader, 3500);
-})();
