@@ -2847,3 +2847,324 @@ body.light .premium-icon svg {
     transform: none;
   }
 }
+/* =====================================================
+   ULTRA PREMIUM VOICES SECTION
+   Sekcija: "Šta kažu naši članovi"
+   Radi sa postojećim HTML-om bez promjene strukture.
+   ===================================================== */
+
+#voices {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 14% 18%, rgba(141, 232, 255, 0.16), transparent 32%),
+    radial-gradient(circle at 88% 20%, rgba(56, 189, 248, 0.12), transparent 34%),
+    linear-gradient(135deg, #06131d 0%, #07110d 48%, #05131c 100%) !important;
+}
+
+#voices::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(115deg, transparent 0 18px, rgba(255,255,255,.035) 19px 20px);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+#voices::after {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  right: -180px;
+  bottom: -210px;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(141,232,255,.20), transparent 68%);
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+/* Naslov sekcije */
+#voices .section-head {
+  position: relative;
+  max-width: 860px;
+  margin-inline: auto;
+  margin-bottom: 34px;
+  text-align: center;
+}
+
+#voices .eyebrow {
+  width: fit-content;
+  margin-inline: auto;
+  padding: 8px 13px;
+  border-radius: 999px;
+  border: 1px solid rgba(141, 232, 255, 0.28);
+  background: rgba(141, 232, 255, 0.08);
+  color: #8de8ff !important;
+  box-shadow:
+    0 12px 34px rgba(56, 189, 248, 0.10),
+    inset 0 1px 0 rgba(255,255,255,.12);
+}
+
+#voices .section-head h2 {
+  margin-top: 14px;
+  letter-spacing: -0.045em;
+  background: linear-gradient(135deg, #ffffff, #d8f7ff 50%, #8de8ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  text-shadow: 0 0 34px rgba(141,232,255,.08);
+}
+
+#voices .section-head p {
+  max-width: 640px;
+  margin-inline: auto;
+  color: rgba(234, 252, 255, 0.72) !important;
+}
+
+/* Kartice */
+#voices .cards {
+  position: relative;
+  max-width: 1180px;
+  margin-inline: auto;
+  align-items: stretch;
+  gap: clamp(16px, 2vw, 24px);
+}
+
+#voices .card.text-card {
+  position: relative;
+  min-height: 260px;
+  padding: clamp(24px, 2.6vw, 34px) !important;
+  overflow: hidden;
+
+  border-radius: 30px !important;
+  border: 1px solid rgba(141, 232, 255, 0.20) !important;
+
+  background:
+    linear-gradient(145deg, rgba(216,247,255,.13), rgba(255,255,255,.055) 48%, rgba(56,189,248,.08)),
+    rgba(6, 19, 29, 0.72) !important;
+
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255,255,255,.12) !important;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  transition:
+    transform .28s ease,
+    border-color .28s ease,
+    box-shadow .28s ease,
+    background .28s ease;
+}
+
+/* Veliki quote znak u pozadini */
+#voices .card.text-card::before {
+  content: "“";
+  position: absolute;
+  top: -34px;
+  left: 18px;
+  z-index: 0;
+
+  font-family: Georgia, serif;
+  font-size: 150px;
+  line-height: 1;
+  font-weight: 900;
+
+  color: rgba(141, 232, 255, 0.12);
+  pointer-events: none;
+}
+
+/* Svjetlosni krug */
+#voices .card.text-card::after {
+  content: "";
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  right: -82px;
+  bottom: -94px;
+  z-index: 0;
+
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(141,232,255,.22), transparent 68%);
+  pointer-events: none;
+  transition: transform .28s ease, opacity .28s ease;
+}
+
+#voices .card.text-card h3,
+#voices .card.text-card p {
+  position: relative;
+  z-index: 1;
+  padding: 0 !important;
+}
+
+#voices .card.text-card h3 {
+  margin: 0 0 18px;
+  color: #eafcff !important;
+  font-size: clamp(22px, 2.2vw, 30px);
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+}
+
+#voices .card.text-card p {
+  margin: auto 0 0;
+  color: rgba(234, 252, 255, 0.72) !important;
+  font-size: 16px;
+  line-height: 1.68;
+}
+
+/* Mala premium linija pri dnu */
+#voices .card.text-card p::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 3px;
+  margin-top: 22px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #8de8ff, #38bdf8, transparent);
+  box-shadow: 0 0 16px rgba(141,232,255,.35);
+}
+
+/* Hover */
+#voices .card.text-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(141, 232, 255, 0.48) !important;
+  box-shadow:
+    0 34px 92px rgba(0, 0, 0, 0.46),
+    0 0 0 1px rgba(141,232,255,.16),
+    0 0 44px rgba(56,189,248,.10) !important;
+}
+
+#voices .card.text-card:hover::after {
+  transform: scale(1.12);
+  opacity: 0.95;
+}
+
+/* Različit akcenat po kartici */
+#voices .card.text-card:nth-child(1) {
+  transform-origin: center bottom;
+}
+
+#voices .card.text-card:nth-child(2) {
+  background:
+    linear-gradient(145deg, rgba(141,232,255,.14), rgba(255,255,255,.05) 45%, rgba(125,211,252,.10)),
+    rgba(6, 19, 29, 0.72) !important;
+}
+
+#voices .card.text-card:nth-child(3) {
+  background:
+    linear-gradient(145deg, rgba(216,247,255,.12), rgba(255,255,255,.052) 45%, rgba(14,165,233,.11)),
+    rgba(6, 19, 29, 0.72) !important;
+}
+
+/* Light mode */
+body.light #voices {
+  background:
+    radial-gradient(circle at 14% 18%, rgba(56, 189, 248, 0.18), transparent 34%),
+    radial-gradient(circle at 88% 20%, rgba(141, 232, 255, 0.22), transparent 34%),
+    linear-gradient(135deg, #eaf7ff 0%, #f5fbff 48%, #e8f8ff 100%) !important;
+}
+
+body.light #voices .section-head h2 {
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  color: #062032 !important;
+  text-shadow: none;
+}
+
+body.light #voices .section-head p {
+  color: #456170 !important;
+}
+
+body.light #voices .card.text-card {
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.94), rgba(232,248,255,.74)) !important;
+  border-color: rgba(14, 165, 233, 0.20) !important;
+  box-shadow:
+    0 22px 60px rgba(14, 165, 233, 0.13),
+    inset 0 1px 0 rgba(255,255,255,.9) !important;
+}
+
+body.light #voices .card.text-card::before {
+  color: rgba(14, 165, 233, 0.12);
+}
+
+body.light #voices .card.text-card h3 {
+  color: #062032 !important;
+}
+
+body.light #voices .card.text-card p {
+  color: #456170 !important;
+}
+
+body.light #voices .card.text-card:hover {
+  border-color: rgba(14, 165, 233, 0.34) !important;
+  box-shadow:
+    0 28px 76px rgba(14, 165, 233, 0.18),
+    0 0 0 1px rgba(14,165,233,.10) !important;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  #voices .section-head {
+    text-align: left;
+    margin-inline: 0;
+  }
+
+  #voices .eyebrow {
+    margin-inline: 0;
+  }
+
+  #voices .cards {
+    grid-template-columns: 1fr;
+  }
+
+  #voices .card.text-card {
+    min-height: auto;
+  }
+}
+
+/* Mobitel */
+@media (max-width: 520px) {
+  #voices .card.text-card {
+    padding: 24px !important;
+    border-radius: 24px !important;
+  }
+
+  #voices .card.text-card::before {
+    top: -22px;
+    left: 12px;
+    font-size: 110px;
+  }
+
+  #voices .card.text-card h3 {
+    font-size: 22px;
+  }
+
+  #voices .card.text-card p {
+    font-size: 15px;
+  }
+}
+
+/* Touch uređaji: bez trzanja */
+@media (hover: none), (pointer: coarse) {
+  #voices .card.text-card:hover {
+    transform: none;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  #voices *,
+  #voices *::before,
+  #voices *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
