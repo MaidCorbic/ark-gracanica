@@ -812,3 +812,30 @@ initHeaderTime();
 
   document.addEventListener('DOMContentLoaded', init);
 })();
+// Premium skeleton loader
+(() => {
+  const loader = document.getElementById("siteLoader");
+
+  const finishLoading = () => {
+    document.body.classList.remove("page-loading");
+
+    if (loader) {
+      loader.setAttribute("aria-hidden", "true");
+
+      window.setTimeout(() => {
+        loader.remove();
+      }, 650);
+    }
+  };
+
+  window.addEventListener(
+    "load",
+    () => {
+      window.setTimeout(finishLoading, 450);
+    },
+    { once: true }
+  );
+
+  // Failsafe ako neki asset zapne
+  window.setTimeout(finishLoading, 3500);
+})();
