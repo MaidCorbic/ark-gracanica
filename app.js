@@ -1126,6 +1126,7 @@ initHeaderTime();
     });
   });
 })();
+
 // Voices carousel — arrows + auto scroll
 (() => {
 const voicesSlider = document.getElementById("voicesSlider");
@@ -1146,7 +1147,6 @@ const goNext = () => {
 const amount = getVoiceScrollAmount();
 const maxScroll = voicesSlider.scrollWidth - voicesSlider.clientWidth;
 
-```
 if (voicesSlider.scrollLeft >= maxScroll - 10) {
   voicesSlider.scrollTo({
     left: 0,
@@ -1158,14 +1158,12 @@ if (voicesSlider.scrollLeft >= maxScroll - 10) {
     behavior: "smooth"
   });
 }
-```
 
 };
 
 const goPrev = () => {
 const amount = getVoiceScrollAmount();
 
-```
 if (voicesSlider.scrollLeft <= 10) {
   voicesSlider.scrollTo({
     left: voicesSlider.scrollWidth,
@@ -1177,20 +1175,17 @@ if (voicesSlider.scrollLeft <= 10) {
     behavior: "smooth"
   });
 }
-```
 
 };
 
 const startAutoScroll = () => {
 stopAutoScroll();
 
-```
 autoScrollTimer = window.setInterval(() => {
   if (!isPaused) {
     goNext();
   }
 }, 3200);
-```
 
 };
 
