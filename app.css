@@ -5956,3 +5956,76 @@ box-shadow: 0 10px 24px rgba(36, 142, 255, 0.3);
 text-align: center;
 white-space: nowrap;
 }
+/* Header weather/time pill + safe loader fix
+   Zalijepi na kraj app.css
+*/
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.header-time {
+  min-width: 230px;
+  max-width: 360px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.2px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #248eff, #0b5ed7);
+  box-shadow: 0 10px 24px rgba(36, 142, 255, 0.3);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 0;
+}
+
+body.page-loading {
+  overflow: hidden;
+}
+
+.site-loader {
+  transition:
+    opacity 0.45s ease,
+    visibility 0.45s ease;
+}
+
+body:not(.page-loading) .site-loader {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+@media (max-width: 1100px) {
+  .header-time {
+    min-width: 190px;
+    max-width: 240px;
+    font-size: 11px;
+    padding: 8px 11px;
+  }
+}
+
+@media (max-width: 760px) {
+  .actions {
+    gap: 7px;
+  }
+
+  .header-time {
+    min-width: auto;
+    max-width: 150px;
+    font-size: 10.5px;
+    padding: 8px 9px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-time {
+    max-width: 122px;
+  }
+}
