@@ -992,102 +992,27 @@ initHeaderTime();
     });
   });
 })();
-.voices-carousel {
-position: relative;
-display: flex;
-align-items: center;
-gap: 14px;
-}
+const voicesSlider = document.getElementById("voicesSlider");
+const voicePrev = document.getElementById("voicePrev");
+const voiceNext = document.getElementById("voiceNext");
 
-.voices-slider {
-display: flex;
-gap: 22px;
-overflow-x: auto;
-scroll-behavior: smooth;
-scroll-snap-type: x mandatory;
-padding: 8px 4px 18px;
-scrollbar-width: none;
-}
+if (voicesSlider && voicePrev && voiceNext) {
+const getVoiceScrollAmount = () => {
+const card = voicesSlider.querySelector(".voice-card");
+return card ? card.offsetWidth + 22 : 320;
+};
 
-.voices-slider::-webkit-scrollbar {
-display: none;
-}
+voicePrev.addEventListener("click", () => {
+voicesSlider.scrollBy({
+left: -getVoiceScrollAmount(),
+behavior: "smooth"
+});
+});
 
-.voice-card {
-flex: 0 0 calc(33.333% - 15px);
-min-width: 280px;
-overflow: hidden;
-padding: 0;
-scroll-snap-align: start;
-}
-
-.voice-img {
-width: 100%;
-height: 210px;
-object-fit: cover;
-display: block;
-}
-
-.voice-content {
-padding: 24px;
-}
-
-.voice-content h3 {
-margin-top: 0;
-}
-
-.voice-content small {
-display: inline-block;
-margin-top: 14px;
-font-weight: 700;
-opacity: 0.75;
-}
-
-.voice-arrow {
-flex: 0 0 46px;
-width: 46px;
-height: 46px;
-border: 0;
-border-radius: 999px;
-cursor: pointer;
-font-size: 34px;
-line-height: 1;
-font-weight: 800;
-display: grid;
-place-items: center;
-background: var(--card, #ffffff);
-color: inherit;
-box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
-}
-
-.voice-arrow:hover {
-transform: translateY(-2px);
-}
-
-@media (max-width: 900px) {
-.voice-card {
-flex-basis: 80%;
-}
-}
-
-@media (max-width: 600px) {
-.voices-carousel {
-gap: 8px;
-}
-
-.voice-arrow {
-width: 40px;
-height: 40px;
-flex-basis: 40px;
-font-size: 28px;
-}
-
-.voice-card {
-flex-basis: 88%;
-min-width: 240px;
-}
-
-.voice-img {
-height: 185px;
-}
+voiceNext.addEventListener("click", () => {
+voicesSlider.scrollBy({
+left: getVoiceScrollAmount(),
+behavior: "smooth"
+});
+});
 }
