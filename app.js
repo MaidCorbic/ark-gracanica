@@ -864,3 +864,131 @@ initHeaderTime();
     });
   });
 })();
+// Route map buttons — 5K / 10K + kilometri
+(() => {
+  const routeButtons = document.querySelectorAll("#map [data-route]");
+  const kmButtons = document.querySelectorAll("#map [data-km]");
+  const infoBox = document.getElementById("routePointInfo");
+
+  if (!routeButtons.length || !kmButtons.length || !infoBox) return;
+
+  const routeLabels = {
+    "5k": ["START", "1K", "2K", "3K", "4K", "CILJ"],
+    "10k": ["START", "2K", "4K", "6K", "8K", "CILJ"]
+  };
+
+  const routeInfo = {
+    "5k": {
+      start: {
+        label: "START",
+        title: "Startna zona",
+        text: "Okupljanje, zagrijavanje i ulazak u ritam prije početka utrke."
+      },
+      1: {
+        label: "1K",
+        title: "Prvi kilometar",
+        text: "Kreni kontrolisano i pronađi tempo koji možeš držati do kraja."
+      },
+      2: {
+        label: "2K",
+        title: "Stabilan ritam",
+        text: "Drugi kilometar koristi za smirivanje disanja i držanje grupe."
+      },
+      3: {
+        label: "3K",
+        title: "Sredina rute",
+        text: "Ovdje je važno ostati stabilan i ne trošiti snagu prerano."
+      },
+      4: {
+        label: "4K",
+        title: "Priprema za finiš",
+        text: "Ako imaš energije, postepeno pojačaj tempo prema cilju."
+      },
+      finish: {
+        label: "CILJ",
+        title: "Finish zona",
+        text: "Završi jako, uzmi medalju i osvježenje nakon trke."
+      }
+    },
+
+    "10k": {
+      start: {
+        label: "START",
+        title: "Start 10K",
+        text: "Kreni mirnije nego na 5K. Kod 10K je kontrola tempa najvažnija."
+      },
+      1: {
+        label: "2K",
+        title: "Uvodni dio",
+        text: "Prva dva kilometra koristi za ritam, bez naglog ubrzavanja."
+      },
+      2: {
+        label: "4K",
+        title: "Kontrola tempa",
+        text: "Drži stabilan napor i čuvaj energiju za drugi dio utrke."
+      },
+      3: {
+        label: "6K",
+        title: "Sredina 10K",
+        text: "Ovdje počinje pravi rad. Fokus na disanje i konstantan korak."
+      },
+      4: {
+        label: "8K",
+        title: "Zadnji dio",
+        text: "Postepeno pojačaj ako imaš rezervu i pripremi se za finiš."
+      },
+      finish: {
+        label: "CILJ",
+        title: "Finish 10K",
+        text: "Zadnji kilometar trči hrabro i završi snažno."
+      }
+    }
+  };
+
+  let activeRoute = "5k";
+
+  function setActiveButton(buttons, activeButton) {
+    buttons.forEach((button) => {
+      button.classList.toggle("active", button === activeButton);
+    });
+  }
+
+  function updateInfo(kmKey) {
+    const data = routeInfo[activeRoute][kmKey];
+
+    if (!data) return;
+
+    infoBox.innerHTML = `
+      <span>${data.label}</span>
+      <b>${data.title}</b>
+      <p>${data.text}</p>
+    `;
+  }
+
+  function resetKmButtons() {
+    const labels = routeLabels[activeRoute];
+
+    kmButtons.forEach((button, index) => {
+      button.textContent = labels[index];
+      button.classList.toggle("active", index === 0);
+    });
+
+    updateInfo("start");
+  }
+
+  routeButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      activeRoute = button.dataset.route;
+
+      setActiveButton(routeButtons, button);
+      resetKmButtons();
+    });
+  });
+
+  kmButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      setActiveButton(kmButtons, button);
+      updateInfo(button.dataset.km);
+    });
+  });
+})();
