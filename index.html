@@ -584,199 +584,38 @@
           </svg>
 
           <div class="route-pro-panel route-premium-panel" aria-label="Detalji rute">
-  <div class="route-tabs route-tabs-clickable" role="tablist" aria-label="Odabir rute">
-    <button class="active" type="button" data-route-tab="5k" role="tab" aria-selected="true">
-      <span>5K</span>
-      <small>Brza gradska ruta</small>
-    </button>
-
-    <button type="button" data-route-tab="10k" role="tab" aria-selected="false">
-      <span>10K</span>
-      <small>Duži trkački izazov</small>
-    </button>
+ <div class="route-pro-panel" aria-label="Detalji rute">
+  <div class="route-tabs route-tabs-buttons" aria-label="Odabir distance">
+    <button class="active" type="button" data-route="5k">5K ruta</button>
+    <button type="button" data-route="10k">10K ruta</button>
   </div>
 
-  <div class="route-detail is-active" data-route-panel="5k" role="tabpanel">
-    <div class="route-km-row premium-km-row">
-      <span>START</span>
-      <span>1K</span>
-      <span>2K</span>
-      <span>3K</span>
-      <span>4K</span>
-      <span>CILJ</span>
-    </div>
-
-    <div class="elevation-card">
-      <div class="elevation-head">
-        <div>
-          <span>Elevation profile</span>
-          <b>5K ruta</b>
-        </div>
-        <em>Ilustrativni profil</em>
-      </div>
-
-      <svg class="elevation-proline" viewBox="0 0 760 220" role="img" aria-label="5K elevacija">
-        <defs>
-          <linearGradient id="elev5k" x1="0" x2="1" y1="0" y2="0">
-            <stop offset="0%" stop-color="#38bdf8"></stop>
-            <stop offset="55%" stop-color="#8de8ff"></stop>
-            <stop offset="100%" stop-color="#d8f7ff"></stop>
-          </linearGradient>
-          <linearGradient id="elevFill5k" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0%" stop-color="rgba(141,232,255,.28)"></stop>
-            <stop offset="100%" stop-color="rgba(141,232,255,0)"></stop>
-          </linearGradient>
-        </defs>
-
-        <path class="elev-grid" d="M40 55H720M40 105H720M40 155H720"></path>
-        <path class="elev-fill" d="M40 165 C120 132 165 146 220 112 S335 88 405 116 505 158 590 116 670 92 720 130 L720 180 L40 180 Z"></path>
-        <path class="elev-line" d="M40 165 C120 132 165 146 220 112 S335 88 405 116 505 158 590 116 670 92 720 130"></path>
-
-        <circle cx="40" cy="165" r="7"></circle>
-        <circle cx="220" cy="112" r="7"></circle>
-        <circle cx="405" cy="116" r="7"></circle>
-        <circle cx="590" cy="116" r="7"></circle>
-        <circle cx="720" cy="130" r="7"></circle>
-
-        <text x="38" y="202">0K</text>
-        <text x="205" y="202">1.5K</text>
-        <text x="385" y="202">3K</text>
-        <text x="570" y="202">4K</text>
-        <text x="700" y="202">5K</text>
-      </svg>
-
-      <div class="elevation-stats">
-        <div>
-          <span>Distanca</span>
-          <b>5.0 km</b>
-        </div>
-        <div>
-          <span>Profil</span>
-          <b>Gradski</b>
-        </div>
-        <div>
-          <span>Podloga</span>
-          <b>Asfalt</b>
-        </div>
-        <div>
-          <span>Tempo</span>
-          <b>Brza ruta</b>
-        </div>
-      </div>
-    </div>
-
-    <div class="route-runner-notes">
-      <article>
-        <span>01</span>
-        <b>Start kontrolisano</b>
-        <p>Prvi kilometar koristi za ulazak u ritam i izbjegavanje prebrzog početka.</p>
-      </article>
-
-      <article>
-        <span>02</span>
-        <b>Sredina rute</b>
-        <p>Drži stabilan tempo i koristi ravne dijelove za dobar ritam disanja.</p>
-      </article>
-
-      <article>
-        <span>03</span>
-        <b>Finish</b>
-        <p>Zadnjih 800 metara pojačaj ako imaš rezervu i završi jako.</p>
-      </article>
-    </div>
+  <div class="route-km-row route-km-buttons" aria-label="Detalji po kilometru">
+    <button class="active" type="button" data-km="start">START</button>
+    <button type="button" data-km="1">1K</button>
+    <button type="button" data-km="2">2K</button>
+    <button type="button" data-km="3">3K</button>
+    <button type="button" data-km="4">4K</button>
+    <button type="button" data-km="finish">CILJ</button>
   </div>
 
-  <div class="route-detail" data-route-panel="10k" role="tabpanel" hidden>
-    <div class="route-km-row premium-km-row">
-      <span>START</span>
-      <span>2K</span>
-      <span>4K</span>
-      <span>6K</span>
-      <span>8K</span>
-      <span>CILJ</span>
-    </div>
+  <div class="route-point-info" id="routePointInfo">
+    <span>START</span>
+    <b>Startna zona</b>
+    <p>Okupljanje, zagrijavanje i ulazak u ritam prije početka utrke.</p>
+  </div>
 
-    <div class="elevation-card">
-      <div class="elevation-head">
-        <div>
-          <span>Elevation profile</span>
-          <b>10K ruta</b>
-        </div>
-        <em>Ilustrativni profil</em>
-      </div>
+  <svg class="elevation-line" viewBox="0 0 640 120" role="img" aria-label="Profil rute">
+    <path d="M20 92 C80 68 116 78 160 55 S245 38 300 64 390 96 455 54 555 35 620 70"></path>
+    <line x1="20" y1="96" x2="620" y2="96"></line>
+  </svg>
 
-      <svg class="elevation-proline" viewBox="0 0 760 220" role="img" aria-label="10K elevacija">
-        <defs>
-          <linearGradient id="elev10k" x1="0" x2="1" y1="0" y2="0">
-            <stop offset="0%" stop-color="#38bdf8"></stop>
-            <stop offset="50%" stop-color="#8de8ff"></stop>
-            <stop offset="100%" stop-color="#d8f7ff"></stop>
-          </linearGradient>
-          <linearGradient id="elevFill10k" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0%" stop-color="rgba(141,232,255,.30)"></stop>
-            <stop offset="100%" stop-color="rgba(141,232,255,0)"></stop>
-          </linearGradient>
-        </defs>
-
-        <path class="elev-grid" d="M40 55H720M40 105H720M40 155H720"></path>
-        <path class="elev-fill" d="M40 160 C105 125 150 148 205 105 S315 80 385 118 470 158 540 104 640 86 720 124 L720 180 L40 180 Z"></path>
-        <path class="elev-line" d="M40 160 C105 125 150 148 205 105 S315 80 385 118 470 158 540 104 640 86 720 124"></path>
-
-        <circle cx="40" cy="160" r="7"></circle>
-        <circle cx="205" cy="105" r="7"></circle>
-        <circle cx="385" cy="118" r="7"></circle>
-        <circle cx="540" cy="104" r="7"></circle>
-        <circle cx="720" cy="124" r="7"></circle>
-
-        <text x="38" y="202">0K</text>
-        <text x="195" y="202">2K</text>
-        <text x="374" y="202">5K</text>
-        <text x="528" y="202">7K</text>
-        <text x="695" y="202">10K</text>
-      </svg>
-
-      <div class="elevation-stats">
-        <div>
-          <span>Distanca</span>
-          <b>10.0 km</b>
-        </div>
-        <div>
-          <span>Profil</span>
-          <b>Dinamičan</b>
-        </div>
-        <div>
-          <span>Podloga</span>
-          <b>Asfalt</b>
-        </div>
-        <div>
-          <span>Tempo</span>
-          <b>Kontrola</b>
-        </div>
-      </div>
-    </div>
-
-    <div class="route-runner-notes">
-      <article>
-        <span>01</span>
-        <b>Prvih 3K</b>
-        <p>Kreni mirno. Na 10K je najvažnije ne potrošiti energiju prerano.</p>
-      </article>
-
-      <article>
-        <span>02</span>
-        <b>Sredina trke</b>
-        <p>Od 4K do 7K drži stabilan napor i prati disanje.</p>
-      </article>
-
-      <article>
-        <span>03</span>
-        <b>Zadnji dio</b>
-        <p>Posljednja 2 kilometra koristi za postepeno pojačavanje tempa.</p>
-      </article>
-    </div>
+  <div class="route-meta">
+    <span><b>Podloga</b> asfalt</span>
+    <span><b>Profil</b> gradska ruta</span>
+    <span><b>Podrška</b> volonteri</span>
   </div>
 </div>
-      </section>
 
       <section id="gallery" class="section">
         <div class="section-head reveal">
