@@ -566,66 +566,68 @@
         </div>
       </section>
 
-      <section id="map" class="section">
-        <div class="section-head reveal">
-          <p class="eyebrow">Mapa</p>
-         <p data-i18n="mapText">Pregled gradske rute, ključnih kilometara, profila staze i osnovnih informacija za učesnike.</p>
-          <p data-i18n="mapText">Ruta 5K/10K Gračanica za trkače.</p>
-        </div>
-
-        <div class="map-wrap reveal">
-          <svg viewBox="0 0 900 380" role="img" aria-label="Ilustracija Gračanica 5K rute">
-            <rect width="900" height="380" rx="24"></rect>
-            <path d="M95 285 C180 170 260 210 330 135 S500 80 585 165 720 260 805 115"></path>
-            <circle cx="95" cy="285" r="12"></circle>
-            <circle cx="805" cy="115" r="12"></circle>
-            <text x="70" y="330">START</text>
-            <text x="770" y="85">CILJ</text>
-          </svg>
-</section>
-      
- <div class="route-pro-panel" aria-label="Detalji rute">
-  <div class="route-tabs route-tabs-buttons" aria-label="Odabir distance">
-    <button class="active" type="button" data-route="5k">5K ruta</button>
-    <button type="button" data-route="10k">10K ruta</button>
+     <section id="map" class="section">
+  <div class="section-head reveal">
+    <p class="eyebrow">Mapa</p>
+    <h2 data-i18n="mapTitle">Ruta kroz srce Gračanice</h2>
+    <p data-i18n="mapText">
+      Pregled gradske rute, ključnih kilometara, profila staze i osnovnih informacija za učesnike.
+    </p>
   </div>
 
-  <div class="route-km-row route-km-buttons" aria-label="Detalji po kilometru">
-    <button class="active" type="button" data-km="start">START</button>
-    <button type="button" data-km="1">1K</button>
-    <button type="button" data-km="2">2K</button>
-    <button type="button" data-km="3">3K</button>
-    <button type="button" data-km="4">4K</button>
-    <button type="button" data-km="finish">CILJ</button>
-  </div>
+  <div class="map-wrap reveal">
+    <svg viewBox="0 0 900 380" role="img" aria-label="Ilustracija Gračanica 5K rute">
+      <rect width="900" height="380" rx="24"></rect>
+      <path d="M95 285 C180 170 260 210 330 135 S500 80 585 165 720 260 805 115"></path>
+      <circle cx="95" cy="285" r="12"></circle>
+      <circle cx="805" cy="115" r="12"></circle>
+      <text x="70" y="330">START</text>
+      <text x="770" y="85">CILJ</text>
+    </svg>
 
-  <div class="route-point-info" id="routePointInfo">
-    <span>START</span>
-    <b>Startna zona</b>
-    <p>Okupljanje, zagrijavanje i ulazak u ritam prije početka utrke.</p>
-  </div>
+    <div class="route-pro-panel" aria-label="Detalji rute">
+      <div class="route-tabs route-tabs-buttons" aria-label="Odabir distance">
+        <button class="active" type="button" data-route="5k">5K ruta</button>
+        <button type="button" data-route="10k">10K ruta</button>
+      </div>
 
-  <svg class="elevation-line" viewBox="0 0 640 120" role="img" aria-label="Profil rute">
-    <path d="M20 92 C80 68 116 78 160 55 S245 38 300 64 390 96 455 54 555 35 620 70"></path>
-    <line x1="20" y1="96" x2="620" y2="96"></line>
-  </svg>
+      <div class="route-km-row route-km-buttons" aria-label="Detalji po kilometru">
+        <button class="active" type="button" data-km="start">START</button>
+        <button type="button" data-km="1">1K</button>
+        <button type="button" data-km="2">2K</button>
+        <button type="button" data-km="3">3K</button>
+        <button type="button" data-km="4">4K</button>
+        <button type="button" data-km="finish">CILJ</button>
+      </div>
 
-  <div class="route-meta">
-    <span><b>Podloga</b> asfalt</span>
-    <span><b>Profil</b> gradska ruta</span>
-    <span><b>Podrška</b> volonteri</span>
+      <div class="route-point-info" id="routePointInfo">
+        <span>START</span>
+        <b>Startna zona</b>
+        <p>Okupljanje, zagrijavanje i ulazak u ritam prije početka utrke.</p>
+      </div>
+
+      <svg class="elevation-line" viewBox="0 0 640 120" role="img" aria-label="Profil rute">
+        <path d="M20 92 C80 68 116 78 160 55 S245 38 300 64 390 96 455 54 555 35 620 70"></path>
+        <line x1="20" y1="96" x2="620" y2="96"></line>
+      </svg>
+
+      <div class="route-meta">
+        <span><b>Podloga</b> asfalt</span>
+        <span><b>Profil</b> gradska ruta</span>
+        <span><b>Podrška</b> volonteri</span>
+      </div>
+    </div>
+
+    <a
+      class="btn"
+      target="_blank"
+      rel="noopener"
+      href="https://www.google.com/maps/search/Gra%C4%8Danica+Bosnia+and+Herzegovina+5K+route"
+      data-i18n="openMap"
+    >
+      Otvori mapu
+    </a>
   </div>
-</div>
-      <a
-  class="btn"
-  target="_blank"
-  rel="noopener"
-  href="https://www.google.com/maps/search/Gra%C4%8Danica+Bosnia+and+Herzegovina+5K+route"
-  data-i18n="openMap"
->
-  Otvori mapu
-</a>
-</div>
 </section>
 
 
