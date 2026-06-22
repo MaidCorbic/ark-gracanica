@@ -773,22 +773,68 @@ window.addEventListener("load", () => {
     );
   }
 function initHeaderTime() {
-  const timeEl = document.getElementById('headerTime');
+const timeEl = document.getElementById('headerTime');
 
-  if (!timeEl) return;
+if (!timeEl) return;
 
-  function updateTime() {
-    const now = new Date();
+const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'Europe/Sarajevo';
 
-    timeEl.textContent = now.toLocaleTimeString('bs-BA', {
-      hour: '2-digit',
-      minute: '2-digit'
-    });
-  }
+const cityNames = {
+'Europe/Sarajevo': 'Gračanica',
+'Europe/Zagreb': 'Zagreb',
+'Europe/Belgrade': 'Beograd',
+'Europe/Ljubljana': 'Ljubljana',
+'Europe/Berlin': 'Berlin',
+'Europe/Vienna': 'Beč',
+'Europe/Zurich': 'Zürich',
+'Europe/Stockholm': 'Stockholm',
+'Europe/London': 'London',
+'America/New_York': 'New York',
+'America/Chicago': 'Chicago',
+'America/Los_Angeles': 'Los Angeles',
+'Asia/Dubai': 'Dubai',
+'Asia/Istanbul': 'Istanbul',
+'Asia/Jakarta': 'Jakarta',
+'Asia/Tokyo': 'Tokyo',
+'Australia/Sydney': 'Sydney'
+};
 
-  updateTime();
-  setInterval(updateTime, 1000);
+function getCityName(timeZone) {
+if (cityNames[timeZone]) {
+return cityNames[timeZone];
 }
+
+```
+return timeZone
+  .split('/')
+  .pop()
+  .replaceAll('_', ' ');
+```
+
+}
+
+function updateTime() {
+const now = new Date();
+
+```
+const time = now.toLocaleTimeString(currentLang === 'en' ? 'en-US' : 'bs-BA', {
+  timeZone: userTimeZone,
+  hour: '2-digit',
+  minute: '2-digit'
+});
+
+const city = getCityName(userTimeZone);
+
+timeEl.textContent = `${city} ${time}`;
+timeEl.title = `Vremenska zona: ${userTimeZone}`;
+```
+
+}
+
+updateTime();
+setInterval(updateTime, 1000);
+}
+
 
   function init() {
 initHeaderTime();
