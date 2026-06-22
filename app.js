@@ -839,3 +839,28 @@ initHeaderTime();
   // Failsafe ako neki asset zapne
   window.setTimeout(finishLoading, 8500);
 })();
+// Clickable 5K / 10K route tabs
+(() => {
+  const tabs = document.querySelectorAll("[data-route-tab]");
+  const panels = document.querySelectorAll("[data-route-panel]");
+
+  if (!tabs.length || !panels.length) return;
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const route = tab.dataset.routeTab;
+
+      tabs.forEach((btn) => {
+        const isActive = btn.dataset.routeTab === route;
+        btn.classList.toggle("active", isActive);
+        btn.setAttribute("aria-selected", isActive ? "true" : "false");
+      });
+
+      panels.forEach((panel) => {
+        const isActive = panel.dataset.routePanel === route;
+        panel.classList.toggle("is-active", isActive);
+        panel.hidden = !isActive;
+      });
+    });
+  });
+})();
