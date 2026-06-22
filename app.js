@@ -837,5 +837,5 @@ initHeaderTime();
   );
 
   // Failsafe ako neki asset zapne
-  window.setTimeout(finishLoading, 3500);
+  window.setTimeout(finishLoading, 8500);
 })();
