@@ -831,7 +831,7 @@ initHeaderTime();
   window.addEventListener(
     "load",
     () => {
-      window.setTimeout(finishLoading, 450);
+      window.setTimeout(finishLoading, 950);
     },
     { once: true }
   );
