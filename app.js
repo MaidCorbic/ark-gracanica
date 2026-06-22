@@ -773,27 +773,22 @@ window.addEventListener("load", () => {
     );
   }
 function initHeaderTime() {
-const timeEl = document.getElementById('headerTime');
+  const timeEl = document.getElementById('headerTime');
 
-if (!timeEl) return;
+  if (!timeEl) return;
 
-function updateTime() {
-const now = new Date();
+  function updateTime() {
+    const now = new Date();
 
-```
-timeEl.textContent = now.toLocaleTimeString('bs-BA', {
-  timeZone: 'Europe/Sarajevo',
-  hour: '2-digit',
-  minute: '2-digit'
-});
-```
+    timeEl.textContent = now.toLocaleTimeString('bs-BA', {
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+  }
 
+  updateTime();
+  setInterval(updateTime, 1000);
 }
-
-updateTime();
-setInterval(updateTime, 1000);
-}
-
 
   function init() {
 initHeaderTime();
