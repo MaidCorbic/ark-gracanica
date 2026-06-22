@@ -777,17 +777,151 @@ function initHeaderTime() {
 
   if (!timeEl) return;
 
-  function updateTime() {
+  const fallbackLocation = {
+    city: 'Gračanica',
+    latitude: 44.7031,
+    longitude: 18.3101,
+    timeZone: 'Europe/Sarajevo'
+  };
+
+  const weatherCodes = {
+    0: 'Vedro',
+    1: 'Pretežno vedro',
+    2: 'Djelimično oblačno',
+    3: 'Oblačno',
+    45: 'Magla',
+    48: 'Magla',
+    51: 'Slaba rosulja',
+    53: 'Rosulja',
+    55: 'Jaka rosulja',
+    61: 'Slaba kiša',
+    63: 'Kiša',
+    65: 'Jaka kiša',
+    71: 'Slab snijeg',
+    73: 'Snijeg',
+    75: 'Jak snijeg',
+    80: 'Pljuskovi',
+    81: 'Pljuskovi',
+    82: 'Jaki pljuskovi',
+    95: 'Grmljavina',
+    96: 'Grmljavina',
+    99: 'Jaka grmljavina'
+  };
+
+  let headerWeather = {
+    city: fallbackLocation.city,
+    temperature: null,
+    condition: '',
+    timeZone: fallbackLocation.timeZone
+  };
+
+  function updateHeaderText() {
     const now = new Date();
 
-    timeEl.textContent = now.toLocaleTimeString('bs-BA', {
+    const time = now.toLocaleTimeString(currentLang === 'en' ? 'en-US' : 'bs-BA', {
+      timeZone: headerWeather.timeZone,
       hour: '2-digit',
       minute: '2-digit'
     });
+
+    if (headerWeather.temperature !== null) {
+      timeEl.textContent = `${headerWeather.city} • ${time} • ${headerWeather.temperature}°C • ${headerWeather.condition}`;
+    } else {
+      timeEl.textContent = `${headerWeather.city} • ${time}`;
+    }
   }
 
-  updateTime();
-  setInterval(updateTime, 1000);
+  function getUserPosition() {
+    return new Promise((resolve) => {
+      if (!navigator.geolocation) {
+        resolve(fallbackLocation);
+        return;
+      }
+
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          resolve({
+            city: fallbackLocation.city,
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+            timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone || fallbackLocation.timeZone
+          });
+        },
+        () => {
+          resolve(fallbackLocation);
+        },
+        {
+          enableHighAccuracy: false,
+          timeout: 5000,
+          maximumAge: 10 * 60 * 1000
+        }
+      );
+    });
+  }
+
+  async function getCityName(latitude, longitude) {
+    try {
+      const url =
+        `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=bs`;
+
+      const response = await fetch(url);
+
+      if (!response.ok) {
+        return fallbackLocation.city;
+      }
+
+      const data = await response.json();
+
+      return (
+        data.city ||
+        data.locality ||
+        data.principalSubdivision ||
+        fallbackLocation.city
+      );
+    } catch (error) {
+      return fallbackLocation.city;
+    }
+  }
+
+  async function loadHeaderWeather() {
+    updateHeaderText();
+
+    try {
+      const location = await getUserPosition();
+      const city = await getCityName(location.latitude, location.longitude);
+
+      const weatherUrl =
+        `https://api.open-meteo.com/v1/forecast?latitude=${location.latitude}&longitude=${location.longitude}&current=temperature_2m,weather_code&timezone=auto`;
+
+      const response = await fetch(weatherUrl);
+
+      if (!response.ok) {
+        updateHeaderText();
+        return;
+      }
+
+      const data = await response.json();
+      const temp = Math.round(data.current?.temperature_2m);
+      const code = data.current?.weather_code;
+
+      headerWeather = {
+        city,
+        temperature: Number.isFinite(temp) ? temp : null,
+        condition: weatherCodes[code] || 'Vrijeme',
+        timeZone: data.timezone || location.timeZone || fallbackLocation.timeZone
+      };
+
+      updateHeaderText();
+    } catch (error) {
+      updateHeaderText();
+    }
+  }
+
+  updateHeaderText();
+  loadHeaderWeather();
+
+  setInterval(updateHeaderText, 1000);
+  setInterval(loadHeaderWeather, 15 * 60 * 1000);
 }
 
   function init() {
@@ -837,7 +971,7 @@ initHeaderTime();
   );
 
   // Failsafe ako neki asset zapne
-  window.setTimeout(finishLoading, 8500);
+  window.setTimeout(finishLoading, 4200);
 })();
 // Clickable 5K / 10K route tabs
 (() => {
