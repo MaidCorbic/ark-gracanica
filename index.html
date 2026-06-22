@@ -467,61 +467,67 @@
         </div>
       </section>
 
-      <section class="section alt voices-section" id="voices">
+     <section class="section alt voices-section" id="voices">
   <div class="section-head reveal">
     <p class="eyebrow">Iskustva</p>
     <h2>Šta kažu naši članovi</h2>
     <p>Kratke poruke ljudi koji treniraju, trče i napreduju uz ARK Gračanica.</p>
   </div>
 
-  <div class="cards voice-cards">
-    <article class="card text-card voice-card reveal">
-      <img
-        class="voice-img"
-        src="assets/community.webp"
-        loading="lazy"
-        decoding="async"
-        alt="Članovi ARK Gračanica na treningu"
-      />
+  <div class="voices-carousel reveal" aria-label="Iskustva članova">
+    <button class="voice-arrow" id="voicePrev" type="button" aria-label="Prethodna kartica">‹</button>
 
-      <div class="voice-content">
-        <h3>“Motivacija je lakša u grupi.”</h3>
-        <p>Trening je mnogo lakši kada imaš ekipu koja te pokrene i kad ti se ne ide.</p>
-        <small>Član ARK Gračanica</small>
-      </div>
-    </article>
+```
+<div class="voices-slider" id="voicesSlider">
+  <article class="card text-card voice-card">
+    <img class="voice-img" src="assets/community.webp" loading="lazy" decoding="async" alt="Članovi ARK Gračanica" />
+    <div class="voice-content">
+      <h3>“Motivacija je lakša u grupi.”</h3>
+      <p>Trening je mnogo lakši kada imaš ekipu koja te pokrene i kad ti se ne ide.</p>
+      <small>Član ARK Gračanica</small>
+    </div>
+  </article>
 
-    <article class="card text-card voice-card reveal">
-      <img
-        class="voice-img"
-        src="assets/training.webp"
-        loading="lazy"
-        decoding="async"
-        alt="Trkački trening ARK Gračanica"
-      />
+  <article class="card text-card voice-card">
+    <img class="voice-img" src="assets/training.webp" loading="lazy" decoding="async" alt="Trkački trening" />
+    <div class="voice-content">
+      <h3>“Nije bitno koliko si brz.”</h3>
+      <p>Bitno je da dođeš, kreneš i polako gradiš naviku.</p>
+      <small>Rekreativac</small>
+    </div>
+  </article>
 
-      <div class="voice-content">
-        <h3>“Nije bitno koliko si brz.”</h3>
-        <p>Bitno je da dođeš, kreneš i polako gradiš naviku.</p>
-        <small>Rekreativac</small>
-      </div>
-    </article>
+  <article class="card text-card voice-card">
+    <img class="voice-img" src="assets/race.webp" loading="lazy" decoding="async" alt="Atmosfera sa utrke" />
+    <div class="voice-content">
+      <h3>“Utrka je posebna atmosfera.”</h3>
+      <p>Gračanica 5K okuplja trkače, porodice i lokalnu zajednicu.</p>
+      <small>Učesnik utrke</small>
+    </div>
+  </article>
 
-    <article class="card text-card voice-card reveal">
-      <img
-        class="voice-img"
-        src="assets/race.webp"
-        loading="lazy"
-        decoding="async"
-        alt="Atmosfera sa utrke u Gračanici"
-      />
+  <article class="card text-card voice-card">
+    <img class="voice-img" src="assets/kids.webp" loading="lazy" decoding="async" alt="Porodična atmosfera na utrci" />
+    <div class="voice-content">
+      <h3>“Svaki trening donese napredak.”</h3>
+      <p>Kada treniraš redovno, napredak se osjeti i fizički i mentalno.</p>
+      <small>Član kluba</small>
+    </div>
+  </article>
 
-      <div class="voice-content">
-        <h3>“Utrka je posebna atmosfera.”</h3>
-        <p>Gračanica 5K okuplja trkače, porodice i lokalnu zajednicu.</p>
-        <small>Učesnik utrke</small>
-      </div>
-    </article>
+  <article class="card text-card voice-card">
+    <img class="voice-img" src="assets/hero.webp" loading="lazy" decoding="async" alt="Trkači u Gračanici" />
+    <div class="voice-content">
+      <h3>“Najvažnije je krenuti.”</h3>
+      <p>Prvi kilometar je najteži, ali poslije toga sve ide lakše uz pravu ekipu.</p>
+      <small>Početnik</small>
+    </div>
+  </article>
+</div>
+
+<button class="voice-arrow" id="voiceNext" type="button" aria-label="Sljedeća kartica">›</button>
+```
+
   </div>
 </section>
 
