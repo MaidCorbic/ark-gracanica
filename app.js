@@ -1233,5 +1233,3 @@ isPaused = false;
 
 startAutoScroll();
 })();
-
-
