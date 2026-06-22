@@ -467,30 +467,63 @@
         </div>
       </section>
 
-      <section class="section alt" id="voices">
-        <div class="section-head reveal">
-          <p class="eyebrow">Iskustva</p>
-          <h2>Šta kažu naši članovi</h2>
-          <p>Kratke poruke ljudi koji treniraju, trče i napreduju uz ARK Gračanica.</p>
-        </div>
+      <section class="section alt voices-section" id="voices">
+  <div class="section-head reveal">
+    <p class="eyebrow">Iskustva</p>
+    <h2>Šta kažu naši članovi</h2>
+    <p>Kratke poruke ljudi koji treniraju, trče i napreduju uz ARK Gračanica.</p>
+  </div>
 
-        <div class="cards">
-          <article class="card text-card reveal">
-            <h3>“Motivacija je lakša u grupi.”</h3>
-            <p>Trening je mnogo lakši kada imaš ekipu koja te pokrene i kad ti se ne ide.</p>
-          </article>
+  <div class="cards voice-cards">
+    <article class="card text-card voice-card reveal">
+      <img
+        class="voice-img"
+        src="assets/community.webp"
+        loading="lazy"
+        decoding="async"
+        alt="Članovi ARK Gračanica na treningu"
+      />
 
-          <article class="card text-card reveal">
-            <h3>“Nije bitno koliko si brz.”</h3>
-            <p>Bitno je da dođeš, kreneš i polako gradiš naviku.</p>
-          </article>
+      <div class="voice-content">
+        <h3>“Motivacija je lakša u grupi.”</h3>
+        <p>Trening je mnogo lakši kada imaš ekipu koja te pokrene i kad ti se ne ide.</p>
+        <small>Član ARK Gračanica</small>
+      </div>
+    </article>
 
-          <article class="card text-card reveal">
-            <h3>“Utrka je posebna atmosfera.”</h3>
-            <p>Gračanica 5K okuplja trkače, porodice i lokalnu zajednicu.</p>
-          </article>
-        </div>
-      </section>
+    <article class="card text-card voice-card reveal">
+      <img
+        class="voice-img"
+        src="assets/training.webp"
+        loading="lazy"
+        decoding="async"
+        alt="Trkački trening ARK Gračanica"
+      />
+
+      <div class="voice-content">
+        <h3>“Nije bitno koliko si brz.”</h3>
+        <p>Bitno je da dođeš, kreneš i polako gradiš naviku.</p>
+        <small>Rekreativac</small>
+      </div>
+    </article>
+
+    <article class="card text-card voice-card reveal">
+      <img
+        class="voice-img"
+        src="assets/race.webp"
+        loading="lazy"
+        decoding="async"
+        alt="Atmosfera sa utrke u Gračanici"
+      />
+
+      <div class="voice-content">
+        <h3>“Utrka je posebna atmosfera.”</h3>
+        <p>Gračanica 5K okuplja trkače, porodice i lokalnu zajednicu.</p>
+        <small>Učesnik utrke</small>
+      </div>
+    </article>
+  </div>
+</section>
 
       <section id="training" class="section grid-2 alt">
         <img
@@ -569,7 +602,7 @@
      <section id="map" class="section">
   <div class="section-head reveal">
     <p class="eyebrow">Mapa</p>
-    <h2 data-i18n="mapTitle">Ruta kroz srce Gračanice</h2>
+    <h2>Ruta 5K / 10K Gračanica</h2>
     <p data-i18n="mapText">
       Pregled gradske rute, ključnih kilometara, profila staze i osnovnih informacija za učesnike.
     </p>
@@ -584,21 +617,27 @@
       <text x="70" y="330">START</text>
       <text x="770" y="85">CILJ</text>
     </svg>
+  </div>
 
-    <div class="route-pro-panel" aria-label="Detalji rute">
+    <div class="route-pro-panel reveal" aria-label="Detalji rute">
       <div class="route-tabs route-tabs-buttons" aria-label="Odabir distance">
         <button class="active" type="button" data-route="5k">5K ruta</button>
         <button type="button" data-route="10k">10K ruta</button>
       </div>
 
       <div class="route-km-row route-km-buttons" aria-label="Detalji po kilometru">
-        <button class="active" type="button" data-km="start">START</button>
-        <button type="button" data-km="1">1K</button>
-        <button type="button" data-km="2">2K</button>
-        <button type="button" data-km="3">3K</button>
-        <button type="button" data-km="4">4K</button>
-        <button type="button" data-km="finish">CILJ</button>
-      </div>
+  <button class="active" type="button" data-km="start">START</button>
+  <button type="button" data-km="1">1K</button>
+  <button type="button" data-km="2">2K</button>
+  <button type="button" data-km="3">3K</button>
+  <button type="button" data-km="4">4K</button>
+  <button type="button" data-km="5">5K</button>
+  <button type="button" data-km="6">6K</button>
+  <button type="button" data-km="7">7K</button>
+  <button type="button" data-km="8">8K</button>
+  <button type="button" data-km="9">9K</button>
+  <button type="button" data-km="finish">CILJ</button>
+</div>
 
       <div class="route-point-info" id="routePointInfo">
         <span>START</span>
@@ -618,6 +657,7 @@
       </div>
     </div>
 
+    <div class="section-cta reveal">
     <a
       class="btn"
       target="_blank"
@@ -629,7 +669,6 @@
     </a>
   </div>
 </section>
-
 
       <section id="gallery" class="section">
         <div class="section-head reveal">
@@ -940,7 +979,7 @@
 
       <div>
         <h4 data-i18n="footerCats">Kategorije</h4>
-        <a href="#race">Gračanica 5K</a>
+        <a href="#race">Gračanica 5K / 10K</a>
         <a href="#rules">Pravila</a>
         <a href="#voices">Iskustva članova</a>
         <a href="#training" data-i18n="navTraining">Treninzi</a>
