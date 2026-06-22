@@ -5510,3 +5510,229 @@ body.light #map .elevation-proline text {
     min-height: auto;
   }
 }
+
+#map .route-tabs-buttons {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  padding: 6px;
+  margin-bottom: 12px;
+
+  border-radius: 999px;
+  border: 1px solid rgba(141,232,255,.16);
+
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.07), rgba(255,255,255,.03)),
+    rgba(6,19,29,.45);
+}
+
+#map .route-tabs-buttons button {
+  min-height: 42px;
+  border: 1px solid rgba(141,232,255,.14);
+  border-radius: 999px;
+
+  background: rgba(255,255,255,.055);
+  color: rgba(234,252,255,.72);
+
+  font-size: 13px;
+  font-weight: 950;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    background .22s ease,
+    color .22s ease,
+    transform .22s ease,
+    border-color .22s ease,
+    box-shadow .22s ease;
+}
+
+#map .route-tabs-buttons button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(141,232,255,.36);
+  background: rgba(141,232,255,.10);
+  color: #eafcff;
+}
+
+#map .route-tabs-buttons button.active {
+  color: #02131f;
+  border-color: transparent;
+
+  background: linear-gradient(135deg, #8de8ff, #38bdf8);
+
+  box-shadow:
+    0 12px 28px rgba(56,189,248,.24),
+    inset 0 1px 0 rgba(255,255,255,.45);
+}
+
+/* KM dugmad */
+#map .route-km-buttons {
+  display: grid !important;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  margin: 12px 0;
+}
+
+#map .route-km-buttons button {
+  min-height: 38px;
+  padding: 8px 6px;
+
+  border-radius: 14px;
+  border: 1px solid rgba(141,232,255,.14);
+
+  background: rgba(255,255,255,.055);
+  color: rgba(234,252,255,.72);
+
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: .08em;
+
+  cursor: pointer;
+
+  transition:
+    background .22s ease,
+    color .22s ease,
+    transform .22s ease,
+    border-color .22s ease,
+    box-shadow .22s ease;
+}
+
+#map .route-km-buttons button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(141,232,255,.36);
+  background: rgba(141,232,255,.10);
+  color: #eafcff;
+}
+
+#map .route-km-buttons button.active {
+  color: #02131f;
+  border-color: transparent;
+
+  background: linear-gradient(135deg, #8de8ff, #38bdf8);
+
+  box-shadow:
+    0 12px 28px rgba(56,189,248,.22),
+    inset 0 1px 0 rgba(255,255,255,.45);
+}
+
+/* Info box ispod kilometara */
+#map .route-point-info {
+  position: relative;
+  overflow: hidden;
+
+  margin: 0 0 12px;
+  padding: 14px 16px;
+
+  border-radius: 20px;
+  border: 1px solid rgba(141,232,255,.16);
+
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.035));
+
+  box-shadow:
+    0 16px 38px rgba(0,0,0,.18),
+    inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+#map .route-point-info::after {
+  content: "";
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  right: -76px;
+  bottom: -84px;
+
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(141,232,255,.16), transparent 68%);
+  pointer-events: none;
+}
+
+#map .route-point-info span,
+#map .route-point-info b,
+#map .route-point-info p {
+  position: relative;
+  z-index: 1;
+}
+
+#map .route-point-info span {
+  display: block;
+  margin-bottom: 5px;
+
+  color: #8de8ff;
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+#map .route-point-info b {
+  display: block;
+
+  color: #eafcff;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+}
+
+#map .route-point-info p {
+  margin: 6px 0 0 !important;
+
+  color: rgba(234,252,255,.68) !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+}
+
+/* Light mode */
+body.light #map .route-tabs-buttons,
+body.light #map .route-point-info {
+  background: rgba(255,255,255,.62);
+  border-color: rgba(14,165,233,.16);
+}
+
+body.light #map .route-tabs-buttons button,
+body.light #map .route-km-buttons button {
+  background: rgba(255,255,255,.68);
+  border-color: rgba(14,165,233,.14);
+  color: #456170;
+}
+
+body.light #map .route-tabs-buttons button:hover,
+body.light #map .route-km-buttons button:hover {
+  background: rgba(14,165,233,.09);
+  color: #062032;
+}
+
+body.light #map .route-tabs-buttons button.active,
+body.light #map .route-km-buttons button.active {
+  color: #02131f;
+  background: linear-gradient(135deg, #8de8ff, #38bdf8);
+}
+
+body.light #map .route-point-info span {
+  color: #0284c7;
+}
+
+body.light #map .route-point-info b {
+  color: #062032;
+}
+
+body.light #map .route-point-info p {
+  color: #456170 !important;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  #map .route-tabs-buttons {
+    grid-template-columns: 1fr;
+    border-radius: 22px;
+  }
+
+  #map .route-tabs-buttons button {
+    border-radius: 17px;
+  }
+
+  #map .route-km-buttons {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
