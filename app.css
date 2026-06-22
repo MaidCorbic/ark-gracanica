@@ -5870,3 +5870,76 @@ min-width: 240px;
 height: 185px;
 }
 }
+/* Jače i vidljivije strelice za iskustva članova */
+.voice-arrow {
+  flex: 0 0 52px;
+  width: 52px;
+  height: 52px;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 38px;
+  line-height: 1;
+  font-weight: 900;
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  background: linear-gradient(135deg, #248eff, #0b5ed7);
+  box-shadow:
+    0 14px 35px rgba(36, 142, 255, 0.45),
+    0 6px 14px rgba(0, 0, 0, 0.25);
+  z-index: 10;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.voice-arrow:hover {
+  transform: translateY(-3px) scale(1.06);
+  box-shadow:
+    0 18px 45px rgba(36, 142, 255, 0.58),
+    0 8px 20px rgba(0, 0, 0, 0.32);
+}
+
+.voice-arrow:active {
+  transform: scale(0.95);
+}
+
+.voices-carousel {
+  position: relative;
+}
+
+#voicePrev {
+  position: absolute;
+  left: -12px;
+}
+
+#voiceNext {
+  position: absolute;
+  right: -12px;
+}
+
+.voices-slider {
+  padding-left: 56px;
+  padding-right: 56px;
+}
+
+@media (max-width: 600px) {
+  .voice-arrow {
+    width: 42px;
+    height: 42px;
+    flex-basis: 42px;
+    font-size: 30px;
+  }
+
+  #voicePrev {
+    left: -4px;
+  }
+
+  #voiceNext {
+    right: -4px;
+  }
+
+  .voices-slider {
+    padding-left: 44px;
+    padding-right: 44px;
+  }
+}
