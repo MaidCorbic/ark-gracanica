@@ -1126,28 +1126,112 @@ initHeaderTime();
     });
   });
 })();
+// Voices carousel — arrows + auto scroll
+(() => {
 const voicesSlider = document.getElementById("voicesSlider");
 const voicePrev = document.getElementById("voicePrev");
 const voiceNext = document.getElementById("voiceNext");
 
-if (voicesSlider && voicePrev && voiceNext) {
+if (!voicesSlider || !voicePrev || !voiceNext) return;
+
+let autoScrollTimer = null;
+let isPaused = false;
+
 const getVoiceScrollAmount = () => {
 const card = voicesSlider.querySelector(".voice-card");
 return card ? card.offsetWidth + 22 : 320;
 };
 
+const goNext = () => {
+const amount = getVoiceScrollAmount();
+const maxScroll = voicesSlider.scrollWidth - voicesSlider.clientWidth;
+
+```
+if (voicesSlider.scrollLeft >= maxScroll - 10) {
+  voicesSlider.scrollTo({
+    left: 0,
+    behavior: "smooth"
+  });
+} else {
+  voicesSlider.scrollBy({
+    left: amount,
+    behavior: "smooth"
+  });
+}
+```
+
+};
+
+const goPrev = () => {
+const amount = getVoiceScrollAmount();
+
+```
+if (voicesSlider.scrollLeft <= 10) {
+  voicesSlider.scrollTo({
+    left: voicesSlider.scrollWidth,
+    behavior: "smooth"
+  });
+} else {
+  voicesSlider.scrollBy({
+    left: -amount,
+    behavior: "smooth"
+  });
+}
+```
+
+};
+
+const startAutoScroll = () => {
+stopAutoScroll();
+
+```
+autoScrollTimer = window.setInterval(() => {
+  if (!isPaused) {
+    goNext();
+  }
+}, 3200);
+```
+
+};
+
+const stopAutoScroll = () => {
+if (autoScrollTimer) {
+window.clearInterval(autoScrollTimer);
+autoScrollTimer = null;
+}
+};
+
 voicePrev.addEventListener("click", () => {
-voicesSlider.scrollBy({
-left: -getVoiceScrollAmount(),
-behavior: "smooth"
-});
+goPrev();
+startAutoScroll();
 });
 
 voiceNext.addEventListener("click", () => {
-voicesSlider.scrollBy({
-left: getVoiceScrollAmount(),
-behavior: "smooth"
+goNext();
+startAutoScroll();
 });
+
+voicesSlider.addEventListener("mouseenter", () => {
+isPaused = true;
 });
-}
+
+voicesSlider.addEventListener("mouseleave", () => {
+isPaused = false;
+});
+
+voicesSlider.addEventListener(
+"touchstart",
+() => {
+isPaused = true;
+},
+{ passive: true }
+);
+
+voicesSlider.addEventListener("touchend", () => {
+isPaused = false;
+});
+
+startAutoScroll();
+})();
+
 
