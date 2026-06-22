@@ -1017,4 +1017,3 @@ behavior: "smooth"
 });
 }
 
-Iz ovog da dodam npr vrijeme npr za gradove automatski da to radi kad korisnik udje 
