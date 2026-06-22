@@ -1,1059 +1,1020 @@
-<!DOCTYPE html>
-<html lang="bs">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+// FINAL: uvijek kreni od vrha stranice nakon refresh-a
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
 
-    <meta
-      name="description"
-      content="ARK Gračanica promoviše zdrav način života, trčanje, rekreaciju, treninge i Gračanica 5K/10K događaj. Svi su dobrodošli."
-    />
-    <meta
-      name="keywords"
-      content="ARK Gračanica, Gračanica 5K, Gračanica 10K, trčanje, atletika, running club, rekreacija, treninzi"
-    />
-    <meta name="theme-color" content="#248eff" />
-    <meta name="author" content="ARK Gračanica" />
-    <meta name="robots" content="index,follow" />
+window.addEventListener("beforeunload", () => {
+  window.scrollTo(0, 0);
+});
 
-    <link rel="icon" type="image/webp" href="assets/logo.webp" />
-    <link rel="apple-touch-icon" href="assets/logo.webp" />
-    <link rel="preload" as="image" href="assets/hero.webp" />
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant"
+    });
+  }, 0);
+});
+'use strict';
 
-    <meta property="og:title" content="ARK Gračanica | Atletsko-rekreativni klub" />
-    <meta
-      property="og:description"
-      content="Treninzi, Gračanica 5K/10K, mapa rute, prijave, galerija i alati za trkače u Gračanici."
-    />
-    <meta property="og:site_name" content="ARK Gračanica" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="assets/hero.webp" />
+(() => {
+  const $ = (selector, root = document) => root.querySelector(selector);
+  const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="ARK Gračanica | Atletsko-rekreativni klub" />
-    <meta
-      name="twitter:description"
-      content="ARK Gračanica je mjesto gdje trčanje predstavlja ljubav prema sportu, zdravlju i zajednici."
-    />
-    <meta name="twitter:image" content="assets/hero.webp" />
+  const text = {
+    bs: {
+      navAbout: 'Klub',
+      navRace: 'Gračanica 5K',
+      navTraining: 'Treninzi',
+      navMap: 'Mapa',
+      navGallery: 'Galerija',
+      navJoin: 'Prijava',
+      navContact: 'Kontakt',
+      joinNow: 'PRIJAVA',
+      eyebrow: 'Trčanje • zdravlje • zajednica',
+      heroTitle: 'Trči Gračanicom. Jačaj sebe. Budi dio ekipe.',
+      heroText:
+        'Naša želja je da promovišemo zdrav način života, uz istovremeno građenje zdravijeg i aktivnijeg društva.',
+      seeRace: 'INFORMACIJE',
+      apply: 'PRIJAVA',
+      followers: 'pratilaca',
+      events: 'događaja',
+      routeKm: 'km ruta',
+      aboutEyebrow: 'O klubu',
+      aboutTitle: 'Klub za rekreativce, takmičare i sve koji žele krenuti.',
+      aboutText:
+        'ARK Gračanica promoviše zdrav život, zajedničke treninge i trkačke događaje u gradu. Fokus je na sigurnom napretku, motivaciji i dobroj atmosferi.',
+      recreation: 'Rekreacija',
+      raceTitle: 'Segment trke spreman za promociju i prijave',
+      fiveText:
+        'Idealna distanca za početnike i brze rekreativce. Ravna gradska ruta, jasne oznake i podrška volontera.',
+      tenText: 'Za trkače koji žele duži izazov i tempo kontrolu kroz poznate gradske dionice.',
+      communityTitle: 'Zajednica',
+      communityText: 'Najvažniji dio događaja: ljudi, energija, navijanje i kilometri koji povezuju grad.',
+      trainingEyebrow: 'Running program',
+      trainingTitle: 'Korisni alati za trening',
+      paceLabel: 'Pace kalkulator',
+      timeLabel: 'Kalkulator vremena',
+      tipTitle: 'Savjet dana:',
+      mapTitle: 'Gračanica 5K ruta',
+      mapText: 'Ruta naše trke 5K - 10K za trkače i rekreativce',
+      routeCity: 'gradska ruta',
+      routeSafe: 'označene tačke',
+      openMap: 'Otvori mapu',
+      galleryTitle: 'Fotografije i atmosfera',
+      galleryText: 'Fotografije sa naših trka ',
+      joinEyebrow: 'Prijava',
+      joinTitle: 'Pošalji prijavu za trening ili trku',
+      joinText:
+        'Ovdje možete poslati prijavu za trku ili upit o održavanju našij treninga',
+      send: 'Pošalji prijavu',
+      exportBtn: 'Preuzmi CSV',
+      contactText: 'Za treninge, događaje i saradnju kontaktiraj klub putem Facebook stranice.',
+      faqText: 'Početnici su dobrodošli. Ponesi patike, vodu i dobru volju.',
+      footerText: 'Naša želja je da promovišemo zdrav način života, uz istovremeno građenje zdravijeg i aktivnijeg društva. Svi su dobro došli, bez obzira na spol.',
+      footerCats: 'Kategorije',
+      footerContact: 'Kontakt',
+      locationText: 'Gračanica, Bosna i Hercegovina',
+      nameLabel: 'Ime i prezime',
+      emailLabel: 'E-mail',
+      phoneLabel: 'Telefon',
+      distanceLabel: 'Distanca',
+      messageLabel: 'Poruka',
+      namePh: 'Ime i prezime',
+      emailPh: 'E-mail',
+      phonePh: 'Telefon',
+      messagePh: 'Poruka',
+      trainingGroup: 'Trening grupa'
+    },
+    en: {
+      navAbout: 'Club',
+      navRace: 'Gračanica 5K',
+      navTraining: 'Training',
+      navMap: 'Map',
+      navGallery: 'Gallery',
+      navJoin: 'Join',
+      navContact: 'Contact',
+      joinNow: 'Join now',
+      eyebrow: 'Running • health • community',
+      heroTitle: 'Run through Gračanica. Build yourself. Join the team.',
+      heroText:
+        'Professional ARK Gračanica website with training programs, a 5K route map, registration and useful runner tools.',
+      seeRace: 'View 5K',
+      apply: 'Apply',
+      followers: 'followers',
+      events: 'events',
+      routeKm: 'km route',
+      aboutEyebrow: 'About',
+      aboutTitle: 'A club for recreational runners, racers and beginners.',
+      aboutText:
+        'ARK Gračanica promotes a healthy lifestyle, group training and running events in the city with safe progress and strong community energy.',
+      recreation: 'Recreation',
+      raceTitle: 'Race segment ready for promotion and signups',
+      fiveText: 'Perfect distance for beginners and fast recreational runners. City route, clear signs and volunteer support.',
+      tenText: 'For runners who want a longer challenge and better pace control.',
+      communityTitle: 'Community',
+      communityText: 'The key part of every event: people, energy, cheering and kilometers that connect the city.',
+      trainingEyebrow: 'Running program',
+      trainingTitle: 'Useful training tools',
+      paceLabel: 'Pace calculator',
+      timeLabel: 'Time calculator',
+      tipTitle: 'Daily tip:',
+      mapTitle: 'Gračanica 5K route',
+      mapText: 'Light SVG map keeps the page fast; the button opens Google Maps for details.',
+      routeCity: 'city route',
+      routeSafe: 'marked points',
+      openMap: 'Open map',
+      galleryTitle: 'Photos and atmosphere',
+      galleryText: 'Optimized images, lazy loading and click lightbox.',
+      joinEyebrow: 'Registration',
+      joinTitle: 'Send a training or race application',
+      joinText: 'Data is saved locally in the browser. For a public site it can be connected to Google Forms, Firebase or a backend.',
+      send: 'Send application',
+      exportBtn: 'Download CSV',
+      contactText: 'For training, events and partnership contact the club via Facebook.',
+      faqText: 'Beginners are welcome. Bring running shoes, water and good energy.',
+      footerText: 'ARK Gračanica — running club, community and events.',
+      footerCats: 'Categories',
+      footerContact: 'Contact',
+      locationText: 'Gračanica, BiH',
+      nameLabel: 'Full name',
+      emailLabel: 'Email',
+      phoneLabel: 'Phone',
+      distanceLabel: 'Distance',
+      messageLabel: 'Message / goal',
+      namePh: 'Full name',
+      emailPh: 'Email',
+      phonePh: 'Phone',
+      messagePh: 'Message / goal',
+      trainingGroup: 'Training group'
+    }
+  };
 
-    <title>ARK Gračanica | Atletsko-rekreativni klub</title>
+  let currentLang = localStorage.getItem('arkLang') || 'bs';
 
-    <link rel="stylesheet" href="./app.css?v=50000" />
+  function setLang(lang) {
+    currentLang = text[lang] ? lang : 'bs';
+    localStorage.setItem('arkLang', currentLang);
+    document.documentElement.lang = currentLang;
 
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "SportsOrganization",
-        "name": "ARK Gračanica",
-        "sport": "Running",
-        "logo": "assets/logo.webp",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Gračanica",
-          "addressCountry": "BA"
-        },
-        "sameAs": [
-          "https://www.facebook.com/p/ARK-Gra%C4%8Danica-100063857353772/",
-          "https://www.instagram.com/ark_gracanica"
-        ]
+    $$('[data-i18n]').forEach((el) => {
+      const key = el.dataset.i18n;
+      const value = text[currentLang]?.[key];
+
+      if (value) {
+        el.textContent = value;
       }
-    </script>
-  </head>
-
-  <body class="page-loading">
-    <div class="site-loader" id="siteLoader" role="status" aria-live="polite" aria-label="Učitavanje stranice">
-  <div class="loader-shell">
-    <div class="loader-top">
-      <div class="loader-brand">
-        <img src="assets/logo.webp" alt="" width="42" height="42" />
-        <span>ARK Gračanica</span>
-      </div>
-
-      <span class="loader-pill">Učitavanje stranice</span>
-    </div>
-
-    <div class="loader-grid">
-      <div class="loader-hero-card">
-        <span class="sk sk-eyebrow"></span>
-        <span class="sk sk-title"></span>
-        <span class="sk sk-title small"></span>
-        <span class="sk sk-text"></span>
-        <span class="sk sk-text short"></span>
-
-        <div class="loader-actions">
-          <span class="sk sk-btn"></span>
-          <span class="sk sk-btn ghost"></span>
-        </div>
-      </div>
-
-      <div class="loader-stats">
-        <span class="sk sk-stat"></span>
-        <span class="sk sk-stat"></span>
-        <span class="sk sk-stat"></span>
-      </div>
-    </div>
-
-    <div class="loader-cards">
-      <span class="loader-card"></span>
-      <span class="loader-card"></span>
-      <span class="loader-card"></span>
-    </div>
-  </div>
-</div>
-    
-
-
-    <div class="mobile-race-bar">
-      <a href="#race">5K/10K</a>
-      <a href="#map">Ruta</a>
-      <a href="#join">Upit</a>
-    </div>
-
-    <div class="announcement-bar">
-      Prijave za narednu utrku trenutno su zatvorene. Novi termin bit će objavljen uskoro!
-    </div>
-
-    <a class="skip-link" href="#about">Preskoči na sadržaj</a>
-    <div class="progress" id="progress" aria-hidden="true"></div>
-    <div class="top" id="top"></div>
-
-    <header class="site-header" id="header">
-      <a class="brand" href="#top" aria-label="Početna">
-        <img src="assets/logo.webp" alt="ARK Gračanica logo" width="42" height="42" loading="eager" />
-        <span>ARK Gračanica</span>
-      </a>
-
-      <button class="menu-btn" id="menuBtn" type="button" aria-label="Otvori meni" aria-expanded="false">☰</button>
-
-      <nav class="nav" id="nav" aria-label="Glavni meni">
-        <a href="#about" data-i18n="navAbout">Klub</a>
-        <a href="#why-us">Zašto izabrati nas</a>
-        <a href="#race" data-i18n="navRace">Gračanica 5K</a>
-        <a href="#training" data-i18n="navTraining">Treninzi</a>
-        <a href="#map" data-i18n="navMap">Mapa</a>
-        <a href="#gallery" data-i18n="navGallery">Galerija</a>
-        <a href="#partners">Partneri</a>
-        <a href="#contact" data-i18n="navContact">Kontakt</a>
-      </nav>
-
-      <div class="actions">
-        <div class="header-time" id="headerTime" aria-label="Trenutno vrijeme">--:--</div>
-
-        <button
-          class="theme-btn"
-          id="themeBtn"
-          type="button"
-          aria-label="Promijeni temu"
-          title="Promijeni temu"
-        ></button>
-
-        <select id="lang" aria-label="Jezik">
-          <option value="bs">BA</option>
-          <option value="en">EN</option>
-        </select>
-      </div>
-    </header>
-
-    <main>
-      <section class="hero">
-        <div class="hero-card reveal">
-          <p class="eyebrow" data-i18n="eyebrow">Trčanje • zdravlje • zajednica</p>
-          <h1 data-i18n="heroTitle">Trči Gračanicom. Jačaj sebe. Budi dio ekipe.</h1>
-          <p data-i18n="heroText">
-            Atletsko-rekreativni klub ARK Gračanica okuplja rekreativce, trkače i ljubitelje aktivnog načina života.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn" href="#race" data-i18n="seeRace">POGLEDAJ 5K</a>
-            <a class="btn ghost" href="#join" data-i18n="apply">POŠALJI UPIT</a>
-          </div>
-        </div>
-
-        <div class="stats" aria-label="Statistika">
-          <div>
-            <span class="num" data-target="280">0</span>
-            <small data-i18n="followers">pratilaca</small>
-          </div>
-          <div>
-            <span class="num" data-target="600">0</span>
-            <small data-i18n="runers">učesnika</small>
-          </div>
-          <div>
-            <span class="num no-plus" data-target="6">0</span>
-            <small data-i18n="yearexisting">godina postojanja</small>
-          </div>
-        </div>
-      </section>
-
-      <section id="about" class="section grid-2">
-        <div class="copy reveal">
-          <p class="eyebrow" data-i18n="aboutEyebrow">O klubu</p>
-          <h2 data-i18n="aboutTitle">Klub za rekreativce, takmičare i sve one koji žele trčati.</h2>
-          <p data-i18n="aboutText">
-            ARK Gračanica promoviše zdrav život, zajedničke treninge i trkačke događaje u gradu.
-          </p>
-        </div>
-
-        <img
-          class="section-img reveal"
-          loading="lazy"
-          decoding="async"
-          src="assets/community.webp"
-          alt="Trkači ARK Gračanica"
-          width="900"
-          height="675"
-        />
-      </section>
-
-      <section id="why-us" class="section why-section">
-        <div class="section-head reveal">
-          <p class="eyebrow">Zašto ARK Gračanica</p>
-          <h2>Trening, podrška i zajednica na jednom mjestu</h2>
-          <p>
-            Bez obzira da li tek počinješ ili želiš napredovati, klub pruža motivaciju, društvo i sigurniji put do cilja.
-          </p>
-        </div>
-
-        <div class="cards">
-          <article class="card text-card reveal">
-            <h3>Zajednički treninzi</h3>
-            <p>Treninzi u grupi pomažu da ostaneš motivisan i da lakše izgradiš kontinuitet.</p>
-          </article>
-
-          <article class="card text-card reveal">
-            <h3>Podrška iskusnijih trkača</h3>
-            <p>Savjeti, tempo, priprema i iskustvo članova mogu pomoći početnicima i rekreativcima.</p>
-          </article>
-
-          <article class="card text-card reveal">
-            <h3>Pozitivna atmosfera</h3>
-            <p>Klub okuplja ljude koji vole sport, druženje i aktivan način života.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="race" class="section">
-        <div class="section-head reveal">
-          <p class="eyebrow">Gračanica 5K / 10K</p>
-          <h2 data-i18n="raceTitle">Segment trke spreman za promociju i prijave</h2>
-          <p>
-            Najvažnije informacije o startu, cilju, ruti, programu dana i trenutnom statusu prijava.
-          </p>
-        </div>
-
-        <div class="cards">
-          <article class="card reveal">
-            <img src="assets/race.webp" loading="lazy" decoding="async" alt="Start trke" />
-            <h3>5K Gračanica Run</h3>
-            <p data-i18n="fiveText">
-              Idealna distanca za početnike i brze rekreativce. Ravna gradska ruta, jasne oznake i podrška volontera.
-            </p>
-          </article>
-
-          <article class="card reveal">
-            <img src="assets/training.webp" loading="lazy" decoding="async" alt="Trening" />
-            <h3>10K Gračanica Run</h3>
-            <p data-i18n="tenText">
-              Za trkače koji žele duži izazov i tempo kontrolu kroz poznate gradske dionice.
-            </p>
-          </article>
-
-          <article class="card reveal">
-            <img src="assets/kids.webp" loading="lazy" decoding="async" alt="Zajednica" />
-            <h3 data-i18n="communityTitle">Zajednica</h3>
-            <p data-i18n="communityText">
-              Najvažniji dio događaja: ljudi, energija, navijanje i kilometri koji povezuju ovaj grad.
-            </p>
-          </article>
-        </div>
-
-        <div class="reveal race-dashboard premium-race">
-          <div class="race-info-card premium-race-card">
-            <span class="premium-icon premium-icon-start" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false">
-                <path d="M5 21V4"></path>
-                <path d="M5 5c3.8-2 6.8 1.7 10.6-.3 1.1-.6 2.1-.7 3.4-.5v8.3c-1.3-.2-2.3-.1-3.4.5C11.8 15 8.8 11.3 5 13.3"></path>
-              </svg>
-            </span>
-            <b>Start</b>
-            <span>Centar grada, ispred Gradskog parka</span>
-            <ul>
-              <li>Okupljanje i zagrijavanje</li>
-              <li>Preuzimanje startnih paketa</li>
-              <li>Jasno označena startna zona</li>
-            </ul>
-          </div>
-
-          <div class="race-info-card premium-race-card">
-            <span class="premium-icon premium-icon-finish" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false">
-                <circle cx="12" cy="12" r="8"></circle>
-                <circle cx="12" cy="12" r="4"></circle>
-                <path d="M12 2v3M12 19v3M2 12h3M19 12h3"></path>
-              </svg>
-            </span>
-            <b>Cilj</b>
-            <span>Centar grada, ispred Gradskog parka</span>
-            <ul>
-              <li>Medalje za finišere</li>
-              <li>Osvježenje poslije trke</li>
-              <li>Foto zona za učesnike</li>
-            </ul>
-          </div>
-
-          <div class="race-info-card premium-race-card">
-            <span class="premium-icon premium-icon-route" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false">
-                <path d="M12 21s7-5.4 7-12a7 7 0 1 0-14 0c0 6.6 7 12 7 12Z"></path>
-                <circle cx="12" cy="9" r="2.5"></circle>
-              </svg>
-            </span>
-            <b>Ruta</b>
-            <span>5K / 10K gradska ruta</span>
-            <ul>
-              <li>Asfaltna podloga</li>
-              <li>Volonteri na ključnim tačkama</li>
-              <li>Podrška duž staze</li>
-            </ul>
-          </div>
-
-          <div class="race-info-card premium-race-card race-extra-card registrations-closed">
-            <span class="premium-icon premium-icon-closed" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false">
-                <rect x="4" y="5" width="16" height="15" rx="3"></rect>
-                <path d="M8 3v4M16 3v4M4 10h16M9 14l6 4M15 14l-6 4"></path>
-              </svg>
-            </span>
-            <b>Prijave</b>
-            <span>Zatvorene</span>
-            <ul>
-              <li>Prijave trenutno nisu aktivne</li>
-              <li>Novi termin će biti objavljen naknadno</li>
-              <li>Prati zvanične obavijesti kluba</li>
-            </ul>
-          </div>
-
-          <div class="race-status-card premium-status">
-            <div>
-              <strong>665</strong>
-              <small>Prijavljenih</small>
-            </div>
-
-            <div>
-              <strong>700</strong>
-              <small>Limit</small>
-            </div>
-
-            <div class="status-closed">
-              <strong>Zatvorene</strong>
-              <small>Prijave</small>
-            </div>
-
-            <em><span></span></em>
-          </div>
-        </div>
-
-        <div class="race-day-hub reveal" aria-label="Race Day Hub">
-          <div class="race-hub-copy">
-            <p class="eyebrow">Program dana</p>
-            <h3>Informacije vezane za dan utrke</h3>
-            <p>
-              Satnica, lokacije, okrepne stanice i upute za učesnike prikazane su u nastavku.
-            </p>
-            <div class="hub-actions">
-              <a class="btn small" href="#map">Pogledaj rutu</a>
-              <a class="btn small ghost" href="#join">Pošalji upit</a>
-            </div>
-          </div>
-
-          <div class="hub-timeline" aria-label="Satnica događaja">
-            <div>
-              <span>Petak - Subota</span>
-              <b>Preuzimanje paketa</b>
-              <small>Startna zona • provjera brojeva</small>
-            </div>
-
-            <div>
-              <span>Subota</span>
-              <b>Zagrijavanje</b>
-              <small>Zajedničko aktiviranje prije starta</small>
-            </div>
-
-            <div>
-              <span>Subota - 19:30</span>
-              <b>Start 5K / 10K</b>
-              <small>Kontrolisani start i jasno označena gradska ruta</small>
-            </div>
-
-            <div>
-              <span>20:30</span>
-              <b>Medalje i rezultati</b>
-              <small>Finish zona • fotografije • osvježenje</small>
-            </div>
-          </div>
-
-          <div class="hub-info-grid">
-            <article>
-              <span class="premium-icon premium-icon-route" aria-hidden="true">
-                <svg viewBox="0 0 24 24" focusable="false">
-                  <path d="M4 19c3-6 6 1 9-5s5-2 7-9"></path>
-                  <path d="M4 19h16"></path>
-                  <circle cx="4" cy="19" r="1.5"></circle>
-                  <circle cx="20" cy="5" r="1.5"></circle>
-                </svg>
-              </span>
-              <b>Okrepne stanice</b>
-              <p>Voda, podrška volontera i jasno označene tačke na ključnim dijelovima rute.</p>
-            </article>
-
-            <article>
-              <span class="premium-icon premium-icon-start" aria-hidden="true">
-                <svg viewBox="0 0 24 24" focusable="false">
-                  <path d="M6 20V5"></path>
-                  <path d="M6 6h11l-2.2 3L17 12H6"></path>
-                </svg>
-              </span>
-              <b>Startna zona</b>
-              <p>Okupljanje, zagrijavanje, startni paketi i ulazak u koridore prije starta.</p>
-            </article>
-
-            <article>
-              <span class="premium-icon premium-icon-finish" aria-hidden="true">
-                <svg viewBox="0 0 24 24" focusable="false">
-                  <path d="M5 4h14v16H5z"></path>
-                  <path d="M5 8h14M5 12h14M5 16h14M9 4v16M15 4v16"></path>
-                </svg>
-              </span>
-              <b>Ciljna zona</b>
-              <p>Medalje, osvježenje, fotografije i prostor za učesnike nakon završene utrke.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="rules" class="section rules-section">
-        <div class="section-head reveal">
-          <p class="eyebrow">Pravila</p>
-          <h2>Pravila i važne informacije</h2>
-          <p>Osnovne informacije za učesnike prije dolaska na start.</p>
-        </div>
-
-        <div class="faq-stack premium-faq reveal">
-          <details open>
-            <summary>Ko može učestvovati?</summary>
-            <p>Učestvovati mogu rekreativci, takmičari i svi koji su zdravstveno spremni za odabranu distancu.</p>
-          </details>
-
-          <details>
-            <summary>Koje su kategorije i nagrade?</summary>
-            <p>Kategorije, starosne grupe i nagrade bit će objavljene u zvaničnom pravilniku utrke.</p>
-          </details>
-
-          <details>
-            <summary>Da li je obavezno preuzimanje startnog paketa?</summary>
-            <p>Da. Startni paket se preuzima prema satnici koju klub objavi prije utrke.</p>
-          </details>
-
-          <details>
-            <summary>Da li je ruta označena?</summary>
-            <p>Ruta je označena, a volonteri su raspoređeni na ključnim tačkama staze.</p>
-          </details>
-
-          <details>
-            <summary>Šta ako prijave nisu otvorene?</summary>
-            <p>Ako prijave nisu otvorene, potrebno je pratiti zvanične kanale kluba za novi termin.</p>
-          </details>
-        </div>
-      </section>
-
-     <section class="section alt voices-section" id="voices">
-  <div class="section-head reveal">
-    <p class="eyebrow">Iskustva</p>
-    <h2>Šta kažu naši članovi</h2>
-    <p>Kratke poruke ljudi koji treniraju, trče i napreduju uz ARK Gračanica.</p>
-  </div>
-
-  <div class="voices-carousel reveal" aria-label="Iskustva članova">
-    <button class="voice-arrow" id="voicePrev" type="button" aria-label="Prethodna kartica">‹</button>
-
-```
-<div class="voices-slider" id="voicesSlider">
-  <article class="card text-card voice-card">
-    <img class="voice-img" src="assets/community.webp" loading="lazy" decoding="async" alt="Članovi ARK Gračanica" />
-    <div class="voice-content">
-      <h3>“Motivacija je lakša u grupi.”</h3>
-      <p>Trening je mnogo lakši kada imaš ekipu koja te pokrene i kad ti se ne ide.</p>
-      <small>Član ARK Gračanica</small>
-    </div>
-  </article>
-
-  <article class="card text-card voice-card">
-    <img class="voice-img" src="assets/training.webp" loading="lazy" decoding="async" alt="Trkački trening" />
-    <div class="voice-content">
-      <h3>“Nije bitno koliko si brz.”</h3>
-      <p>Bitno je da dođeš, kreneš i polako gradiš naviku.</p>
-      <small>Rekreativac</small>
-    </div>
-  </article>
-  <article class="card text-card voice-card">
-    <img class="voice-img" src="assets/training.webp" loading="lazy" decoding="async" alt="Trkački trening" />
-    <div class="voice-content">
-      <h3>“Brzina nije bitna, bitna je volja.”</h3>
-      <p>Važno je nikada ne odustajati od cilja.</p>
-      <small>Anonymus</small>
-    </div>
-  </article>
-
-
-  <article class="card text-card voice-card">
-    <img class="voice-img" src="assets/race.webp" loading="lazy" decoding="async" alt="Atmosfera sa utrke" />
-    <div class="voice-content">
-      <h3>“Utrka je posebna atmosfera.”</h3>
-      <p>Gračanica 5K okuplja trkače, porodice i lokalnu zajednicu.</p>
-      <small>Učesnik utrke</small>
-    </div>
-  </article>
-
-  <article class="card text-card voice-card">
-    <img class="voice-img" src="assets/kids.webp" loading="lazy" decoding="async" alt="Porodična atmosfera na utrci" />
-    <div class="voice-content">
-      <h3>“Svaki trening donese napredak.”</h3>
-      <p>Kada treniraš redovno, napredak se osjeti i fizički i mentalno.</p>
-      <small>Član kluba</small>
-    </div>
-  </article>
-
-  <article class="card text-card voice-card">
-    <img class="voice-img" src="assets/hero.webp" loading="lazy" decoding="async" alt="Trkači u Gračanici" />
-    <div class="voice-content">
-      <h3>“Najvažnije je krenuti.”</h3>
-      <p>Prvi kilometar je najteži, ali poslije toga sve ide lakše uz pravu ekipu.</p>
-      <small>Početnik</small>
-    </div>
-  </article>
-</div>
-
-<button class="voice-arrow" id="voiceNext" type="button" aria-label="Sljedeća kartica">›</button>
-```
-
-  </div>
-</section>
-
-      <section id="training" class="section grid-2 alt">
-        <img
-          class="section-img reveal"
-          loading="lazy"
-          decoding="async"
-          src="assets/training.webp"
-          alt="Trkački trening"
-        />
-
-        <div class="copy reveal">
-          <p class="eyebrow" data-i18n="trainingEyebrow">Running program</p>
-          <h2 data-i18n="trainingTitle">Korisni alati za trening</h2>
-
-          <div class="tools pro-tools">
-            <div class="tool-card">
-              <div class="tool-head">
-                <span>01</span>
-                <label data-i18n="paceLabel">Pace kalkulator</label>
-              </div>
-
-              <div class="inline metric-row">
-                <div class="field">
-                  <small>KM</small>
-                  <input id="paceKm" type="number" min="1" value="5" aria-label="Kilometri" />
-                </div>
-
-                <div class="field">
-                  <small>MIN</small>
-                  <input id="paceMin" type="number" min="1" value="25" aria-label="Minute" />
-                </div>
-
-                <button class="btn small" id="calcPace" type="button" hidden aria-hidden="true" tabindex="-1">
-                  Izračunaj
-                </button>
-              </div>
-
-              <strong class="result-badge" id="paceResult">5:00 min/km</strong>
-              <p class="tool-note">Unesi distancu i ukupno vrijeme. Dobiješ prosječan tempo po kilometru.</p>
-            </div>
-
-            <div class="tool-card">
-              <div class="tool-head">
-                <span>02</span>
-                <label data-i18n="timeLabel">Kalkulator vremena</label>
-              </div>
-
-              <div class="inline metric-row">
-                <div class="field">
-                  <small>KM</small>
-                  <input id="raceKm" type="number" min="1" value="10" aria-label="Kilometri" />
-                </div>
-
-                <div class="field">
-                  <small>PACE</small>
-                  <input id="racePace" type="text" value="5:30" aria-label="Pace" />
-                </div>
-
-                <button class="btn small" id="calcTime" type="button" hidden aria-hidden="true" tabindex="-1">
-                  Izračunaj
-                </button>
-              </div>
-
-              <strong class="result-badge" id="timeResult">55:00</strong>
-              <p class="tool-note">Unesi ciljnu distancu i pace u formatu 5:30.</p>
-            </div>
-
-            <div class="tip pro-tip">
-              <b data-i18n="tipTitle">Savjet dana:</b>
-              <span id="tipText">Zagrij se 10 minuta prije svakog bržeg treninga.</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-     <section id="map" class="section">
-  <div class="section-head reveal">
-    <p class="eyebrow">Mapa</p>
-    <h2>Ruta 5K / 10K Gračanica</h2>
-    <p data-i18n="mapText">
-      Pregled gradske rute, ključnih kilometara, profila staze i osnovnih informacija za učesnike.
-    </p>
-  </div>
-
-  <div class="map-wrap reveal">
-    <svg viewBox="0 0 900 380" role="img" aria-label="Ilustracija Gračanica 5K rute">
-      <rect width="900" height="380" rx="24"></rect>
-      <path d="M95 285 C180 170 260 210 330 135 S500 80 585 165 720 260 805 115"></path>
-      <circle cx="95" cy="285" r="12"></circle>
-      <circle cx="805" cy="115" r="12"></circle>
-      <text x="70" y="330">START</text>
-      <text x="770" y="85">CILJ</text>
-    </svg>
-  </div>
-
-    <div class="route-pro-panel reveal" aria-label="Detalji rute">
-      <div class="route-tabs route-tabs-buttons" aria-label="Odabir distance">
-        <button class="active" type="button" data-route="5k">5K ruta</button>
-        <button type="button" data-route="10k">10K ruta</button>
-      </div>
-
-      <div class="route-km-row route-km-buttons" aria-label="Detalji po kilometru">
-  <button class="active" type="button" data-km="start">START</button>
-  <button type="button" data-km="1">1K</button>
-  <button type="button" data-km="2">2K</button>
-  <button type="button" data-km="3">3K</button>
-  <button type="button" data-km="4">4K</button>
-  <button type="button" data-km="5">5K</button>
-  <button type="button" data-km="6">6K</button>
-  <button type="button" data-km="7">7K</button>
-  <button type="button" data-km="8">8K</button>
-  <button type="button" data-km="9">9K</button>
-  <button type="button" data-km="finish">CILJ</button>
-</div>
-
-      <div class="route-point-info" id="routePointInfo">
-        <span>START</span>
-        <b>Startna zona</b>
-        <p>Okupljanje, zagrijavanje i ulazak u ritam prije početka utrke.</p>
-      </div>
-
-      <svg class="elevation-line" viewBox="0 0 640 120" role="img" aria-label="Profil rute">
-        <path d="M20 92 C80 68 116 78 160 55 S245 38 300 64 390 96 455 54 555 35 620 70"></path>
-        <line x1="20" y1="96" x2="620" y2="96"></line>
-      </svg>
-
-      <div class="route-meta">
-        <span><b>Podloga</b> asfalt</span>
-        <span><b>Profil</b> gradska ruta</span>
-        <span><b>Podrška</b> volonteri</span>
-      </div>
-    </div>
-
-    <div class="section-cta reveal">
-    <a
-      class="btn"
-      target="_blank"
-      rel="noopener"
-      href="https://www.google.com/maps/search/Gra%C4%8Danica+Bosnia+and+Herzegovina+5K+route"
-      data-i18n="openMap"
-    >
-      Otvori mapu
-    </a>
-  </div>
-</section>
-
-      <section id="gallery" class="section">
-        <div class="section-head reveal">
-          <p class="eyebrow">Galerija</p>
-          <h2 data-i18n="galleryTitle">Fotografije i atmosfera</h2>
-          <p data-i18n="galleryText">Naša arhiva fotografija i atmosfera sa trka.</p>
-        </div>
-
-        <div class="gallery">
-          <img loading="lazy" decoding="async" src="assets/hero.webp" alt="Trkači" />
-          <img loading="lazy" decoding="async" src="assets/race.webp" alt="Utrka" />
-          <img loading="lazy" decoding="async" src="assets/community.webp" alt="Ekipa" />
-          <img loading="lazy" decoding="async" src="assets/kids.webp" alt="ARK Gračanica" />
-        </div>
-      </section>
-
-      <section id="partners" class="section partners-section" aria-labelledby="partners-title">
-        <div class="section-head reveal">
-          <p class="eyebrow">Partneri i sponzori</p>
-          <h2 id="partners-title">Podrška koja nosi našu trku</h2>
-          <p>
-            Partneri i sponzori koji podržavaju rad kluba i organizaciju događaja.
-          </p>
-        </div>
-
-        <div class="partners-grid partners-logo-grid reveal" aria-label="Partneri i sponzori događaja">
-          <article class="partner-card partner-main">
-            <a href="https://gracanica.gov.ba/" target="_blank" rel="noopener">
-              <span class="partner-tier">Glavni pokrovitelj</span>
-              <div class="partner-logo">
-                <img
-                  src="https://www.google.com/s2/favicons?sz=128&amp;domain=gracanica.gov.ba"
-                  alt="Grad Gračanica logo"
-                  loading="lazy"
-                  decoding="async"
-                  referrerpolicy="no-referrer"
-                  onerror="this.style.display='none';"
-                />
-              </div>
-              <b>Grad Gračanica</b>
-              <small>Institucionalna podrška</small>
-            </a>
-          </article>
-
-          <article class="partner-card partner-gold">
-            <a href="https://edoslad.ba/" target="_blank" rel="noopener">
-              <span class="partner-tier">Zlatni sponzor</span>
-              <div class="partner-logo">
-                <img
-                  src="https://www.google.com/s2/favicons?sz=128&amp;domain=edoslad.ba"
-                  alt="Edo Slad logo"
-                  loading="lazy"
-                  decoding="async"
-                  referrerpolicy="no-referrer"
-                  onerror="this.style.display='none';"
-                />
-              </div>
-              <b>Edo Slad</b>
-              <small>Slatki partner utrke</small>
-            </a>
-          </article>
-
-          <article class="partner-card partner-gold">
-            <a href="https://suman.ba/" target="_blank" rel="noopener">
-              <span class="partner-tier">Zlatni sponzor</span>
-              <div class="partner-logo">
-                <img
-                  src="https://www.google.com/s2/favicons?sz=128&amp;domain=suman.ba"
-                  alt="SUMAN d.o.o. logo"
-                  loading="lazy"
-                  decoding="async"
-                  referrerpolicy="no-referrer"
-                  onerror="this.style.display='none';"
-                />
-              </div>
-              <b>SUMAN d.o.o.</b>
-              <small>Veliki partner događaja</small>
-            </a>
-          </article>
-
-          <article class="partner-card partner-silver">
-            <a href="https://plastoflex.ba/" target="_blank" rel="noopener">
-              <span class="partner-tier">Srebrni sponzor</span>
-              <div class="partner-logo">
-                <img
-                  src="https://www.google.com/s2/favicons?sz=128&amp;domain=plastoflex.ba"
-                  alt="Plastoflex logo"
-                  loading="lazy"
-                  decoding="async"
-                  referrerpolicy="no-referrer"
-                  onerror="this.style.display='none';"
-                />
-              </div>
-              <b>Plastoflex</b>
-              <small>Industrijski partner</small>
-            </a>
-          </article>
-
-          <article class="partner-card partner-silver">
-            <a href="https://metaloplastikagr.com/" target="_blank" rel="noopener">
-              <span class="partner-tier">Srebrni sponzor</span>
-              <div class="partner-logo">
-                <img
-                  src="https://www.google.com/s2/favicons?sz=128&amp;domain=metaloplastikagr.com"
-                  alt="Metaloplastika ZR logo"
-                  loading="lazy"
-                  decoding="async"
-                  referrerpolicy="no-referrer"
-                  onerror="this.style.display='none';"
-                />
-              </div>
-              <b>Metaloplastika ZR</b>
-              <small>Podrška lokalne privrede</small>
-            </a>
-          </article>
-
-          <article class="partner-card partner-silver">
-            <a href="https://termegracanica.ba/" target="_blank" rel="noopener">
-              <span class="partner-tier">Srebrni sponzor</span>
-              <div class="partner-logo">
-                <img
-                  src="https://www.google.com/s2/favicons?sz=128&amp;domain=termegracanica.ba"
-                  alt="Terme Gračanica logo"
-                  loading="lazy"
-                  decoding="async"
-                  referrerpolicy="no-referrer"
-                  onerror="this.style.display='none';"
-                />
-              </div>
-              <b>Terme Gračanica</b>
-              <small>Rekreacija i oporavak</small>
-            </a>
-          </article>
-
-          <article class="partner-card partner-support">
-            <a href="https://mi99.ba/" target="_blank" rel="noopener">
-              <span class="partner-tier">Sponzor</span>
-              <div class="partner-logo">
-                <img
-                  src="https://www.google.com/s2/favicons?sz=128&amp;domain=mi99.ba"
-                  alt="Mliječna industrija 99 logo"
-                  loading="lazy"
-                  decoding="async"
-                  referrerpolicy="no-referrer"
-                  onerror="this.style.display='none';"
-                />
-              </div>
-              <b>Mliječna industrija 99</b>
-              <small>Podrška učesnicima</small>
-            </a>
-          </article>
-
-          <article class="partner-card partner-community">
-            <a href="https://www.facebook.com/vmgracanica/" target="_blank" rel="noopener">
-              <span class="partner-tier">Partner zajednice</span>
-              <div class="partner-logo partner-logo-text" aria-hidden="true">
-                <span class="partner-fallback visible">VM</span>
-              </div>
-              <b>Vijeće mladih Grada Gračanica</b>
-              <small>Volonteri i lokalna podrška</small>
-            </a>
-          </article>
-        </div>
-
-        <div class="section-cta reveal">
-          <a class="btn" href="#contact">Kontaktirajte nas za partnerstvo</a>
-        </div>
-      </section>
-
-      <section id="join" class="section join">
-        <div class="copy reveal">
-          <p class="eyebrow" data-i18n="joinEyebrow">Prijava</p>
-          <h2 data-i18n="joinTitle">Pošalji upit za trening ili narednu utrku</h2>
-          <p data-i18n="joinText">
-            Prijave za trku su trenutno zatvorene. Ovu formu možete koristiti za upit o treninzima, volontiranju ili interes za naredni događaj.
-          </p>
-        </div>
-
-        <form class="form reveal" id="joinForm" novalidate>
-          <label class="sr-only" for="name" data-i18n="nameLabel">Ime i prezime</label>
-          <input
-            id="name"
-            name="name"
-            required
-            minlength="3"
-            autocomplete="name"
-            data-i18n-placeholder="namePh"
-            placeholder="Ime i prezime"
-          />
-
-          <label class="sr-only" for="email" data-i18n="emailLabel">E-mail</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            autocomplete="email"
-            data-i18n-placeholder="emailPh"
-            placeholder="Email"
-          />
-
-          <label class="sr-only" for="phone" data-i18n="phoneLabel">Telefon</label>
-          <input
-            id="phone"
-            name="phone"
-            inputmode="tel"
-            autocomplete="tel"
-            pattern="[0-9+ ()-]{6,}"
-            data-i18n-placeholder="phonePh"
-            placeholder="Telefon"
-          />
-
-          <label class="sr-only" for="distance" data-i18n="distanceLabel">Vrsta upita</label>
-          <select id="distance" name="distance">
-            <option>5K</option>
-            <option>10K</option>
-            <option>Trail</option>
-            <option data-i18n="trainingGroup">Trening grupa</option>
-            <option>Volonter</option>
-            <option>Partnerstvo</option>
-          </select>
-
-          <label class="sr-only" for="message" data-i18n="messageLabel">Poruka</label>
-          <textarea
-            id="message"
-            name="message"
-            rows="4"
-            data-i18n-placeholder="messagePh"
-            placeholder="Poruka"
-          ></textarea>
-
-          <label class="consent-check">
-            <input type="checkbox" required />
-            Saglasan/saglasna sam da me ARK Gračanica kontaktira povodom treninga ili naredne utrke.
-          </label>
-
-          <button class="btn" type="submit">Pošalji upit</button>
-          <p class="form-msg" id="formMsg" aria-live="polite"></p>
-        </form>
-      </section>
-
-      <section id="faq" class="section faq-section">
-        <div class="faq-panel reveal">
-          <p class="eyebrow">FAQ</p>
-          <h2>Česta pitanja</h2>
-          <p class="faq-intro">
-            Kratke informacije za nove članove, učesnike trke i rekreativce koji žele trenirati sa klubom.
-          </p>
-
-          <div class="faq-stack premium-faq">
-            <details open>
-              <summary>Kako se prijaviti za Gračanica 5K?</summary>
-              <p>Prijava se vrši kroz sekciju prijave na stranici ili preko zvaničnih objava kluba.</p>
-            </details>
-
-            <details>
-              <summary>Da li mogu trenirati početnici?</summary>
-              <p>Da. Početnici su dobrodošli. Treninzi se mogu prilagoditi rekreativcima i osobama koje tek kreću.</p>
-            </details>
-
-            <details>
-              <summary>Kako se mogu prijaviti na trku?</summary>
-              <p>Informacije možete pronaći na Facebook stranici ARK Gračanica i kroz zvanične objave kluba.</p>
-            </details>
-
-            <details>
-              <summary>Gdje se preuzimaju startni paketi?</summary>
-              <p>Informacije o preuzimanju objavljuju se prije trke, najčešće uz detalje o startnoj zoni i satnici.</p>
-            </details>
-
-            <details>
-              <summary>Da li je ruta pogodna za rekreativce?</summary>
-              <p>Da. 5K ruta je dobra za rekreativce, dok je 10K bolja za trkače koji žele veći izazov.</p>
-            </details>
-
-            <details>
-              <summary>Gdje se objavljuju rezultati i fotografije?</summary>
-              <p>Rezultati, fotografije i obavještenja objavljuju se na web stranici i zvaničnim kanalima ARK Gračanica.</p>
-            </details>
-          </div>
-        </div>
-      </section>
-
-      <section class="section final-cta">
-        <div class="final-cta-box reveal">
-          <div>
-            <p class="eyebrow">Pridruži se</p>
-            <h2>Spreman za prvi korak?</h2>
-            <p>Javi se klubu, dođi na trening i postani dio trkačke zajednice ARK Gračanica.</p>
-          </div>
-
-          <div class="final-cta-actions">
-            <a class="btn" href="#join">Pošalji upit</a>
-            <a class="btn ghost" href="#contact">Kontaktiraj nas</a>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer id="contact">
-      <div>
-        <img src="assets/logo.webp" alt="ARK Gračanica" width="58" height="58" />
-        <p data-i18n="footerText">
-          Naša želja je da promovišemo zdrav način života uz istovremeno građenje zdravijeg i aktivnijeg društva.
-          Svi su dobrodošli bez obzira na spol.
-        </p>
-      </div>
-
-      <div>
-        <h4 data-i18n="footerCats">Kategorije</h4>
-        <a href="#race">Gračanica 5K / 10K</a>
-        <a href="#rules">Pravila</a>
-        <a href="#voices">Iskustva članova</a>
-        <a href="#training" data-i18n="navTraining">Treninzi</a>
-        <a href="#map" data-i18n="navMap">Mapa</a>
-        <a href="#gallery" data-i18n="navGallery">Galerija</a>
-        <a href="#partners">Partneri</a>
-        <a href="#join" data-i18n="navJoin">Prijava</a>
-        <a href="#why-us">Zašto ARK Gračanica</a>
-        <a href="#faq">FAQ</a>
-      </div>
-
-      <div>
-        <h4 data-i18n="footerContact">Kontakt</h4>
-
-        <a
-          href="https://www.facebook.com/p/ARK-Gra%C4%8Danica-100063857353772/"
-          target="_blank"
-          rel="noopener"
-          aria-label="ARK Gračanica Facebook stranica"
-        >
-          Facebook
-        </a>
-
-        <a
-          href="https://www.instagram.com/ark_gracanica"
-          target="_blank"
-          rel="noopener"
-          aria-label="ARK Gračanica Instagram profil"
-        >
-          Instagram
-        </a>
-
-        <a href="mailto:info@arkgracanica.ba" aria-label="Pošalji email ARK Gračanica">
-          info@arkgracanica.ba
-        </a>
-
-        <a
-          href="https://www.google.com/maps/search/Gradski+park+Gračanica"
-          target="_blank"
-          rel="noopener"
-        >
-          Gradski park, Gračanica
-        </a>
-      </div>
-
-      <div class="footer-year">
-        <span id="year">© 2026 ARK Gračanica. Sva prava zadržana</span>
-      </div>
-    </footer>
-
-    <button class="to-top" id="toTop" type="button" aria-label="Nazad na početak">↑</button>
-
-    <div class="lightbox" id="lightbox" aria-hidden="true">
-      <button type="button" aria-label="Zatvori">×</button>
-      <img alt="Uvećana fotografija" />
-    </div>
-
-    <script src="app.js" defer></script>
-  </body>
-</html>
-
-Fali li ovdje sta za index html
+    });
+
+    $$('[data-i18n-placeholder]').forEach((el) => {
+      const key = el.dataset.i18nPlaceholder;
+      const value = text[currentLang]?.[key];
+
+      if (value) {
+        el.placeholder = value;
+      }
+    });
+  }
+
+  function formatNumber(value) {
+    return Number(value).toLocaleString(currentLang === 'bs' ? 'bs-BA' : 'en-US');
+  }
+
+  function revealElements() {
+    const elements = $$('.reveal');
+
+    if (!elements.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+      elements.forEach((el) => el.classList.add('on'));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('on');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+
+    setTimeout(() => {
+      elements.forEach((el) => el.classList.add('on'));
+    }, 1800);
+  }
+
+  function animateNumbers() {
+    const numbers = $$('.num');
+
+    numbers.forEach((num) => {
+      const target = Number(num.dataset.target || 0);
+      const duration = 1200;
+      const startTime = performance.now();
+
+      num.classList.remove('loading');
+
+      function tick(now) {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const value = Math.floor(target * eased);
+
+        num.textContent = formatNumber(value);
+
+        if (progress < 1) {
+          requestAnimationFrame(tick);
+        } else {
+          num.textContent = formatNumber(target);
+          num.classList.add('done');
+        }
+      }
+
+      requestAnimationFrame(tick);
+    });
+  }
+
+  function initCounters() {
+    const stats = $('.stats');
+
+    if (!stats) {
+      animateNumbers();
+      return;
+    }
+
+    if (!('IntersectionObserver' in window)) {
+      animateNumbers();
+      return;
+    }
+
+    let started = false;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !started) {
+            started = true;
+            animateNumbers();
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(stats);
+
+    setTimeout(() => {
+      if (!started) {
+        started = true;
+        animateNumbers();
+      }
+    }, 1400);
+  }
+
+  function updateCountdown() {
+    const daysEl = $('#cdDays');
+    const hoursEl = $('#cdHours');
+    const minutesEl = $('#cdMinutes');
+    const secondsEl = $('#cdSeconds');
+    const box = $('#raceCountdown');
+
+    if (!daysEl || !hoursEl || !minutesEl || !secondsEl || !box) return;
+
+    const target = new Date('2026-09-20T09:00:00+02:00');
+    const diff = target - new Date();
+
+    if (diff <= 0) {
+      box.innerHTML = '<strong class="race-live">🏁 Trka je počela!</strong>';
+      return;
+    }
+
+    const days = Math.floor(diff / 86400000);
+    const hours = Math.floor(diff / 3600000) % 24;
+    const minutes = Math.floor(diff / 60000) % 60;
+    const seconds = Math.floor(diff / 1000) % 60;
+
+    daysEl.textContent = String(days).padStart(2, '0');
+    hoursEl.textContent = String(hours).padStart(2, '0');
+    minutesEl.textContent = String(minutes).padStart(2, '0');
+    secondsEl.textContent = String(seconds).padStart(2, '0');
+  }
+
+  function initCountdown() {
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  }
+
+  function formatTime(totalSeconds) {
+    const total = Math.max(0, Math.round(totalSeconds));
+    const hours = Math.floor(total / 3600);
+    const minutes = Math.floor((total % 3600) / 60);
+    const seconds = String(total % 60).padStart(2, '0');
+
+    if (hours > 0) {
+      return `${hours}:${String(minutes).padStart(2, '0')}:${seconds}`;
+    }
+
+    return `${minutes}:${seconds}`;
+  }
+
+  function paceToSeconds(value) {
+    const raw = String(value || '').trim().replace(',', ':');
+
+    if (!raw) return 0;
+
+    const parts = raw.split(':').map(Number);
+
+    if (parts.length === 1) {
+      return Math.max(0, parts[0] * 60);
+    }
+
+    return Math.max(0, (parts[0] || 0) * 60 + (parts[1] || 0));
+  }
+
+  function calcPace() {
+    const km = Number($('#paceKm')?.value);
+    const min = Number($('#paceMin')?.value);
+    const result = $('#paceResult');
+
+    if (!result) return;
+
+    if (!km || !min || km <= 0 || min <= 0) {
+      result.textContent = 'Unesi validne brojke';
+      return;
+    }
+
+    result.textContent = `${formatTime((min * 60) / km)} min/km`;
+  }
+
+  function calcTime() {
+    const km = Number($('#raceKm')?.value);
+    const paceSeconds = paceToSeconds($('#racePace')?.value);
+    const result = $('#timeResult');
+
+    if (!result) return;
+
+    if (!km || km <= 0 || !paceSeconds) {
+      result.textContent = 'Unesi validan pace';
+      return;
+    }
+
+    result.textContent = formatTime(km * paceSeconds);
+  }
+
+  function initCalculators() {
+    $('#calcPace')?.addEventListener('click', calcPace);
+    $('#calcTime')?.addEventListener('click', calcTime);
+
+    ['input', 'change'].forEach((eventName) => {
+      $('#paceKm')?.addEventListener(eventName, calcPace);
+      $('#paceMin')?.addEventListener(eventName, calcPace);
+      $('#raceKm')?.addEventListener(eventName, calcTime);
+      $('#racePace')?.addEventListener(eventName, calcTime);
+    });
+
+    ['paceKm', 'paceMin', 'raceKm', 'racePace'].forEach((id) => {
+      $('#' + id)?.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+          event.preventDefault();
+
+          if (id.startsWith('pace')) {
+            calcPace();
+          } else {
+            calcTime();
+          }
+        }
+      });
+    });
+
+    calcPace();
+    calcTime();
+  }
+
+  function initHeader() {
+    const header = $('#header');
+    const progress = $('#progress');
+    const toTop = $('.to-top');
+    const nav = $('#nav');
+    const menuBtn = $('#menuBtn');
+
+    function onScroll() {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+
+      header?.classList.toggle('scrolled', scrollTop > 18);
+
+      if (progress) {
+        progress.style.width = `${((scrollTop / max) * 100).toFixed(2)}%`;
+      }
+
+      toTop?.classList.toggle('show', scrollTop > 500);
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    toTop?.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    menuBtn?.addEventListener('click', () => {
+      const open = !nav?.classList.contains('open');
+
+      nav?.classList.toggle('open', open);
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.textContent = open ? '×' : '☰';
+    });
+
+    $$('#nav a').forEach((link) => {
+      link.addEventListener('click', () => {
+        nav?.classList.remove('open');
+
+        if (menuBtn) {
+          menuBtn.setAttribute('aria-expanded', 'false');
+          menuBtn.textContent = '☰';
+        }
+      });
+    });
+  }
+
+  function initSmoothAnchors() {
+    $$('a[href^="#"]').forEach((link) => {
+      link.addEventListener('click', (event) => {
+        const href = link.getAttribute('href');
+
+        if (!href || href === '#') {
+          event.preventDefault();
+          return;
+        }
+
+        const target = $(href);
+
+        if (!target) {
+          event.preventDefault();
+          return;
+        }
+
+        event.preventDefault();
+
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+
+        history.replaceState(null, '', href);
+      });
+    });
+  }
+
+  function initActiveNav() {
+    const links = $$('#nav a[href^="#"]');
+    const sections = links.map((link) => $(link.getAttribute('href'))).filter(Boolean);
+
+    if (!links.length || !sections.length || !('IntersectionObserver' in window)) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (!visible) return;
+
+        links.forEach((link) => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + visible.target.id);
+        });
+      },
+      {
+        rootMargin: '-35% 0px -55% 0px',
+        threshold: [0, 0.2, 0.45, 0.7]
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+  }
+
+  function initTheme() {
+    const themeBtn = $('#themeBtn');
+    const savedTheme = localStorage.getItem('arkTheme') || 'dark';
+
+    if (savedTheme === 'light') {
+      document.body.classList.add('light');
+    }
+
+    function syncThemeButton() {
+      const isLight = document.body.classList.contains('light');
+
+      if (themeBtn) {
+        themeBtn.setAttribute('aria-pressed', String(isLight));
+        themeBtn.setAttribute('title', isLight ? 'Prebaci na tamnu temu' : 'Prebaci na svijetlu temu');
+        themeBtn.setAttribute('aria-label', isLight ? 'Prebaci na tamnu temu' : 'Prebaci na svijetlu temu');
+      }
+
+      $('meta[name="theme-color"]')?.setAttribute('content', isLight ? '#f6fff9' : '#07110d');
+    }
+
+    themeBtn?.addEventListener('click', () => {
+      document.body.classList.toggle('light');
+
+      localStorage.setItem(
+        'arkTheme',
+        document.body.classList.contains('light') ? 'light' : 'dark'
+      );
+
+      syncThemeButton();
+    });
+
+    syncThemeButton();
+  }
+
+  function initLanguage() {
+    const langSelect = $('#lang');
+
+    if (!langSelect) return;
+
+    langSelect.value = currentLang;
+    setLang(currentLang);
+
+    langSelect.addEventListener('change', (event) => {
+      setLang(event.target.value);
+      setTip();
+      calcPace();
+      calcTime();
+    });
+  }
+
+  function setTip() {
+    const tips = {
+      bs: [
+        'Zagrij se 10 minuta prije svakog bržeg treninga.',
+        'Lagani kilometri grade bazu bolje nego stalno forsiranje.',
+        'Poslije treninga popij vodu i uradi kratko istezanje.',
+        'Za 5K treniraj tempo jednom sedmično.'
+      ],
+      en: [
+        'Warm up for 10 minutes before every faster session.',
+        'Easy kilometers build the base better than constant pushing.',
+        'Drink water after training and stretch briefly.',
+        'For 5K, train tempo once per week.'
+      ]
+    };
+
+    const tipText = $('#tipText');
+
+    if (tipText) {
+      tipText.textContent = tips[currentLang][new Date().getDay() % tips[currentLang].length];
+    }
+  }
+
+  function initForm() {
+    const form = $('#joinForm');
+    const msg = $('#formMsg');
+
+    if (!form) return;
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      if (!form.checkValidity()) {
+        if (msg) {
+          msg.textContent =
+            currentLang === 'en'
+              ? 'Please fill required fields correctly.'
+              : 'Popuni ispravno obavezna polja.';
+          msg.classList.add('error');
+          msg.classList.remove('success');
+        }
+
+        form.reportValidity();
+        return;
+      }
+
+      const data = Object.fromEntries(new FormData(form));
+
+      data.email = String(data.email || '').trim().toLowerCase();
+      data.phone = String(data.phone || '').trim();
+      data.date = new Date().toISOString();
+
+      const applications = JSON.parse(localStorage.getItem('arkApplications') || '[]');
+      const duplicate = applications.some(
+        (item) => item.email === data.email && item.distance === data.distance
+      );
+
+      if (duplicate) {
+        if (msg) {
+          msg.textContent =
+            currentLang === 'en'
+              ? 'This application is already saved.'
+              : 'Ova prijava je već sačuvana.';
+          msg.classList.add('error');
+          msg.classList.remove('success');
+        }
+
+        return;
+      }
+
+      applications.push(data);
+      localStorage.setItem('arkApplications', JSON.stringify(applications));
+
+      if (msg) {
+        msg.textContent =
+          currentLang === 'en'
+            ? 'Application saved successfully.'
+            : 'Prijava je uspješno sačuvana.';
+        msg.classList.add('success');
+        msg.classList.remove('error');
+      }
+
+      form.reset();
+    });
+
+    $('#exportData')?.addEventListener('click', () => {
+      const rows = JSON.parse(localStorage.getItem('arkApplications') || '[]');
+
+      if (!rows.length) {
+        if (msg) {
+          msg.textContent =
+            currentLang === 'en'
+              ? 'No saved applications yet.'
+              : 'Još nema sačuvanih prijava.';
+          msg.classList.add('error');
+          msg.classList.remove('success');
+        }
+
+        return;
+      }
+
+      const keys = ['date', 'name', 'email', 'phone', 'distance', 'message'];
+      const csv = [
+        keys.join(','),
+        ...rows.map((row) =>
+          keys.map((key) => `"${String(row[key] || '').replaceAll('"', '""')}"`).join(',')
+        )
+      ].join('\n');
+
+      const url = URL.createObjectURL(
+        new Blob([csv], { type: 'text/csv;charset=utf-8' })
+      );
+
+      const link = document.createElement('a');
+
+      link.href = url;
+      link.download = 'ark-prijave.csv';
+      link.click();
+
+      URL.revokeObjectURL(url);
+    });
+  }
+
+  function initLightbox() {
+    const lightbox = $('#lightbox');
+    const lightboxImg = lightbox ? $('img', lightbox) : null;
+    const closeBtn = lightbox ? $('button', lightbox) : null;
+
+    if (!lightbox || !lightboxImg) return;
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      lightboxImg.removeAttribute('src');
+    }
+
+    $$('.gallery img').forEach((img) => {
+      img.tabIndex = 0;
+      img.setAttribute('role', 'button');
+
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt || 'Uvećana fotografija';
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+      });
+
+      img.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+          img.click();
+        }
+      });
+    });
+
+    closeBtn?.addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeLightbox();
+      }
+    });
+  }
+
+  function initFaq() {
+    $$('.faq-stack details').forEach((item) => {
+      const summary = $('summary', item);
+
+      summary?.setAttribute('tabindex', '0');
+
+      item.addEventListener('toggle', () => {
+        if (!item.open) return;
+
+        $$('.faq-stack details').forEach((other) => {
+          if (other !== item) {
+            other.open = false;
+          }
+        });
+      });
+    });
+  }
+
+  function initImages() {
+    $$('img').forEach((img) => {
+      if (!img.closest('.brand') && !img.hasAttribute('loading')) {
+        img.setAttribute('loading', 'lazy');
+      }
+
+      if (!img.hasAttribute('decoding')) {
+        img.setAttribute('decoding', 'async');
+      }
+    });
+  }
+
+  function initFooter() {
+    const year = $('#year');
+
+    if (year) {
+      year.textContent = '© 2026 ARK Gračanica. Sva prava zadržana.';
+    }
+  }
+
+  function initHeroPointer() {
+    const hero = $('.hero');
+
+    if (!hero) return;
+
+    hero.addEventListener(
+      'pointermove',
+      (event) => {
+        const rect = hero.getBoundingClientRect();
+
+        hero.style.setProperty('--mx', `${(((event.clientX - rect.left) / rect.width) * 100).toFixed(1)}%`);
+        hero.style.setProperty('--my', `${(((event.clientY - rect.top) / rect.height) * 100).toFixed(1)}%`);
+      },
+      { passive: true }
+    );
+  }
+function initHeaderTime() {
+  const timeEl = document.getElementById('headerTime');
+
+  if (!timeEl) return;
+
+  function updateTime() {
+    const now = new Date();
+
+    timeEl.textContent = now.toLocaleTimeString('bs-BA', {
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+  }
+
+  updateTime();
+  setInterval(updateTime, 1000);
+}
+
+  function init() {
+initHeaderTime();
+    initLanguage();
+    revealElements();
+    initCounters();
+    initCountdown();
+    initCalculators();
+    initHeader();
+    initSmoothAnchors();
+    initActiveNav();
+    initTheme();
+    setTip();
+    initForm();
+    initLightbox();
+    initFaq();
+    initImages();
+    initFooter();
+    initHeroPointer();
+  }
+
+  document.addEventListener('DOMContentLoaded', init);
+})();
+// Premium skeleton loader
+(() => {
+  const loader = document.getElementById("siteLoader");
+
+  const finishLoading = () => {
+    document.body.classList.remove("page-loading");
+
+    if (loader) {
+      loader.setAttribute("aria-hidden", "true");
+
+      window.setTimeout(() => {
+        loader.remove();
+      }, 650);
+    }
+  };
+
+  window.addEventListener(
+    "load",
+    () => {
+      window.setTimeout(finishLoading, 950);
+    },
+    { once: true }
+  );
+
+  // Failsafe ako neki asset zapne
+  window.setTimeout(finishLoading, 8500);
+})();
+// Clickable 5K / 10K route tabs
+(() => {
+  const tabs = document.querySelectorAll("[data-route-tab]");
+  const panels = document.querySelectorAll("[data-route-panel]");
+
+  if (!tabs.length || !panels.length) return;
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const route = tab.dataset.routeTab;
+
+      tabs.forEach((btn) => {
+        const isActive = btn.dataset.routeTab === route;
+        btn.classList.toggle("active", isActive);
+        btn.setAttribute("aria-selected", isActive ? "true" : "false");
+      });
+
+      panels.forEach((panel) => {
+        const isActive = panel.dataset.routePanel === route;
+        panel.classList.toggle("is-active", isActive);
+        panel.hidden = !isActive;
+      });
+    });
+  });
+})();
+// Route map buttons — 5K / 10K + kilometri
+(() => {
+  const routeButtons = document.querySelectorAll("#map [data-route]");
+  const kmButtons = document.querySelectorAll("#map [data-km]");
+  const infoBox = document.getElementById("routePointInfo");
+
+  if (!routeButtons.length || !kmButtons.length || !infoBox) return;
+
+  const routeLabels = {
+    "5k": ["START", "1K", "2K", "3K", "4K", "CILJ"],
+    "10k": ["START", "2K", "4K", "6K", "8K", "CILJ"]
+  };
+
+  const routeInfo = {
+    "5k": {
+      start: {
+        label: "START",
+        title: "Startna zona",
+        text: "Okupljanje, zagrijavanje i ulazak u ritam prije početka utrke."
+      },
+      1: {
+        label: "1K",
+        title: "Prvi kilometar",
+        text: "Kreni kontrolisano i pronađi tempo koji možeš držati do kraja."
+      },
+      2: {
+        label: "2K",
+        title: "Stabilan ritam",
+        text: "Drugi kilometar koristi za smirivanje disanja i držanje grupe."
+      },
+      3: {
+        label: "3K",
+        title: "Sredina rute",
+        text: "Ovdje je važno ostati stabilan i ne trošiti snagu prerano."
+      },
+      4: {
+        label: "4K",
+        title: "Priprema za finiš",
+        text: "Ako imaš energije, postepeno pojačaj tempo prema cilju."
+      },
+      finish: {
+        label: "CILJ",
+        title: "Finish zona",
+        text: "Završi jako, uzmi medalju i osvježenje nakon trke."
+      }
+    },
+
+    "10k": {
+      start: {
+        label: "START",
+        title: "Start 10K",
+        text: "Kreni mirnije nego na 5K. Kod 10K je kontrola tempa najvažnija."
+      },
+      1: {
+        label: "2K",
+        title: "Uvodni dio",
+        text: "Prva dva kilometra koristi za ritam, bez naglog ubrzavanja."
+      },
+      2: {
+        label: "4K",
+        title: "Kontrola tempa",
+        text: "Drži stabilan napor i čuvaj energiju za drugi dio utrke."
+      },
+      3: {
+        label: "6K",
+        title: "Sredina 10K",
+        text: "Ovdje počinje pravi rad. Fokus na disanje i konstantan korak."
+      },
+      4: {
+        label: "8K",
+        title: "Zadnji dio",
+        text: "Postepeno pojačaj ako imaš rezervu i pripremi se za finiš."
+      },
+      finish: {
+        label: "CILJ",
+        title: "Finish 10K",
+        text: "Zadnji kilometar trči hrabro i završi snažno."
+      }
+    }
+  };
+
+  let activeRoute = "5k";
+
+  function setActiveButton(buttons, activeButton) {
+    buttons.forEach((button) => {
+      button.classList.toggle("active", button === activeButton);
+    });
+  }
+
+  function updateInfo(kmKey) {
+    const data = routeInfo[activeRoute][kmKey];
+
+    if (!data) return;
+
+    infoBox.innerHTML = `
+      <span>${data.label}</span>
+      <b>${data.title}</b>
+      <p>${data.text}</p>
+    `;
+  }
+
+  function resetKmButtons() {
+    const labels = routeLabels[activeRoute];
+
+    kmButtons.forEach((button, index) => {
+      button.textContent = labels[index];
+      button.classList.toggle("active", index === 0);
+    });
+
+    updateInfo("start");
+  }
+
+  routeButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      activeRoute = button.dataset.route;
+
+      setActiveButton(routeButtons, button);
+      resetKmButtons();
+    });
+  });
+
+  kmButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      setActiveButton(kmButtons, button);
+      updateInfo(button.dataset.km);
+    });
+  });
+})();
+const voicesSlider = document.getElementById("voicesSlider");
+const voicePrev = document.getElementById("voicePrev");
+const voiceNext = document.getElementById("voiceNext");
+
+if (voicesSlider && voicePrev && voiceNext) {
+const getVoiceScrollAmount = () => {
+const card = voicesSlider.querySelector(".voice-card");
+return card ? card.offsetWidth + 22 : 320;
+};
+
+voicePrev.addEventListener("click", () => {
+voicesSlider.scrollBy({
+left: -getVoiceScrollAmount(),
+behavior: "smooth"
+});
+});
+
+voiceNext.addEventListener("click", () => {
+voicesSlider.scrollBy({
+left: getVoiceScrollAmount(),
+behavior: "smooth"
+});
+});
+}
+
+Iz ovog da dodam npr vrijeme npr za gradove automatski da to radi kad korisnik udje 
