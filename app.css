@@ -4538,3 +4538,436 @@ body.light .theme-btn::before {
     0 0 16px rgba(14, 165, 233, 0.28),
     inset 0 1px 0 rgba(255,255,255,.9) !important;
 }
+
+#map {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 14% 18%, rgba(141,232,255,.11), transparent 34%),
+    radial-gradient(circle at 86% 20%, rgba(56,189,248,.09), transparent 36%),
+    linear-gradient(135deg, rgba(6,19,29,.50), rgba(7,17,13,.96));
+}
+
+#map .section-head {
+  max-width: 840px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+#map .section-head .eyebrow {
+  margin-inline: auto;
+}
+
+#map .map-wrap {
+  position: relative;
+  overflow: hidden;
+
+  max-width: 1040px;
+  margin-inline: auto;
+  padding: clamp(18px, 3vw, 28px);
+
+  display: grid;
+  gap: 18px;
+
+  border-radius: 36px !important;
+  border: 1px solid rgba(141,232,255,.24) !important;
+
+  background:
+    radial-gradient(circle at 15% 12%, rgba(141,232,255,.15), transparent 34%),
+    linear-gradient(
+      145deg,
+      rgba(216,247,255,.14),
+      rgba(255,255,255,.055) 48%,
+      rgba(56,189,248,.09)
+    ),
+    rgba(6,19,29,.78) !important;
+
+  box-shadow:
+    0 34px 100px rgba(0,0,0,.42),
+    0 0 0 1px rgba(141,232,255,.08),
+    inset 0 1px 0 rgba(255,255,255,.13) !important;
+}
+
+#map .map-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  background:
+    linear-gradient(115deg, transparent 0 20px, rgba(255,255,255,.035) 21px 22px),
+    radial-gradient(circle at 84% 16%, rgba(141,232,255,.16), transparent 30%);
+  opacity: .5;
+  pointer-events: none;
+}
+
+#map .map-wrap::after {
+  content: "";
+  position: absolute;
+  width: 310px;
+  height: 310px;
+  right: -130px;
+  bottom: -160px;
+  z-index: 0;
+
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(141,232,255,.22), transparent 68%);
+  pointer-events: none;
+}
+
+#map .map-wrap > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Glavna SVG mapa */
+#map .map-wrap > svg {
+  width: 100%;
+  max-height: 360px;
+  padding: 12px;
+
+  border-radius: 30px;
+  border: 1px solid rgba(141,232,255,.18);
+
+  background:
+    radial-gradient(circle at 18% 18%, rgba(141,232,255,.10), transparent 34%),
+    linear-gradient(145deg, rgba(5,20,30,.92), rgba(6,26,37,.72));
+
+  box-shadow:
+    0 22px 60px rgba(0,0,0,.30),
+    inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+#map .map-wrap rect {
+  fill: rgba(6,26,37,.88);
+}
+
+#map .map-wrap > svg path {
+  stroke: url("#routeGradient");
+  stroke-width: 13;
+  stroke-linecap: round;
+  filter:
+    drop-shadow(0 0 8px rgba(141,232,255,.65))
+    drop-shadow(0 0 18px rgba(56,189,248,.26));
+}
+
+/* Ako browser ne primi gradient id, ostaje fallback */
+#map .map-wrap > svg path {
+  stroke: #38bdf8;
+}
+
+#map .map-wrap circle {
+  fill: #d8f7ff;
+  stroke: rgba(56,189,248,.75);
+  stroke-width: 5;
+  filter:
+    drop-shadow(0 0 10px rgba(216,247,255,.70))
+    drop-shadow(0 0 22px rgba(56,189,248,.35));
+}
+
+#map .map-wrap text {
+  fill: #d8f7ff;
+  font-size: 25px;
+  font-weight: 950;
+  letter-spacing: .08em;
+  filter: drop-shadow(0 0 10px rgba(141,232,255,.32));
+}
+
+/* Route panel */
+#map .route-pro-panel {
+  position: relative;
+  overflow: hidden;
+
+  padding: clamp(16px, 2.5vw, 24px);
+
+  border-radius: 30px !important;
+  border: 1px solid rgba(141,232,255,.20) !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(216,247,255,.11),
+      rgba(255,255,255,.052) 48%,
+      rgba(56,189,248,.08)
+    ),
+    rgba(6,19,29,.70) !important;
+
+  box-shadow:
+    0 22px 60px rgba(0,0,0,.28),
+    inset 0 1px 0 rgba(255,255,255,.10) !important;
+}
+
+#map .route-pro-panel::after {
+  content: "";
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  right: -86px;
+  bottom: -100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(141,232,255,.18), transparent 68%);
+  pointer-events: none;
+}
+
+#map .route-tabs {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+#map .route-tabs span {
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 8px 13px;
+  border-radius: 999px;
+
+  border: 1px solid rgba(141,232,255,.20);
+  background: rgba(141,232,255,.08);
+
+  color: rgba(234,252,255,.76);
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+#map .route-tabs .active {
+  color: #02131f;
+  border-color: transparent;
+  background: linear-gradient(135deg, #8de8ff, #38bdf8);
+  box-shadow: 0 12px 28px rgba(56,189,248,.26);
+}
+
+/* KM red */
+#map .route-km-row {
+  position: relative;
+  z-index: 1;
+
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+#map .route-km-row span {
+  min-height: 42px;
+
+  border-radius: 16px;
+  border: 1px solid rgba(141,232,255,.14);
+
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.035));
+
+  color: rgba(234,252,255,.76);
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: .08em;
+}
+
+#map .route-km-row span:first-child,
+#map .route-km-row span:last-child {
+  color: #02131f;
+  border-color: transparent;
+  background: linear-gradient(135deg, #8de8ff, #38bdf8);
+}
+
+/* Elevation/profil linija */
+#map .elevation-line {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px;
+
+  border-radius: 22px;
+  border: 1px solid rgba(141,232,255,.12);
+  background: rgba(255,255,255,.045);
+}
+
+#map .elevation-line path {
+  stroke: #8de8ff;
+  stroke-width: 7;
+  filter: drop-shadow(0 0 10px rgba(141,232,255,.42));
+}
+
+#map .elevation-line line {
+  stroke: rgba(216,247,255,.20);
+  stroke-width: 2;
+}
+
+/* Meta info */
+#map .route-meta {
+  position: relative;
+  z-index: 1;
+
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 14px;
+}
+
+#map .route-meta span {
+  min-height: 72px;
+
+  display: grid;
+  align-content: center;
+
+  padding: 13px 14px;
+
+  border-radius: 20px;
+  border: 1px solid rgba(141,232,255,.14);
+
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.035));
+
+  color: rgba(234,252,255,.72);
+  line-height: 1.35;
+}
+
+#map .route-meta b {
+  display: block;
+  margin-bottom: 4px;
+
+  color: #eafcff;
+  font-size: 14px;
+  font-weight: 950;
+  letter-spacing: -0.01em;
+}
+
+/* Dugme ispod mape */
+#map .map-wrap > .btn {
+  justify-self: center;
+  width: fit-content;
+  min-width: 190px;
+  margin-top: 2px;
+}
+
+/* Light mode */
+body.light #map {
+  background:
+    radial-gradient(circle at 14% 18%, rgba(56,189,248,.13), transparent 34%),
+    radial-gradient(circle at 86% 20%, rgba(141,232,255,.20), transparent 36%),
+    linear-gradient(135deg, #eaf7ff, #f5fbff);
+}
+
+body.light #map .map-wrap,
+body.light #map .route-pro-panel {
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.94), rgba(232,248,255,.74)) !important;
+
+  border-color: rgba(14,165,233,.20) !important;
+
+  box-shadow:
+    0 22px 60px rgba(14,165,233,.13),
+    inset 0 1px 0 rgba(255,255,255,.90) !important;
+}
+
+body.light #map .map-wrap > svg {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(14,165,233,.12), transparent 34%),
+    linear-gradient(145deg, #e8f8ff, #ffffff);
+
+  border-color: rgba(14,165,233,.18);
+}
+
+body.light #map .map-wrap rect {
+  fill: #e8f8ff;
+}
+
+body.light #map .map-wrap > svg path {
+  stroke: #0284c7;
+  filter: drop-shadow(0 0 8px rgba(14,165,233,.25));
+}
+
+body.light #map .map-wrap circle {
+  fill: #ffffff;
+  stroke: #0284c7;
+}
+
+body.light #map .map-wrap text {
+  fill: #075985;
+}
+
+body.light #map .route-tabs span,
+body.light #map .route-km-row span,
+body.light #map .route-meta span,
+body.light #map .elevation-line {
+  background: rgba(255,255,255,.62);
+  border-color: rgba(14,165,233,.14);
+  color: #456170;
+}
+
+body.light #map .route-tabs .active,
+body.light #map .route-km-row span:first-child,
+body.light #map .route-km-row span:last-child {
+  color: #02131f;
+  background: linear-gradient(135deg, #8de8ff, #38bdf8);
+}
+
+body.light #map .route-meta b {
+  color: #062032;
+}
+
+body.light #map .elevation-line path {
+  stroke: #0284c7;
+}
+
+/* Mobile */
+@media (max-width: 760px) {
+  #map .section-head {
+    text-align: left;
+    margin-inline: 0;
+  }
+
+  #map .section-head .eyebrow {
+    margin-inline: 0;
+  }
+
+  #map .map-wrap {
+    border-radius: 28px !important;
+    padding: 16px;
+  }
+
+  #map .map-wrap > svg {
+    max-height: 250px;
+    border-radius: 24px;
+  }
+
+  #map .route-km-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  #map .route-meta {
+    grid-template-columns: 1fr;
+  }
+
+  #map .map-wrap > .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  #map .map-wrap > svg {
+    max-height: 220px;
+  }
+
+  #map .map-wrap text {
+    font-size: 20px;
+  }
+
+  #map .route-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #map .route-tabs span {
+    width: 100%;
+  }
+}
