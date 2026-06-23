@@ -7958,3 +7958,32 @@ body.light .route-clean-meta b {
 .route-clean-meta b {
   margin-bottom: 2px !important;
 }
+/* FIX: Prijava sekcija — poravnanje teksta i forme na desktopu */
+@media (min-width: 901px) {
+  #join.join,
+  .join {
+    align-items: center !important;
+  }
+
+  #join .copy,
+  .join .copy {
+    align-self: center !important;
+    transform: translateY(14px);
+  }
+
+  #join .copy h2,
+  .join .copy h2 {
+    margin-bottom: 14px !important;
+  }
+
+  #join .copy p,
+  .join .copy p {
+    margin-top: 0 !important;
+    max-width: 540px;
+    line-height: 1.75 !important;
+  }
+
+  #joinForm {
+    align-self: center !important;
+  }
+}
