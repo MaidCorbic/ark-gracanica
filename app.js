@@ -46,7 +46,7 @@ window.addEventListener("load", () => {
       aboutText:
         'ARK Gračanica promoviše zdrav život, zajedničke treninge i trkačke događaje u gradu. Fokus je na sigurnom napretku, motivaciji i dobroj atmosferi.',
       recreation: 'Rekreacija',
-      raceTitle: 'Segment trke spreman za promociju i prijave',
+      raceTitle: 'Informacije o radu kluba',
       fiveText:
         'Idealna distanca za početnike i brze rekreativce. Ravna gradska ruta, jasne oznake i podrška volontera.',
       tenText: 'Za trkače koji žele duži izazov i tempo kontrolu kroz poznate gradske dionice.',
@@ -57,7 +57,7 @@ window.addEventListener("load", () => {
       paceLabel: 'Pace kalkulator',
       timeLabel: 'Kalkulator vremena',
       tipTitle: 'Savjet dana:',
-      mapTitle: 'Gračanica 5K ruta',
+      mapTitle: 'Gračanica 5K - 10K',
       mapText: 'Ruta naše trke 5K - 10K za trkače i rekreativce',
       routeCity: 'gradska ruta',
       routeSafe: 'označene tačke',
