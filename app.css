@@ -7933,3 +7933,28 @@ body.light .route-clean-meta b {
     border-radius: 20px;
   }
 }
+/* REMOVE: ikonice iz Podloga / Profil / Podrška kartica */
+.route-meta span::before,
+.route-clean-meta span::before {
+  display: none !important;
+  content: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+/* Ljepši izgled bez ikonica */
+.route-meta span,
+.route-clean-meta span {
+  min-height: 74px !important;
+  padding: 16px 18px !important;
+  gap: 5px !important;
+}
+
+.route-meta b,
+.route-clean-meta b {
+  margin-bottom: 2px !important;
+}
