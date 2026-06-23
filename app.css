@@ -6801,3 +6801,106 @@ body.light .partners-section .section-head .eyebrow {
     margin-top: 14px;
   }
 }
+/* FIX: Partneri sekcija sve u centru */
+.partners-section {
+  text-align: center;
+}
+
+.partners-section .section-head {
+  max-width: 820px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.partners-section .section-head .eyebrow {
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  text-align: center;
+}
+
+.partners-section .section-head h2 {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.partners-section .section-head h2::after {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.partners-section .section-head p {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* Partner kartice u centru */
+.partners-section .partners-logo-grid,
+.partners-section .partners-grid {
+  width: 100%;
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-items: center;
+  align-items: stretch;
+}
+
+.partners-section .partner-card {
+  width: 100%;
+  text-align: center;
+}
+
+.partners-section .partner-card a {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.partners-section .partner-logo {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.partners-section .partner-card b,
+.partners-section .partner-card small,
+.partners-section .partner-tier {
+  text-align: center;
+}
+
+/* Dugme ispod partnera u centru */
+.partners-section .section-cta {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.partners-section .section-cta .btn {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Mobitel */
+@media (max-width: 700px) {
+  .partners-section .section-head {
+    max-width: 100%;
+  }
+
+  .partners-section .section-head h2 {
+    max-width: 100%;
+  }
+
+  .partners-section .section-head p {
+    max-width: 100%;
+  }
+}
