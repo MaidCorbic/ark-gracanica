@@ -7766,3 +7766,37 @@ body.light .route-clean-panel .route-point-info {
     grid-template-columns: 1fr;
   }
 }
+/* FIX: Startna zona / route info u centru */
+.route-point-info {
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.route-point-info span,
+.route-point-info b,
+.route-point-info p {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.route-point-info span {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: fit-content !important;
+}
+
+.route-point-info b {
+  display: block !important;
+  width: 100% !important;
+}
+
+.route-point-info p {
+  max-width: 560px !important;
+}
