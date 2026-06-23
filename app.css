@@ -6719,3 +6719,85 @@ body.light .partners-section .section-head .eyebrow {
     margin-top: 18px;
   }
 }
+/* Partneri naslov — elegantniji, ali ne prevelik */
+.partners-section .section-head {
+  max-width: 760px;
+  position: relative;
+}
+
+.partners-section .section-head .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  width: fit-content;
+  padding: 7px 13px;
+  margin-bottom: 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+}
+
+.partners-section .section-head .eyebrow::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #248eff;
+  box-shadow: 0 0 0 6px rgba(36, 142, 255, 0.14);
+}
+
+.partners-section .section-head h2 {
+  max-width: 680px;
+  margin-bottom: 18px;
+  font-size: clamp(1.9rem, 3.4vw, 3.15rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+  background: linear-gradient(135deg, #ffffff 0%, #d8ecff 50%, #7bc2ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.partners-section .section-head h2::after {
+  content: "";
+  display: block;
+  width: 86px;
+  height: 4px;
+  margin-top: 16px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #248eff, #19d27d);
+  box-shadow: 0 0 20px rgba(36, 142, 255, 0.35);
+}
+
+.partners-section .section-head p {
+  max-width: 620px;
+  font-size: 1rem;
+  line-height: 1.75;
+  opacity: 0.78;
+}
+
+body.light .partners-section .section-head h2 {
+  background: linear-gradient(135deg, #07111d 0%, #176bbb 50%, #158f61 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+body.light .partners-section .section-head .eyebrow {
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(20, 60, 90, 0.1);
+}
+
+@media (max-width: 640px) {
+  .partners-section .section-head h2 {
+    font-size: clamp(1.75rem, 8vw, 2.45rem);
+    line-height: 1.08;
+  }
+
+  .partners-section .section-head h2::after {
+    width: 72px;
+    height: 3px;
+    margin-top: 14px;
+  }
+}
