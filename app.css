@@ -6904,3 +6904,108 @@ body.light .partners-section .section-head .eyebrow {
     max-width: 100%;
   }
 }
+/* FIX: Galerija naslov, paragraf i gornji badge/button u centru */
+#gallery,
+.gallery-section {
+  text-align: center;
+}
+
+#gallery .section-head,
+.gallery-section .section-head,
+#gallery .gallery-head,
+.gallery-section .gallery-head {
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Gore "Galerija" badge/button */
+#gallery .section-head .eyebrow,
+.gallery-section .section-head .eyebrow,
+#gallery .gallery-head .eyebrow,
+.gallery-section .gallery-head .eyebrow {
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Ako eyebrow ima dekorativnu liniju ili tačku */
+#gallery .section-head .eyebrow::before,
+.gallery-section .section-head .eyebrow::before,
+#gallery .gallery-head .eyebrow::before,
+.gallery-section .gallery-head .eyebrow::before {
+  flex-shrink: 0;
+}
+
+/* Veliki naslov galerije */
+#gallery .section-head h2,
+.gallery-section .section-head h2,
+#gallery .gallery-head h2,
+.gallery-section .gallery-head h2 {
+  max-width: 820px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  text-wrap: balance;
+}
+
+/* Paragraf ispod naslova */
+#gallery .section-head p,
+.gallery-section .section-head p,
+#gallery .gallery-head p,
+.gallery-section .gallery-head p {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* Ako ima linija ispod h2 */
+#gallery .section-head h2::after,
+.gallery-section .section-head h2::after,
+#gallery .gallery-head h2::after,
+.gallery-section .gallery-head h2::after {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Sama galerija neka bude centrirana */
+#gallery .gallery,
+.gallery-section .gallery,
+#gallery .gallery-premium,
+.gallery-section .gallery-premium {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Mobitel */
+@media (max-width: 640px) {
+  #gallery .section-head,
+  .gallery-section .section-head,
+  #gallery .gallery-head,
+  .gallery-section .gallery-head {
+    max-width: 100%;
+  }
+
+  #gallery .section-head h2,
+  .gallery-section .section-head h2,
+  #gallery .gallery-head h2,
+  .gallery-section .gallery-head h2 {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  #gallery .section-head p,
+  .gallery-section .section-head p,
+  #gallery .gallery-head p,
+  .gallery-section .gallery-head p {
+    max-width: 100%;
+    text-align: center;
+  }
+}
