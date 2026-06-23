@@ -6430,3 +6430,195 @@ body.light .gallery-premium figure {
     transform: none;
   }
 }
+/* PREMIUM PARTNERI SEKCIJA */
+.partners-section {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.partners-section::before {
+  content: "";
+  position: absolute;
+  top: 8%;
+  right: -180px;
+  width: 480px;
+  height: 480px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(36, 142, 255, 0.22), transparent 68%);
+  filter: blur(26px);
+  z-index: -1;
+}
+
+.partners-section::after {
+  content: "";
+  position: absolute;
+  left: -150px;
+  bottom: 4%;
+  width: 380px;
+  height: 380px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(30, 220, 135, 0.16), transparent 70%);
+  filter: blur(28px);
+  z-index: -1;
+}
+
+.partners-hero-head {
+  max-width: 960px;
+  position: relative;
+}
+
+.partners-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+}
+
+.partners-eyebrow::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: currentColor;
+  box-shadow: 0 0 0 7px rgba(36, 142, 255, 0.14);
+}
+
+.partners-hero-head h2 {
+  max-width: 880px;
+  font-size: clamp(2.1rem, 5vw, 4.8rem);
+  line-height: 0.95;
+  letter-spacing: -0.07em;
+  text-wrap: balance;
+}
+
+.partners-hero-head p {
+  max-width: 740px;
+  margin-top: 18px;
+  font-size: clamp(1rem, 1.35vw, 1.18rem);
+  line-height: 1.8;
+  opacity: 0.82;
+}
+
+.partners-highlight-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 32px;
+  max-width: 900px;
+}
+
+.partners-highlight-row span {
+  position: relative;
+  display: block;
+  padding: 18px 18px 17px;
+  border-radius: 22px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+.partners-highlight-row span::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 18px;
+  right: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #248eff, rgba(30, 220, 135, 0.9));
+}
+
+.partners-highlight-row b {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.partners-highlight-row small {
+  display: block;
+  line-height: 1.55;
+  opacity: 0.72;
+}
+
+/* Još malo obogati same partner kartice */
+.partners-logo-grid {
+  margin-top: 44px;
+}
+
+.partner-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.partner-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 80% 0%, rgba(255, 255, 255, 0.14), transparent 34%),
+    linear-gradient(135deg, rgba(36, 142, 255, 0.08), transparent 46%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.partner-card:hover::after {
+  opacity: 1;
+}
+
+.partner-card a {
+  position: relative;
+  z-index: 2;
+}
+
+.partner-tier {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.partner-card b {
+  letter-spacing: -0.025em;
+}
+
+.partner-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Light tema */
+body.light .partners-eyebrow,
+body.light .partners-highlight-row span {
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(20, 60, 90, 0.08);
+}
+
+body.light .partners-highlight-row span {
+  box-shadow:
+    0 18px 45px rgba(20, 70, 100, 0.11),
+    inset 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+/* Mobitel */
+@media (max-width: 760px) {
+  .partners-highlight-row {
+    grid-template-columns: 1fr;
+    margin-top: 24px;
+  }
+
+  .partners-hero-head h2 {
+    letter-spacing: -0.055em;
+  }
+
+  .partners-highlight-row span {
+    border-radius: 18px;
+  }
+}
