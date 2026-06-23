@@ -618,62 +618,44 @@
         </div>
       </section>
 
-     <section id="map" class="section">
+     <section id="map" class="section map-clean-section">
   <div class="section-head reveal">
     <p class="eyebrow">Mapa</p>
     <h2>Ruta 5K / 10K Gračanica</h2>
+    <p>
+      Odaberi distancu i pregledaj ključne tačke rute. Detaljna lokacija se otvara preko Google Maps.
+    </p>
   </div>
 
-  <div class="map-wrap reveal">
-    <svg viewBox="0 0 900 380" role="img" aria-label="Ilustracija Gračanica 5K rute">
-      <rect width="900" height="380" rx="24"></rect>
-      <path d="M95 285 C180 170 260 210 330 135 S500 80 585 165 720 260 805 115"></path>
-      <circle cx="95" cy="285" r="12"></circle>
-      <circle cx="805" cy="115" r="12"></circle>
-      <text x="70" y="330">START</text>
-      <text x="770" y="85">CILJ</text>
-    </svg>
-  </div>
-
-    <div class="route-pro-panel reveal" aria-label="Detalji rute">
-      <div class="route-tabs route-tabs-buttons" aria-label="Odabir distance">
-        <button class="active" type="button" data-route="5k">5K ruta</button>
-        <button type="button" data-route="10k">10K ruta</button>
-      </div>
-
-      <div class="route-km-row route-km-buttons" aria-label="Detalji po kilometru">
-  <button class="active" type="button" data-km="start">START</button>
-  <button type="button" data-km="1">1K</button>
-  <button type="button" data-km="2">2K</button>
-  <button type="button" data-km="3">3K</button>
-  <button type="button" data-km="4">4K</button>
-  <button type="button" data-km="5">5K</button>
-  <button type="button" data-km="6">6K</button>
-  <button type="button" data-km="7">7K</button>
-  <button type="button" data-km="8">8K</button>
-  <button type="button" data-km="9">9K</button>
-  <button type="button" data-km="finish">CILJ</button>
-</div>
-
-      <div class="route-point-info" id="routePointInfo">
-        <span>START</span>
-        <b>Startna zona</b>
-        <p>Okupljanje, zagrijavanje i ulazak u ritam prije početka utrke.</p>
-      </div>
-
-      <svg class="elevation-line" viewBox="0 0 640 120" role="img" aria-label="Profil rute">
-        <path d="M20 92 C80 68 116 78 160 55 S245 38 300 64 390 96 455 54 555 35 620 70"></path>
-        <line x1="20" y1="96" x2="620" y2="96"></line>
-      </svg>
-
-      <div class="route-meta">
-        <span><b>Podloga</b> asfalt</span>
-        <span><b>Profil</b> gradska ruta</span>
-        <span><b>Podrška</b> volonteri</span>
-      </div>
+  <div class="route-pro-panel route-clean-panel reveal" aria-label="Detalji rute">
+    <div class="route-tabs route-tabs-buttons" aria-label="Odabir distance">
+      <button class="active" type="button" data-route="5k">5K ruta</button>
+      <button type="button" data-route="10k">10K ruta</button>
     </div>
 
-    <div class="section-cta reveal">
+    <div class="route-km-row route-km-buttons" aria-label="Detalji po kilometru">
+      <button class="active" type="button" data-km="start">START</button>
+      <button type="button" data-km="1">1K</button>
+      <button type="button" data-km="2">2K</button>
+      <button type="button" data-km="3">3K</button>
+      <button type="button" data-km="4">4K</button>
+      <button type="button" data-km="finish">CILJ</button>
+    </div>
+
+    <div class="route-point-info" id="routePointInfo">
+      <span>START</span>
+      <b>Startna zona</b>
+      <p>Okupljanje, zagrijavanje i ulazak u ritam prije početka utrke.</p>
+    </div>
+
+    <div class="route-meta route-clean-meta">
+      <span><b>Podloga</b> asfalt</span>
+      <span><b>Profil</b> gradska ruta</span>
+      <span><b>Podrška</b> volonteri</span>
+    </div>
+  </div>
+
+  <div class="section-cta reveal">
     <a
       class="btn"
       target="_blank"
