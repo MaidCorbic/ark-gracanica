@@ -7627,3 +7627,142 @@ body.light .weekly-training-card li {
     text-align: left;
   }
 }
+/* CLEAN MAP SECTION */
+.map-clean-section {
+  text-align: center;
+}
+
+.map-clean-section .section-head {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.map-clean-section .section-head h2,
+.map-clean-section .section-head p,
+.map-clean-section .section-head .eyebrow {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.route-clean-panel {
+  max-width: 880px;
+  margin: 30px auto 0;
+  padding: clamp(18px, 3vw, 28px);
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(56, 189, 248, 0.16), transparent 34%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.045));
+}
+
+.route-clean-panel .route-tabs {
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.route-clean-panel .route-tabs button {
+  min-width: 130px;
+  border: 1px solid rgba(141, 232, 255, 0.24);
+  border-radius: 999px;
+  padding: 12px 18px;
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--muted);
+  font-weight: 950;
+}
+
+.route-clean-panel .route-tabs button.active {
+  color: #02131f;
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--blue-2), var(--blue));
+  box-shadow: 0 14px 34px rgba(56, 189, 248, 0.24);
+}
+
+.route-clean-panel .route-km-row {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.route-clean-panel .route-km-row button {
+  min-height: 46px;
+  border: 1px solid rgba(141, 232, 255, 0.18);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.075);
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 950;
+}
+
+.route-clean-panel .route-km-row button.active {
+  color: #02131f;
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--blue-2), var(--blue));
+}
+
+.route-clean-panel .route-point-info {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 22px;
+  border-radius: 24px;
+  border: 1px solid rgba(141, 232, 255, 0.22);
+  background: rgba(255, 255, 255, 0.07);
+  text-align: center;
+}
+
+.route-clean-panel .route-point-info span {
+  display: inline-flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  padding: 7px 13px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--blue-2), var(--blue));
+  color: #02131f;
+  font-size: 0.78rem;
+  font-weight: 950;
+}
+
+.route-clean-panel .route-point-info b {
+  display: block;
+  margin-bottom: 8px;
+  font-size: clamp(1.35rem, 2.5vw, 2rem);
+  letter-spacing: -0.04em;
+}
+
+.route-clean-panel .route-point-info p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.route-clean-meta {
+  max-width: 720px;
+  margin: 18px auto 0;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+body.light .route-clean-panel {
+  background:
+    radial-gradient(circle at 20% 0%, rgba(56, 189, 248, 0.13), transparent 34%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(232, 248, 255, 0.72));
+  border-color: rgba(14, 165, 233, 0.16);
+}
+
+body.light .route-clean-panel .route-km-row button,
+body.light .route-clean-panel .route-tabs button,
+body.light .route-clean-panel .route-point-info {
+  background: rgba(14, 165, 233, 0.065);
+  border-color: rgba(14, 165, 233, 0.13);
+}
+
+@media (max-width: 720px) {
+  .route-clean-panel .route-km-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .route-clean-meta {
+    grid-template-columns: 1fr;
+  }
+}
