@@ -50,6 +50,77 @@ body {
   color: var(--text);
   overflow-x: hidden;
 }
+/* FIX: Join / Prijava sekcija u light mode */
+body.light #join,
+body.light .join {
+  background:
+    radial-gradient(circle at 18% 12%, rgba(56, 189, 248, 0.13), transparent 34%),
+    radial-gradient(circle at 82% 88%, rgba(25, 210, 125, 0.10), transparent 36%),
+    linear-gradient(135deg, #f6fbff 0%, #eef9ff 48%, #f7fff9 100%) !important;
+  color: var(--text) !important;
+}
+
+/* Tekst lijevo u Prijava sekciji */
+body.light #join .copy h2,
+body.light .join .copy h2 {
+  color: #062032 !important;
+}
+
+body.light #join .copy p,
+body.light .join .copy p,
+body.light #join p,
+body.light .join p {
+  color: #456170 !important;
+}
+
+/* Eyebrow "Prijava" da ne bude previše plav */
+body.light #join .eyebrow,
+body.light .join .eyebrow {
+  color: #0f749f !important;
+}
+
+/* Forma u light mode */
+body.light #joinForm,
+body.light .join .form {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(235, 248, 255, 0.82)) !important;
+  border-color: rgba(14, 165, 233, 0.16) !important;
+  box-shadow:
+    0 24px 70px rgba(20, 70, 100, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Inputi/select/textarea */
+body.light #joinForm input,
+body.light #joinForm select,
+body.light #joinForm textarea {
+  background: #ffffff !important;
+  color: #062032 !important;
+  border-color: rgba(14, 165, 233, 0.18) !important;
+}
+
+body.light #joinForm input::placeholder,
+body.light #joinForm textarea::placeholder {
+  color: rgba(69, 97, 112, 0.62) !important;
+}
+
+/* Consent tekst ispod forme */
+body.light #joinForm .consent-check,
+body.light .join .consent-check {
+  color: #456170 !important;
+}
+
+/* Poruka ispod dugmeta */
+body.light #joinForm .form-msg,
+body.light .join .form-msg {
+  color: #0f749f !important;
+}
+
+/* Ako je error poruka */
+body.light #joinForm .form-msg.error,
+body.light .join .form-msg.error {
+  color: #c24141 !important;
+}
 
 body.light {
   --bg: #f5fbff;
